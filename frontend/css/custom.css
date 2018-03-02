@@ -1,0 +1,152 @@
+
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+.pnavbar{
+	background-color:#00afbe!important;
+	width: 100%;
+	height: 5.1em;
+}
+
+.content-svg{
+	display: block;
+	align-content: center;
+}
+.snavbar{
+	font-size: 9px;
+  	display: flex;
+	justify-content: center!important;
+	height: 10.9em;
+}
+.customul{
+	position: relative;
+}
+.snavbar ul li a{
+	font-size: 9px;
+}
+.nav-link{
+	 color: white!important;
+}
+.nav-item:hover{
+	background-color: #d67013!important;
+	border-radius: 5px;
+}
+.customul{
+	list-style: none;
+	
+}
+.dropdown-content .select-dropdown{
+	background-color: red!important;
+
+}
+
+.input{
+	margin-top: -2px!important;
+	margin-left: 15px!important;
+}
+.sinput{
+	margin-top: -8px!important;
+	margin-left: 20px!important;
+}
+.selinput{
+	margin-top: 18px!important; 
+	width: 120px!important;
+}
+#search::placeholder{
+	color: white;
+	height: 1rem!important;
+	font-size: 9px!important;
+	margin-bottom: -10%!important;
+}
+
+.snavbar .item:hover{
+	background-color: #d67013!important;
+	border-radius: 3px;
+}
+.searchbutton i{
+	color: white!important;
+}
+.searchtext{
+	margin-top: -0.4em;
+	width: 200px!important;
+}
+.svg-map-card{
+	margin-top: -1.9em;
+	width: 100%;
+	height: 100%;
+	border-radius: 7px;
+	box-shadow: -2px 4px 18px 9px rgba(0,0,0,0.22);
+}
+.svg-map-info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   padding: 2em 0!important;
+    position: absolute;
+    top: 47%;
+    left: 64%!important;
+    width: 640px;
+    height: 120px;
+    margin-left: -320px;
+    margin-top: -60px;
+    
+}
+select{
+	color: white !important;
+	background-color: #f49715!important;
+}
+
+
+.svg-map-text{
+	color:#3b7bb4;
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: -1px
+}
+.svg-map-descrip{
+	margin-top: 2em;
+	color: #d3d3d3;
+	text-align: left;
+	width: 220px;
+	font-size: 12px;
+	position: relative;
+    left: 16%!important;
+    height: 120px;
+}
+.dot{
+	width: 12px;
+	margin-top: -0.2em;
+}
+.body-overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+.temp-footer{
+	font-size:10px;
+	color: #625f5d;
+	font-weight: bold;
+	margin-top: 1em;
+	margin-left: 1em;
+}
+.arrowicon{
+  color: white;
+  position: absolute;
+  right: 2px;
+  top: -20px;
+  bottom: 0;
+  height: 10px;
+  margin: auto 0;
+  font-size: 10px;
+  line-height: 10px;
+}
+
+
+
+
+
