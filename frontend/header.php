@@ -5,6 +5,7 @@
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="css/materialize.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -18,15 +19,15 @@
     a{text-decoration: none!important;}
   </style>
   <div class="pnavbar">
-    <div class="container" style="">
-      <div style="height: 6px;"></div>
-      <img class="float-left" style="margin-left: 20px; width: 150px;"  alt="Responsive image" src="img/big_logo.png">
-      <img class="right" style="margin-right: 20px; width: 150px;" alt="Responsive image" src="img/slogan.png">
+    <div >
+      <div style="height: 6px; width: 100%;"></div>
+      <a href="index.php"><img  class="img-responsive flex-img" alt="Responsive image" src="img/big_logo.png"></a>
+      <img class="right img-responsive flex-img2" alt="Responsive image" src="img/slogan.png">
         
     </div>
   </div>
    <nav class="snavbar">
-    <div class="nav-wrapper navbarcustom"  style="margin-top: 5px;" id="navbarNav">
+    <div class="nav-wrapper navbarcustom"  style="" id="navbarNav">
     
       <ul class="nav-mobile customul" style="">
         <li class="nav-item ">
@@ -39,7 +40,7 @@
           <a class="nav-link" href="acercade.php">ACERCA DEL IPS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="alianzas2.php">ALIANZA</a>
+          <a class="nav-link" href="alianzas2.php">ALIANZAS</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="contactenos.php">CONTACTO</a>
