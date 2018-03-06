@@ -6,7 +6,7 @@
 
 $lan["department"] = "Departamentos";
 
-$lan["department_title"] = "Lista de Departamentos";
+$lan["department_tittle"] = "Lista de Departamentos";
 
 $lan["department_success"] = "Nuevo Departamento agregado exitosamente!";
 $lan["department_updated"] = "Departamento actualizado exitosamente!";

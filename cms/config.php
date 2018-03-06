@@ -4,7 +4,7 @@
 */
 
 //General
-define('BASE_URL', 'http://localhost/fundacionpoma/cms');
+define('BASE_URL', 'http://localhost/mapa-ips/cms');
 define('NAME', 'Fundación Poma');
 define('SLOGAN', 'Impulsando el progreso social');
 define('P_EMAIL', '');
