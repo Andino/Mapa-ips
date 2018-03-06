@@ -22,6 +22,7 @@ include ('../cms/classes/DB.class.php');
 		background-color: #00afbe; 
 		color: white;  
 		margin-left: 25px!important;
+		max-width: 100%;
 	}
 	.fsection img{
 		margin: 10px !important;
@@ -39,28 +40,75 @@ include ('../cms/classes/DB.class.php');
 	}
 	.fsection p{
 		text-align: left; 
-		font-size: 11px;
+		font-size: 13px;
+		font-weight: 300;
+	}
+
+	.fsection-info{
+		padding: 40px!important;
+		position: relative!important;
+		width: 25%!important;
+
 	}
 	.ssection{
 		margin:80px !important; 
 		margin-top: 47px !important;
 	}
-	.ssection img{
-		position: relative; 
-		left:-5%; 
+	.ssection .responsive{
 		top: 13%;
 	}
-	
 
+	.text-apartament{
+    display:flex;
+
+	}
+.responsive{
+	width: 200px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-apartament * {
+    margin-top:auto;
+    margin-bottom:auto;
+}
+
+.name-apartament{
+	font-size: 25px;
+	font-family: 'Roboto';
+	font-weight: bolder;
+	color: #f49715;
+	text-transform: uppercase;
+	margin-left:10px;
+}
+	
+.nav-option{
+	margin-left: 23px;
+}
+.comnav{
+	border-radius: 5px;
+	margin-left: 10px;
+}
+
+.map-depart{
+	
+	
+}
+.container-maps{
+	
+}
+.row{
+	position: sticky;
+}
 </style>
 <section class="svg-map">
   <center>
   <div class="card text-center svg-map-card " style="z-index: 999; width: 95%;">
-    <div class="card-body">
+    <div class="card-body container-maps">
       <div class="row"> 
 
 
-         <div class="col s3 fsection">
+         <div class="col s3 fsection fsection-info">
          	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mpsa.svg">
          	<h4>Midiendo el</h4>
          	<h1>Progreso Social</h1>
@@ -69,17 +117,21 @@ include ('../cms/classes/DB.class.php');
          	<br>
          	El modelo sintetiza el amplio conjunto de investigaciones en numerosos campos, a fin de identificar las múltiples dimensiones del desempeño social y ambiental de las sociedades.</p>
          </div> 
-         <div class="col s3 ssection">
+         <div class="col s3 ssection map-depart">
          	<?php
          		$prueba=$db->selectSpecific("nombre_dep", "departamento", "nombre_dep like '$id'");
 				foreach ($prueba as $key) {
-					echo '<h5 class="depman" style="color: #f49715; font-weight: bold; position: relative; left:-35%;"><i class="fas fa-arrow-circle-left"></i>'.$key["nombre_dep"].'</h5>';
+					echo '	<div class="text-apartament">
+    					<img src="img/left-arrow.png" alt="left"><span class="name-apartament">'.$key["nombre_dep"].'</span></div>';
 				}
          	?>
+
+
+         	
          	<img class="responsive" style="" src="http://fundacionpoma.org/mapaips/assets/img/maps/mapa_santaana_fbaic.svg">
          </div> 
-
-         <div class="col s3">
+	
+         <div class="col s3 fsection">
          	<style type="text/css">
          		.ulcontent {
          			margin: 0px;
@@ -91,28 +143,49 @@ include ('../cms/classes/DB.class.php');
          			color: #085eaa!important
          		}
          		.active-blue{
-         			background-color: #1e88e5!important;
+         			background-color: #42A5F5!important;
          			height: 1px!important;
+         			height: 120px!important;
          		}
          		.active-orange{
          			background-color: #ff9800!important;
          			height: 100px!important;
          			color: white;
+         			height: 120px!important;
          		}
          		.active-green{
          			background-color: #8bc34a!important;
          			height: 100px!important;
+         			height: 120px!important;
+         		}
+         	
+         		.option-map{
+         			background: #1e88e5;
+         			height: 120px;
+					cursor: pointer;
+					display: flex;
+					justify-content: center;
+
          		}
          		.ulcontent li a:hover{
          			background-color: transparent;
          		}
+         		.border{
+         			border-top-left-radius:5px;
+         			border-bottom-left-radius: 5px;
+         		}
+         		.border1{
+         			border-top-right-radius:5px;
+         			border-bottom-right-radius: 5px;
+         		}
          		.comnav{
          			height: 100px; 
          			margin-top: 100px; 
-         			background-color: #1e88e5; 
+         			background-color: transparent!important; 
          			width:387px; 
          			position: absolute; 
          			left:67%;
+         			box-shadow: 0 0 0 transparent;
          		}
          		.dropdown-content li a{
          			height: 40px;
@@ -123,17 +196,13 @@ include ('../cms/classes/DB.class.php');
          			line-height: 15px;
          		}
          		.responsive{
-						width: 400px;
+						width: 500px;
+						position: static;
 					}
          		@media only screen and (min-width: 1466px) {
-	         		.ulcontent li a{
-	         			width: 145px;
-	         			text-align: center;
-	         			height:106px;
-	         			margin-top:30px;
-	         		}
+	         	
 	         		.active-blue{
-	         			background-color: #1e88e5!important;
+	         			background-color: #42A5F5!important;
 	         			height: 100px!important;
 	         		}
 	         		.active-orange{
@@ -161,7 +230,7 @@ include ('../cms/classes/DB.class.php');
 	         			margin-top:30px;
 	         		}
 	         		.active-blue{
-	         			background-color: #1e88e5!important;
+	         			background-color: #42A5F5!important;
 	         			height: 100px!important;
 	         		}
 	         		.active-orange{
@@ -186,11 +255,26 @@ include ('../cms/classes/DB.class.php');
 	         			line-height: 15px;
 	         		}
 	         		.responsive{
-						width: 300px;
-						margin-left: -70px
+						
+				
 					}
          		}
-					
+				@media only screen and (max-width: 1366px) {
+					.fsection-info{
+						width: 26%!important
+					}
+
+					.map-depart{
+						left:-5em!important;
+					}
+					.responsive{
+						width: 450px;
+					}
+					.ulcontent li a{
+						width: 121px;
+						font-size: 13px;
+					}
+				}
          	</style>
          	<ul id="dropdown1" class="dropdown-content" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important;">
 			  <li><a class="bouton">Nutricion y Asistencia Medica basica</a></li>
@@ -220,17 +304,18 @@ include ('../cms/classes/DB.class.php');
 			  <li><a class="bouton">Educación Superior</a></li>
 			</ul>
          	<nav class ="comnav" style="">
-			    <div class="nav-wrapper" >
-			      <ul class="ulcontent" style="line-height: 20px; text-align: center; color: ">
-			        <li class="1" style=""><a style="" class="dropdown-button" href="#!" data-activates="dropdown1">Necesidades Basicas</a></li>
-			        <li class="2"><a style="" class="dropdown-button" href="#!" data-activates="dropdown2">Fundamentos de Bienestar</a></li>
-			        <li class="3"><a style="" class="dropdown-button" href="#!" data-activates="dropdown3"><p
-			        	style="position: relative; left:-4px; top: 6px">Oportunidades</p></a></li>
+			    <div class="nav-wrapper nav-option" >
+			      <ul class="ulcontent " style="line-height: 20px; text-align: center; color: ">
+			        <li class="1 option-map border dropdown-button" data-activates="dropdown1"><a  style="" class="" href="#!" >Necesidades Basicas</a></li>
+			        <li class="2 option-map dropdown-button" data-activates="dropdown2"><a style="" class="dropdown-button" href="#!" data-activates="dropdown2">Fundamentos de Bienestar</a></li>
+			        <li class="3 option-map border1 dropdown-button" data-activates="dropdown3"><a style="" class="dropdown-button" href="#!" data-activates="dropdown3"><p style="position: relative; left:-4px; top: 6px;color: #085eaa!important;font-weight: 400;font-size: 15px;">Oportunidades</p></a></li>
 			      </ul>
 			    </div>
 			  </nav>
-         </div>
 
+
+         </div>
+	
       </div>
       
          	
@@ -241,9 +326,9 @@ include ('../cms/classes/DB.class.php');
 		<h2 class="lead"><strong class="text-danger">3</strong> results were found for the search for <strong class="text-danger">Lorem</strong></h2>								
 	</hgroup>-->
 
-    <section class="col s12 ">
+    <section class="col s12" style="margin-top: 0em;">
 		<article class="search-result row">
-				<div id="txtHint"><b>Info will be listed here.</b></div>
+				<div id="txtHint"><b></b></div>
 		</article>
 	</section>
 <script type="text/javascript">

@@ -23,7 +23,7 @@ body {
 	margin-right: -34em;
 }
 .content-svg{
-	display: block;
+	display: inline-flex;
 	align-content: center;
 }
 .snavbar{
@@ -39,6 +39,9 @@ body {
 	position: relative;
 }
 
+.input-header{
+	font-weight: 200;
+}
 
 .snavbar ul li a{
 	font-size: 12.2px!important;
@@ -121,10 +124,12 @@ select{
 
 .svg-map-text{
 	color:#3b7bb4;
-	font-size: 19px;
+	font-size: 17.5px;
 	font-weight: bold;
 	letter-spacing: 0.5px;
 	margin-left:-0.5em;
+	position: absolute;
+	margin-top: -3em;
 
 }
 .svg-map-descrip{
@@ -132,12 +137,15 @@ select{
 	color: #BDBDBD;
 	text-align: left;
 	width: 310px;
-	font-size: 17px;
-	position: relative;
+	font-size: 15.3px;
+	position: absolute;
     left: 16%!important;
     height: 120px;
     font-weight: 300;
     letter-spacing: 0.5px;
+    margin-top: -1em;
+    margin-left: 0.5em;
+
 }
 .dot{
 	width: 12px;

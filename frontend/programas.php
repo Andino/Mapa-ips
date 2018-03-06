@@ -31,6 +31,11 @@ include ('../cms/classes/DB.class.php');
 		width:100%!important;
 		color: black;
 	}
+	.thumbnail p{
+		font-weight: lighter;
+		font-size: 15px;
+
+	}
 	
 
 </style>
