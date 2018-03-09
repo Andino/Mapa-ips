@@ -82,7 +82,7 @@ include ('../cms/classes/DB.class.php');
             
             //$compo=mysqli_real_escape_string($db->connect(), $comp);
             //$dep=mysqli_real_escape_string($db->connect(), $p);
-            $prueba=$db->preSelectSpecific("f.nombre_fundaorg, p.nombre_prog, c.nombre_comp","programa_ips as p 
+            $prueba=$db->preSelectSpecific("f.nombre_fundaorg, p.nombre_prog, c.nombre_comp, p.imagen","programa_ips as p 
                 inner join proxcomp as pc on pc.id_prog = p.id_prog 
                 inner join proxdep as pd on pd.id_prog = p.id_prog 
                 inner join proxmuni as pm on pm.id_prog = p.id_prog
@@ -101,7 +101,15 @@ include ('../cms/classes/DB.class.php');
 	            echo '
 	            <div class="row">
 	            <div class="col s4">
-	                <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" class="center" alt="Lorem ipsum" /></a>
+	                <a href="#" title="Lorem ipsum" class="thumbnail">';	
+	                if(empty($key["imagen"])){
+	                  echo '<img width="200" src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" />';
+	                }
+	                else{
+	                  echo'<img src="../cms/img/programa/'.$key["imagen"].'" class="center" alt="Lorem ipsum" />';
+	                }
+	            echo '
+	                </a>
 	            </div>
 	            <div class="col s8" style="text-align: left; color:gray; font-weight:bold;">
 	                <h3 style="font-size: 17px; text-align: left;">

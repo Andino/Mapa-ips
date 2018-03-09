@@ -9,6 +9,7 @@ $levelcantBenef="";
 $levelindMetricas="";
 $levelinstpriv="";
 $levelinstpubli="";
+$levelimg="http://www.freeiconspng.com/uploads/no-image-icon-13.png";
 $modetype = "add";
 if(isset($_POST['submit-form'])) {
         $levelmodules = json_encode($levelmodules);
@@ -16,10 +17,9 @@ if(isset($_POST['submit-form'])) {
             {
         # Cogemos la anchura y altura de la imagen
         $info=getimagesize($_FILES["userfile"]["name"]);
-        $name=$_FILES["userfile"]["name"];
+        $name2=$_FILES["userfile"]["name"];
         $type=$_FILES["userfile"]["type"];
-        $name2=mysqli_real_escape_string($db->connect(), $name);
-        $destino = "img/departamento/".$name;
+        $destino = "img/programa/".$name;
         if (copy($_FILES['userfile']['tmp_name'],$destino)){
         $data = array( 
             "nombre_prog" =>"'$name'",
@@ -31,10 +31,8 @@ if(isset($_POST['submit-form'])) {
             "indMetricas" =>"'$indMetricas'",
             "instpriv_prog" =>"'$instpriv'",
             "instpubli_prog" =>"'$instpubli'",
-            
-        );
-        $data2 = array(
             "imagen" =>"'$name2'",
+            
         );
         if ($mode == "add") {
             $db->insert($data, "programa_ips");
@@ -62,12 +60,19 @@ if(isset($_GET['mode'])) {
         $levelname = $datarow[0]['nombre_prog'];
         $levelactPrinc_prog = $datarow[0]['actPrinc_prog'];
         $levelproposito_prog = $datarow[0]['proposito_prog'];
-        $levelactEsp_prog = $datarow[0]['urlwebsite_fundaorg'];
-        $levelurlwebsite_fundaorg = $datarow[0]['cantBenef'];
-        $levelcantBenef = $datarow[0]['indMetricas'];
-        $levelindMetricas = $datarow[0]['instpriv_prog'];
-        $levelinstpriv_prog = $datarow[0][''];
+        $levelactEsp_prog = $datarow[0]['actEsp_prog'];
+        $levelurlwebsite_fundaorg = $datarow[0]['urlwebsite_fundaorg'];
+        $levelcantBenef = $datarow[0]['cantBenef'];
+        $levelindMetricas = $datarow[0]['indMetricas'];
+        $levelinstpriv_prog = $datarow[0]['instpriv_prog'];
         $levelinstpubli_prog = $datarow[0]['instpubli_prog'];
+        
+        if(empty($datarow[0]['imagen'])){
+            $levelimg="http://www.freeiconspng.com/uploads/no-image-icon-13.png";
+        }
+        else{
+            $levelimg = "../../img/programa/".$datarow[0]['imagen'];    
+        }
   }
 }
 ?>
@@ -180,38 +185,51 @@ if(isset($_GET['mode'])) {
             </div>
          
         <h2>Selecciona una imagen</h2>
-        <form enctype="multipart/form-data" action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST">
-            
-        </form>
-         
-        <h2>Listado de las imagenes añadidas a la base de datos</h2>
+            <script type="text/javascript">
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#blah').attr('src', e.target.result);
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
 
                 <div class="panel-body">
                   <form method="POST" enctype="multipart/form-data" action="<?=BASE_URL?>/m/programs/list">
-                    <div class="form-group">
-                        <input name="userfile" type="file">
-                        <p><input type="submit" value="Guardar Imagen">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="input1" class="form-label"><?=$lan["name"]?></label>
+                          <input type="text" name="name" class="form-control" required value="<?=$levelname?>">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="input1" class="form-label"><?=$lan["actPrinc"]?></label>
+                            <input type="text" name="actPrinc" class="form-control" required value="<?=$levelactPrinc_prog?>">
+                        </div>
                     </div>
-                    <div class="form-group">
-                      <label for="input1" class="form-label"><?=$lan["name"]?></label>
-                      <input type="text" name="name" class="form-control" required value="<?=$levelname?>">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="input1" class="form-label"><?=$lan["actPrinc"]?></label>
-                        <input type="text" name="actPrinc" class="form-control" required value="<?=$levelactPrinc?>">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <center><label for="userfile" class="form-label"><img id="blah" width="200" height="150" src="<?=$levelimg?>" alt="your image" /><br>Selecciona una imagen</label></center>
+                            <input style ="display: none" name="userfile" id="userfile" type="file" onchange="readURL(this);">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["proposito"]?></label>
-                        <input type="text" name="proposito" class="form-control" required value="<?=$levelproposito?>">
+                        <input type="text" name="proposito" class="form-control" required value="<?=$levelproposito_prog?>">
                     </div>
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["actEsp"]?></label>
-                        <input type="text" name="actEsp" class="form-control" required value="<?=$levelactEsp?>">
+                        <input type="text" name="actEsp" class="form-control" required value="<?=$levelactEsp_prog?>">
                     </div>
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["urlwebsite"]?></label>
-                        <input type="text" name="urlwebsite" class="form-control" required value="<?=$levelurlwebsite?>">
+                        <input type="text" name="urlwebsite" class="form-control" required value="<?=$levelurlwebsite_fundaorg?>">
                     </div>
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["cantBenef"]?></label>
@@ -223,11 +241,11 @@ if(isset($_GET['mode'])) {
                     </div>
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["instpriv"]?></label>
-                        <input type="text" name="instpriv" class="form-control" required value="<?=$levelinstpriv?>">
+                        <input type="text" name="instpriv" class="form-control" required value="<?=$levelinstpriv_prog?>">
                     </div>
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["instpubli"]?></label>
-                        <input type="text" name="instpubli" class="form-control" required value="<?=$levelinstpubli?>">
+                        <input type="text" name="instpubli" class="form-control" required value="<?=$levelinstpubli_prog?>">
                     </div>
                     <input type="hidden" name="mode" value="<?=$modetype?>">
                     <input type="hidden" name="levelid" value="<?=$levelid?>">

@@ -36,7 +36,18 @@ include ('../cms/classes/DB.class.php');
 		font-size: 15px;
 
 	}
-	
+	.gallery-container{
+		display:grid;
+		grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+  		grid-template-rows: repeat(5, 50px); 
+  		grid-column-gap: 10px;
+  		grid-row-gap: 15px;
+	}
+	.item img{
+  	   height: 100%;
+  	   object-fit: cover;
+  	   width: 100%;
+	}
 
 </style>
 <section class="svg-map">
@@ -46,11 +57,12 @@ include ('../cms/classes/DB.class.php');
     	<br>
       <div class="row"> 
       	<?php 
+      		$a="a";
+      		echo '<'.$a.'>XDDDDDDDDDDDDDDDDDD</'.$a.'>';
       		$db = new DB(); 
     		$comp = $_GET['pro'];
             
             $compo=mysqli_real_escape_string($db->connect(), $comp);
-            echo "$comp";
             $prueba=$db->select("programa_ips as p 
             	inner join funxpro as fp on fp.id_prog = p.id_prog 
             	inner join fundaorg_ips as f on f.id_fundaorg = fp.id_fundaorg 
@@ -61,13 +73,27 @@ include ('../cms/classes/DB.class.php');
             <div class="row container">
             <div class="col s4" style="text-align:left">
                 <a href="#" title="Lorem ipsum" class="thumbnail">
-                <img src="http://lorempixel.com/250/140/people" class="center" alt="Lorem ipsum"/></a>
+                '; 
+                if(empty($key["imagen"])){
+	                  echo '<img width="250" src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" />';
+	                }
+	                else{
+	                  echo'<img src="../cms/img/programa/'.$key["imagen"].'" class="center" alt="Lorem ipsum" />';
+	                }
+                echo'
                 <p style="text-align:center; font-weight:bold; width:90%; margin-left:2px">'.$key["nombre_fundaorg"].'</p>
                 <p><i style="color:#00afbe!important" class="fas fa-phone"></i> '.$key["telefono"].'</p>
                 <p><i style="color:#00afbe!important" class="fas fa-envelope"></i> '.$key["mail_contactoorg"].'</p>
                 <p><i style="color:#00afbe!important" class="fas fa-globe"></i> '.$key["urlwebsite_contactoorg"].'</p>
                 <p style="font-weight:bold">Persona de contacto</p>
                 <p><i style="color:#00afbe!important" class="fas fa-user"></i> '.$key["nombre_contactoorg"].'</p>
+                <div class="gallery-container">
+                	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
+                	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
+                	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
+                	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
+                	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
+                </div>
             </div>
             <div class="col s8" style="text-align: left; color:gray; font-weight:bold;">
                 <h3 style="font-size: 17px; text-align: left;">
@@ -217,11 +243,6 @@ include ('../cms/classes/DB.class.php');
 		<h2 class="lead"><strong class="text-danger">3</strong> results were found for the search for <strong class="text-danger">Lorem</strong></h2>								
 	</hgroup>-->
 
-    <section class="col s12 ">
-		<article class="search-result row">
-				<div id="txtHint"><b>Info will be listed here.</b></div>
-		</article>
-	</section>
 
 </div>
          </div>
