@@ -131,32 +131,33 @@ include ('../cms/classes/DB.class.php');
          	<img class="responsive" style="" src="http://fundacionpoma.org/mapaips/assets/img/maps/mapa_santaana_fbaic.svg">
          </div> 
 	
-         <div class="col s3 fsection">
+
+
+         <div class="col s3 ssection map-depart" style="display: flex; justify-content: center; align-items: center;height: 100%">
          	<style type="text/css">
          		.ulcontent {
          			margin: 0px;
          		}
          		.ulcontent li a{
-         			width: 129px;
+         			
          			text-align: center;
-         			margin-top:30px;
+         			
          			color: #085eaa!important
          		}
          		.active-blue{
          			background-color: #42A5F5!important;
-         			height: 1px!important;
-         			height: 120px!important;
+         			height: 350px;
          		}
          		.active-orange{
          			background-color: #ff9800!important;
          			height: 100px!important;
          			color: white;
-         			height: 120px!important;
+         			height: 350px;
          		}
          		.active-green{
          			background-color: #8bc34a!important;
          			height: 100px!important;
-         			height: 120px!important;
+         			height: 350px;
          		}
          	
          		.option-map{
@@ -199,16 +200,42 @@ include ('../cms/classes/DB.class.php');
 						width: 500px;
 						position: static;
 					}
+
+					.option-map {
+						display: flex;
+						justify-content: center;
+						height: 100%;
+						align-items: center;
+					}
+					.option-map img{
+						width: 40%;
+					}
+	
+					.padre{
+						border-radius: 5px;
+					}
+					.hijo{
+						display: grid;
+						grid-template-columns: repeat(3,200px);
+					}
+					.sub-hijo{
+						 outline: 1px solid red;
+						 height: 130%;
+						 display: flex; 
+						 justify-content: center;
+						 align-items: center;
+						 flex-direction: column;
+						 padding: 10px;
+						 cursor: pointer;
+					}
+					.sub-hijo img{
+						width: 50%;
+					}
+
          		@media only screen and (min-width: 1466px) {
 	         	
-	         		.active-blue{
-	         			background-color: #42A5F5!important;
-	         			height: 100px!important;
-	         		}
-	         		.active-orange{
-	         			background-color: #ff9800!important;
-	         			height: 100px!important;
-	         		}
+
+
 					.comnav{
 						height: 100px; 
 						margin-top: 150px; 
@@ -223,20 +250,8 @@ include ('../cms/classes/DB.class.php');
 					}
 				}
 				@media only screen and (max-width: 1066px) {
-	         		.ulcontent li a{
-	         			width: 115px;
-	         			text-align: center;
-	         			height:106px;
-	         			margin-top:30px;
-	         		}
-	         		.active-blue{
-	         			background-color: #42A5F5!important;
-	         			height: 100px!important;
-	         		}
-	         		.active-orange{
-	         			background-color: #ff9800!important;
-	         			height: 100px!important;
-	         		}
+
+
 					.comnav{
 						height: 100px; 
 						margin-top: 150px; 
@@ -303,15 +318,47 @@ include ('../cms/classes/DB.class.php');
 			  <li class="divider"></li>
 			  <li><a class="bouton">Educación Superior</a></li>
 			</ul>
-         	<nav class ="comnav" style="">
+         	<!--<nav class ="comnav" style="">
 			    <div class="nav-wrapper nav-option" >
 			      <ul class="ulcontent " style="line-height: 20px; text-align: center; color: ">
-			        <li class="1 option-map border dropdown-button" data-activates="dropdown1"><a  style="" class="" href="#!" >Necesidades Basicas</a></li>
-			        <li class="2 option-map dropdown-button" data-activates="dropdown2"><a style="" class="dropdown-button" href="#!" data-activates="dropdown2">Fundamentos de Bienestar</a></li>
-			        <li class="3 option-map border1 dropdown-button" data-activates="dropdown3"><a style="" class="dropdown-button" href="#!" data-activates="dropdown3"><p style="position: relative; left:-4px; top: 6px;color: #085eaa!important;font-weight: 400;font-size: 15px;">Oportunidades</p></a></li>
+
+			        <li class="1 option-map border dropdown-button" data-activates="dropdown1">
+			        	<a  style="" class="" href="#!" >
+			        	<img src="img/iconos/basicas.svg" alt="hola"><p>Necesidades Basicas</p></a></li>
+
+			        <li class="2 option-map dropdown-button" data-activates="dropdown2" >
+			        <a style="" class="dropdown-button" href="#!" data-activates="dropdown2"><img src="img/iconos/fundamentos.svg" alt="hola" width="100"><p>Fundamentos de Bienestar</p></a>
+			    </li>
+
+			        <li class="3 option-map border1 dropdown-button" data-activates="dropdown3"><a style="" class="dropdown-button" href="#!" data-activates="dropdown3"><p style="position: relative; left:-4px; top: 6px;color: #085eaa!important;font-weight: 400;font-size: 15px;"><img src="img/iconos/oportunidades.svg" alt="hola"><p>Oportunidades</p></a></li>
 			      </ul>
 			    </div>
-			  </nav>
+			  </nav>-->
+
+			  <div class="padre">
+			  		<div class="hijo">
+			  			
+			  			<div class="sub-hijo 1" data-activates="dropdown1">
+			  				<img src="img/iconos/basicas.svg" alt="hola"></a></li>
+			  				<p>Necesidades Basicas</p>
+			  			</div>
+						
+			  			<div class="sub-hijo 2"  >
+			  				<img src="img/iconos/fundamentos.svg" alt="hola" width="100">
+			  				<br>
+			  				<p>Fundamentos de Bienestar</p>
+			  			</div>
+
+			  			<div class="sub-hijo 3">
+			  				<img src="img/iconos/oportunidades.svg" alt="hola">
+			  				<p>Oportunidades</p>
+			  			</div>
+			  			
+			  		</div>
+					
+			  </div>
+
+
 
 
          </div>
