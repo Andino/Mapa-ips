@@ -100,6 +100,36 @@ include ('../cms/classes/DB.class.php');
 .row{
 	position: sticky;
 }
+
+.right-align{
+	position: static;!important;
+	width: 100%;
+	margin-left: 25em;
+	margin-top: -5em;
+	z-index: 10000;
+	display: grid;
+	grid-template-columns: repeat(3,190px);
+	padding: 5px;
+}
+
+.stadistic{
+	
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+.stadistic p{
+	color: #9e9e9e;
+	font-size: 14px;
+
+}
+
+
+
 </style>
 <section class="svg-map">
   <center>
@@ -128,7 +158,30 @@ include ('../cms/classes/DB.class.php');
 
 
          	
-         	<img class="responsive" style="" src="http://fundacionpoma.org/mapaips/assets/img/maps/mapa_santaana_fbaic.svg">
+         	<img class="responsive" style="" src="http://fundacionpoma.org/mapaips/assets/img/maps/mapa_santaana_fbaic.svg"/>
+			  <div class="right-align">
+			    <div class="stadistic">
+			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:rgb(0, 126, 193); margin-right:5px;"></a> Necesidades basicas</p>
+			    </div>
+
+			    <div class="stadistic">
+			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#ff9800; margin-right:5px;"></a> Fundamentos y bienestar</p>
+			    </div>
+
+			    <div class="stadistic">
+			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#8bc34a; margin-right:5px;"></a>Oportunidades</p>
+
+			    </div>
+			    <div class="stadistic">
+			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#bdbdbd; margin-right:5px;"></a> Municipios no Habilitados</p>
+
+			    </div>
+			    <div class="stadistic">
+			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#00afbe; margin-right:5px;"></a> Rios y lagos</p>
+
+			    </div>
+			  </div>
+
          </div> 
 	
 
@@ -150,13 +203,13 @@ include ('../cms/classes/DB.class.php');
          		}
          		.active-orange{
          			background-color: #ff9800!important;
-         			height: 100px!important;
+         			
          			color: white;
          			height: 350px;
          		}
          		.active-green{
          			background-color: #8bc34a!important;
-         			height: 100px!important;
+         			color: white;
          			height: 350px;
          		}
          	
@@ -188,13 +241,20 @@ include ('../cms/classes/DB.class.php');
          			left:67%;
          			box-shadow: 0 0 0 transparent;
          		}
+         		.dropdown-content{
+         			margin-top: 140px!important;
+         		}
          		.dropdown-content li a{
+         			color: #9e9e9e;
+         			font-family: 'Roboto', sans-serif;
+         			font-size: 12px!important;
+         			font-weight: 500;
          			height: 40px;
          			margin-top: 0px;
-         			font-size: 9px;
          			text-align: left;
-         			font-weight: bold;
          			line-height: 15px;
+         			letter-spacing: 0.2px;
+         			
          		}
          		.responsive{
 						width: 500px;
@@ -219,14 +279,24 @@ include ('../cms/classes/DB.class.php');
 						grid-template-columns: repeat(3,200px);
 					}
 					.sub-hijo{
-						 outline: 1px solid red;
-						 height: 130%;
+						 background-color: rgb(0,126,193);
+						 height: 100%;
 						 display: flex; 
 						 justify-content: center;
 						 align-items: center;
 						 flex-direction: column;
-						 padding: 10px;
+						 padding: 15px;
 						 cursor: pointer;
+						 
+					}
+					.sub-hijo:hover{
+						filter: brightness(130%);
+						transition-duration: 1s;
+					}
+					.sub-hijo p{
+						color: #05579f;
+						font-family: 'Roboto', sans-serif;
+						font-size: 15px; 
 					}
 					.sub-hijo img{
 						width: 50%;
@@ -291,8 +361,8 @@ include ('../cms/classes/DB.class.php');
 					}
 				}
          	</style>
-         	<ul id="dropdown1" class="dropdown-content" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important;">
-			  <li><a class="bouton">Nutricion y Asistencia Medica basica</a></li>
+         	<ul id="dropdown1" class="dropdown-content" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important;border:1px solid #039be5;">
+			  <li><a class="bouton">Nutricion y Asistencia Medica Basica</a></li>
 			  <li class="divider"></li>
 			  <li><a class="bouton">Agua y Saneamiento</a></li>
 			  <li class="divider"></li>
@@ -300,7 +370,7 @@ include ('../cms/classes/DB.class.php');
 			  <li class="divider"></li>
 			  <li><a class="bouton">Seguridad personal</a></li>
 			</ul>
-			<ul id="dropdown2" class="dropdown-content" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important;">
+			<ul id="dropdown2" class="dropdown-content" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important;border:1px solid #ff9800;">
 			  <li><a class="bouton" style="margin-bottom: 20px">Acceso a Conocimientos Básicos</a></li>
 			  <li class="divider"></li>
 			  <li><a class="bouton">Acceso a Información y Comunicaciones</a></li>
@@ -309,7 +379,7 @@ include ('../cms/classes/DB.class.php');
 			  <li class="divider"></li>
 			  <li><a class="bouton">Sustentabilidad del Ecosistema</a></li>
 			</ul>
-			<ul id="dropdown3" class="dropdown-content" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important;">
+			<ul id="dropdown3" class="dropdown-content" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important; border:1px solid #8bc34a;">
 			  <li><a class="bouton">Derechos Personales</a></li>
 			  <li class="divider"></li>
 			  <li><a class="bouton">Libertad Personal y de Elección</a></li>
@@ -335,31 +405,31 @@ include ('../cms/classes/DB.class.php');
 			    </div>
 			  </nav>-->
 
-			  <div class="padre">
+			  <div class="padre nav-option">
 			  		<div class="hijo">
-			  			
-			  			<div class="sub-hijo 1" data-activates="dropdown1">
-			  				<img src="img/iconos/basicas.svg" alt="hola"></a></li>
+			  			<a class="dropdown-button" data-activates="dropdown1">
+			  			<div class="sub-hijo 1 border">
+			  				<img src="img/iconos/basicas.svg" alt="hola">
 			  				<p>Necesidades Basicas</p>
 			  			</div>
-						
-			  			<div class="sub-hijo 2"  >
-			  				<img src="img/iconos/fundamentos.svg" alt="hola" width="100">
-			  				<br>
+						</a>
+
+						<a class="dropdown-button" data-activates="dropdown2">
+			  			<div class="sub-hijo 2" style="">
+			  				<img src="img/iconos/fundamentos.svg" alt="hola" >
 			  				<p>Fundamentos de Bienestar</p>
 			  			</div>
+						</a>
 
-			  			<div class="sub-hijo 3">
+						<a class="dropdown-button" data-activates="dropdown3">
+			  			<div class="sub-hijo 3 border1">
 			  				<img src="img/iconos/oportunidades.svg" alt="hola">
 			  				<p>Oportunidades</p>
 			  			</div>
-			  			
+			  			</a>
 			  		</div>
 					
 			  </div>
-
-
-
 
          </div>
 	
@@ -413,6 +483,7 @@ include ('../cms/classes/DB.class.php');
     	});
     	$( ".1" ).click(function() {
 		  $( this ).toggleClass( "active-blue" );
+
 		});
 		$( ".2" ).click(function() {
 		  $( this ).toggleClass( "active-orange" );
