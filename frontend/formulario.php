@@ -29,7 +29,7 @@
 		</div>
 		<div class="main main-raised">
 
-			<div class="container" style="margin: 0px;width: 100%;padding-top: 40px;">
+			<div class="" style="margin: 0px;width: 100%;padding-top: 40px;">
 				<div>
 									</div>
 
@@ -38,10 +38,10 @@
 						<div class="row">
 							<div class="col s6">
 								<div class="card " style="padding: 15px;margin-bottom: 10px;">
-									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATOS GENERALES
+									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;font-size: 18px!important;">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clipboard"></i> DATOS GENERALES
 									</a>
-									<div class="form-group is-empty has-error" style="margin: 0px; padding-left: 28px;">
+									<div class="form-group is-empty" style="margin: 0px; padding-left: 28px;">
 										<label class="control-label" style="font-size: 14px;">Nombre del programa:</label>
 										<input type="text" id="nombre" class="form-control" name="nombreprograma" required="">
 									<span class="material-input"></span></div>
@@ -66,8 +66,8 @@
 							</div>
 							<div class="col s6">
 								<div class="card" style="padding: 15px; margin-bottom: 10px;">
-									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OBJETIVOS DE DESARROLLO SOSTENIBLE A LOS QUE CONTRIBUYE
+									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;font-size: 18px!important;">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-clipboard-check"></i> OBJETIVOS DE DESARROLLO SOSTENIBLE A LOS QUE CONTRIBUYE
 									</a>
 									<br>
 									<br>
@@ -162,8 +162,8 @@
 						<div class="row">
 							<div class="col s4">
 								<div class="card" style="padding: 15px;    margin-bottom: 10px;">
-									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIPCIÓN DEL PROGRAMA
+									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;font-size: 18px!important;">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-book"></i> DESCRIPCIÓN DEL PROGRAMA
 									</a>
 									<div class="form-group is-empty" style="margin: 0px;    padding-left: 28px;">
 										<label class="control-label" style="font-size: 14px;">Explicar brevemente el propósito del proyecto</label>
@@ -181,8 +181,8 @@
 							</div>
 							<div class="col s4">
 								<div class="card" style="padding: 15px;    margin-bottom: 10px;">
-									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BENEFICIARIOS
+									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;font-size: 18px!important;">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user-circle"></i> BENEFICIARIOS
 									</a>
 									<div class="form-group is-empty" style="margin: 0px; padding-left: 28px;">
 										<label class="control-label" style="font-size: 14px;">Cantidad de beneficiarios directos del proyecto:</label>
@@ -198,8 +198,8 @@
 
 							<div class="col s4">
 								<div class="card" style="padding: 15px;    margin-bottom: 10px;">
-									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COLABORACIÓN
+									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;font-size: 18px!important;">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user-plus"></i> COLABORACIÓN
 									</a>
 
 									<div class="form-group" style="margin: 0px; padding-left: 28px;">
@@ -218,8 +218,8 @@
 							</div>
 							<div class="col s12">
 								<div class="card" style="padding: 15px;    margin-bottom: 10px;">
-									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IMPACTO
+									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;font-size: 18px!important;">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle-notch"></i> IMPACTO
 									</a>
 									<div class="form-group is-empty" style="margin: 0px;padding-left: 28px;">
 										<label class="control-label" style="font-size: 14px;">¿El programa tiene definidos indicadores o métricas para la medición del impacto generado? De ser así, identificarlas.</label>
@@ -233,8 +233,8 @@
 							</div>
 							<div class="col s12">
 								<div class="card" style="padding: 15px;    margin-bottom: 10px;">
-									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INFORMACION DE CONTACTO
+									<a style="margin-bottom:10px;color: #000;cursor: context-menu;text-decoration: none;font-size: 18px!important;">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-address-card"></i> INFORMACION DE CONTACTO
 									</a>
 
 									<div class="form-group is-empty" style="margin: 0px;padding-left: 28px;">

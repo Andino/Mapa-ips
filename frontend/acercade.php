@@ -26,7 +26,7 @@
 			<div style="background-image: url(&#39;assets/img/acerca de img-01.png&#39;);-webkit-background-size: cover;background-size: cover;">
 				<img src="img/banner acerca de.svg" style="height: 100%;width:100%;">
 			</div>
-			<div class="container" style="margin: 0px;width: 100%;">
+			<div style="margin: 0px;width: 100%;">
 				<div class="section text-center section-landing " style="padding: 10px;">
 
 					<div class="row" style="padding-top: 25px;">

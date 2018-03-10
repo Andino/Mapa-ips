@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/materialize.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript">
@@ -21,8 +21,8 @@
   <div class="pnavbar">
     <div >
       <div style="height: 6px; width: 100%;"></div>
-      <a href="index.php"><img  class="img-responsive flex-img" alt="Responsive image" src="img/big_logo.png"></a>
-      <img class="right img-responsive flex-img2" alt="Responsive image" src="img/slogan.png">
+      <a href="index.php"><img  class="flex-img" alt="Responsive image" src="img/big_logo.png"></a>
+      <img class="right flex-img2" alt="Responsive image" src="img/slogan.png">
         
     </div>
   </div>

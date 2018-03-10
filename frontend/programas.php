@@ -15,21 +15,24 @@ include ('../cms/classes/DB.class.php');
 
 <style type="text/css">
 	.content-a{
-		font-size:12px;
+		font-size:14px;
 		font-weight: bold!important; 
 		line-height: 17px;
 		width:66%!important;
-		color: black;
+		color: #757575;
 	}
 	.content-b{
-		font-size:12px;
+		font-size:15px;
+		font-weight: 350;
+		color: #9e9e9e!important;
+
 	}
 	.content-c{
-		font-size:12px;
+		font-size:14px;
 		font-weight: bold!important; 
-		line-height: 17px;
 		width:100%!important;
-		color: black;
+		line-height: 17px;
+		color: #757575;
 	}
 	.thumbnail p{
 		font-weight: lighter;
@@ -38,10 +41,11 @@ include ('../cms/classes/DB.class.php');
 	}
 	.gallery-container{
 		display:grid;
-		grid-template-columns: repeat(auto-fit, minmax(80px, auto));
+		grid-template-columns: repeat(auto-fit, minmax(100px, auto));
   		grid-template-rows: repeat(5, 50px); 
-  		grid-column-gap: 10px;
+  		grid-column-gap: 5px;
   		grid-row-gap: 15px;
+  		width: 80%;
 	}
 	.item img{
   	   height: 100%;
@@ -49,6 +53,17 @@ include ('../cms/classes/DB.class.php');
   	   width: 100%;
 	}
 
+
+	.info-program{
+		width: 100%;
+		padding-left: 50px;
+	}
+	.info-program p{
+		color: #9e9e9e;
+		font-weight: 300;
+		font-size: 16px!important;
+
+	}
 </style>
 <section class="svg-map">
   <center>
@@ -71,6 +86,7 @@ include ('../cms/classes/DB.class.php');
             foreach ($prueba as $key) {
             echo '
             <div class="row container">
+
             <div class="col s4" style="text-align:left">
                 <a href="#" title="Lorem ipsum" class="thumbnail">
                 '; 
@@ -81,12 +97,14 @@ include ('../cms/classes/DB.class.php');
 	                  echo'<img src="../cms/img/programa/'.$key["imagen"].'" class="center" alt="Lorem ipsum" />';
 	                }
                 echo'
-                <p style="text-align:center; font-weight:bold; width:90%; margin-left:2px">'.$key["nombre_fundaorg"].'</p>
+                <div class="info-program">
+                <p style="text-align:left; font-weight:bold; width:90%; margin-left:2px; color:#9e9e9e; font-size:20px!important;">'.$key["nombre_fundaorg"].'</p>
                 <p><i style="color:#00afbe!important" class="fas fa-phone"></i> '.$key["telefono"].'</p>
                 <p><i style="color:#00afbe!important" class="fas fa-envelope"></i> '.$key["mail_contactoorg"].'</p>
                 <p><i style="color:#00afbe!important" class="fas fa-globe"></i> '.$key["urlwebsite_contactoorg"].'</p>
-                <p style="font-weight:bold">Persona de contacto</p>
+                <p style="font-weight:bold;color:black;">Persona de contacto</p>
                 <p><i style="color:#00afbe!important" class="fas fa-user"></i> '.$key["nombre_contactoorg"].'</p>
+                </div>
                 <div class="gallery-container">
                 	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
                 	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
@@ -95,19 +113,18 @@ include ('../cms/classes/DB.class.php');
                 	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
                 </div>
             </div>
-            <div class="col s8" style="text-align: left; color:gray; font-weight:bold;">
-                <h3 style="font-size: 17px; text-align: left;">
-                    <a class="right" href="'.$_SERVER['HTTP_REFERER'].'" style="color:#f49715; margin-top:-7px; font-weight:bold"><i class="fas fa-arrow-circle-left"></i></i> Regresar</a>
-                </h3>
+            <div class="col s8" style="text-align: left; font-weight:bold;">
+         
+                <a style="float:right;color:#f49715;font-weight:bold!important;font-size:20px;margin-right:50px;" href="'.$_SERVER['HTTP_REFERER'].'"><img src="img/left-arrow.png" alt="" style="vertical-align: middle;" /> Regresar</a>
 
-                <br>
-                <center><a href="#" style="font-weight:bold!important;">'.$key["nombre_prog"].' </a></center>
+                <br><br>
+                <center><a href="#" style="font-weight:bold!important;text-transform: uppercase; font-size:18px;"><p style:"font-weight:bolder;">'.$key["nombre_prog"].'</p> </a></center>
                 	<div class ="row">	
 	                	<div class="col s5">
 			            	<h4 class="content-a">CLASIFICACIÓN DE LA ORGANIZACIÓN:</h4> 
 			            </div>
 						<div class="col s6">		            	
-			            	<h4 class="content-b" style="right">'.$key["nombre_fundaorg"].'</h4>
+			            	<p class="content-b" style="right">'.$key["nombre_fundaorg"].'</pack(format)>
 			            </div>
                 	</div>
                 	<div class ="row">	
@@ -115,7 +132,7 @@ include ('../cms/classes/DB.class.php');
 			            	<h4 class="content-a">ACTIVIDAD PRINCIPAL DE LA ORGANIZACIÓN:</h4> 
 			            </div>
 						<div class="col s6">		            	
-			            	<h4 class="content-b" style="right">'.$key["actPrinc_prog"].'</h4>
+			            	<p class="content-b" style="right">'.$key["actPrinc_prog"].'</p>
 			            </div>
                 	</div>
                 	<div class ="row">	
@@ -123,7 +140,7 @@ include ('../cms/classes/DB.class.php');
 			            	<h4 class="content-a">PROPOSITO DEL PROYECTO:</h4> 
 			            </div>
 						<div class="col s6">		            	
-			            	<h4 class="content-b" style="right">'.$key["proposito_prog"].'</h4>
+			            	<p class="content-b" style="right">'.$key["proposito_prog"].'</p>
 			            </div>
                 	</div>
                 	<div class ="row">	
@@ -131,7 +148,7 @@ include ('../cms/classes/DB.class.php');
 			            	<h4 class="content-a">INDICADORES PARA MEDICIÓN DE IMPACTO:</h4> 
 			            </div>
 						<div class="col s6">		            	
-			            	<h4 class="content-b" style="right">'.$key["indMetricas"].'</h4>
+			            	<p class="content-b" style="right">'.$key["indMetricas"].'</p>
 			            </div>
                 	</div>
                 	<div class ="row">	
@@ -139,12 +156,12 @@ include ('../cms/classes/DB.class.php');
 			            	<h4 class="content-a">ACTIVIDADES ESPECÍFICAS:</h4> 
 			            </div>
 						<div class="col s6">		            	
-			            	<h4 class="content-b" style="right">'.$key["actEsp_prog"].'</h4>
+			            	<p class="content-b" style="right">'.$key["actEsp_prog"].'</p>
 			            </div>
                 	</div>
                 	<div class ="row">	
 	                	<div class="col s6">
-			            	<h4 class="content-c">OBJETIVOS DE DESARROLLO SOSTENIBLE A LOS QUE CONTRIBUYE:</h4> 
+			            	<h4 class="content-c">OBJETIVOS DE DESARROLLO SOSTENIBLE A LOS QUE CONTRIBUYE</h4> 
 			            	<h4 class="content-b" style="right">';
 			            	$p=$comp;
 			            	$dep=mysqli_real_escape_string($db->connect(), $p);
@@ -160,8 +177,8 @@ include ('../cms/classes/DB.class.php');
 
 			            </div>
 						<div class="col s4">		            	
-							<h4 class="content-a">COMPONENTE IPS:</h4> 
-			            	<h4 class="content-b" style="right">';
+							<h4 class="content-a">COMPONENTE IPS</h4> 
+			            	<p class="content-b" style="right">';
 			            	$p=$comp;
 			            	$dep=mysqli_real_escape_string($db->connect(), $p);
 			            	$dep2=utf8_encode($dep);
@@ -172,33 +189,33 @@ include ('../cms/classes/DB.class.php');
 				            foreach ($prueba2 as $key2) {
 			            		$key2["nombre_comp"];
 			            }
-			            echo'</h4>
+			            echo'</p>
 			            </div>
                 	</div>
                 	<div class="row">
-                		<center><div style="height:2px; background-color:gray; width:35%;"></div></center>
+                		<center><div style="height:1.9px; background-color:; width:35%;"></div></center>
 	                	<div class="col s12">
 	                		<h4 class="content-c">INSTITUCIONES QUE COLABORAN</h4>
 	                	</div>
 	                	<div class="col s6">		            	
                 		<h4 class="content-c">PUBLICAS</h4> 
-			            	<h4 class="content-b" style="right">';
+			            	<p class="content-b" style="right">';
 			            	$inst2 = explode(',' , $key["instpubli_prog"]);
 			            	foreach($inst2 as $value =>$key2) {
 			            		echo $key2."<br>";
 			            	}
 
-			            	echo'</h4>
+			            	echo'</p>
 			            </div>
 						<div class="col s4">		            	
 							<h4 class="content-a">PRIVADA	:</h4> 
-			            	<h4 class="content-b" style="right">';
+			            	<p class="content-b" style="right">';
 			            	$inst = explode(',' , $key["instpriv_prog"]);
 			            	foreach($inst as $value =>$key3) {
 			            		echo $key3."<br>";
 			            	}
 
-			            	echo'</h4>
+			            	echo'</p>
 			            </div>
                 	</div>
 
