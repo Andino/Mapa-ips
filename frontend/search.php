@@ -140,7 +140,11 @@ include ('../cms/classes/DB.class.php');
 	            }
 	        }
 	        else{
-	        	echo('<script>Materialize.toast("Se han encontrado 0 registros en común", 3000, "rounded");
+	        	echo('<center style="margin:40px;"><h1 style="font-weight:bold; font-size:40px; color:gray;">RESULTADOS</h1></center>
+            	<hr>
+
+            	<h1 style="font-weight:bold; font-size:40px; color:gray;">No Encontrados</h1>
+	        		<script>Materialize.toast("Se han encontrado 0 registros en común", 3000, "rounded");
 	        		</script>');
 	        }
 ?>
