@@ -14,15 +14,21 @@ $levelcontactosna="";
 $levelimg="http://www.freeiconspng.com/uploads/no-image-icon-13.png";
 $modetype = "add";
 if(isset($_POST['submit-form'])) {
+        $nombre_prog=$_POST['name'];
         $contactos=$_POST['contactos'];
         $levelmodules = json_encode($levelmodules);
-        if ($_FILES["userfile"]["type"]=="image/jpeg" || $_FILES["userfile"]["type"]=="image/pjpeg" || $_FILES["userfile"]["type"]=="image/gif" || $_FILES["userfile"]["type"]=="image/bmp" || $_FILES["userfile"]["type"]=="image/png")
-            {
         # Cogemos la anchura y altura de la imagen
         $name2=$_FILES["userfile"]["name"];
         $type=$_FILES["userfile"]["type"];
-        $destino = "img/programa/".$name2;
-        if (copy($_FILES['userfile']['tmp_name'],$destino)){
+        $destino = "img/programa/".utf8_encode($name2);
+
+        if(!isset($name2)){
+            $name2=null;
+        }
+        if(copy($_FILES["userfile"]['tmp_name'],$destino)){
+            echo "Todo bien";
+        }
+
         $data = array( 
             "nombre_prog" =>"'$name'",
             "actPrinc_prog" =>"'$actPrinc'",
@@ -34,56 +40,79 @@ if(isset($_POST['submit-form'])) {
             "instpriv_prog" =>"'$instpriv'",
             "instpubli_prog" =>"'$instpubli'",
             "imagen" =>"'$name2'",
-            "id_contacto" => "'$contactos'",
-            
+            "id_contacto" => "'$contactos'",   
         );
-        if ($mode == "add") {
-            $db->insert($data, "programa_ips");
-            $msg = "<div class='kode-alert kode-alert-icon alert3'><i class='fa fa-check'></i><a href='#' class='closed'>×</a>".$lan["add_success"]."</div>";
-        }
-        if ($mode == "update") {
-            $db->update($data, "programa_ips", "id_prog = $levelid");
-            $msg = "<div class='kode-alert kode-alert-icon alert3'><i class='fa fa-check'></i><a href='#' class='closed'>×</a>".$lan["update_success"]."</div>";
-        }
-        if($_FILES['file']['size'] != 0){
 
-        mkdir("img/programa/gallery-".$name, 0777, true);
+        $id="";
+        $idaux="";
+        $emptygallery=$db->select("imagephp as im inner join programa_ips as p on p.id_prog = im.id_prog" ,"p.id_prog = $levelid");
+        $emptygallerylength= count($emptygallery);
+        mkdir("img/programa/gallery-".utf8_encode($name), 0777, true);
+         for($i=0; $i < $emptygallerylength; $i++){
+            $userfile = $_FILES["userfile".$i]["name"];
+            if($_FILES["userfile".$i]['size'] > 0 ){
+                $name2=$_FILES['userfile'.$i]["name"];
+                $type=$_FILES["userfile"]["type"];
+                $destino = "img/programa/gallery-".utf8_encode($name)."/".$i.'.jpg';
+                if(!isset($name2)){
+                    $name2=null;
+                }
+                    if(copy($_FILES["userfile".$i]['tmp_name'],$destino)){
+                        echo "Todo bien";
+                    }
+                }                    
+            $id = $db->selectSpecific("id_prog","programa_ips", "nombre_prog like '$name'");
+            $data2 = array( 
+                "imagen" =>"'$name2'",
+                "id_prog" => intval($id),
+                );
+            $j = $i-1;
+            $db->update($data2, "imagephp", "id = $j");
+         }
+         if(empty($_FILES["userfile0"]["name"])||empty($_FILES["userfile1"]["name"])||empty($_FILES["userfile2"]["name"])||empty($_FILES["userfile3"]["name"])||empty($_FILES["userfile4"]["name"])){
          for($x=0; $x<count($_FILES["file"]["name"]); $x++){
             $file = $_FILES["file"];
             $nombre = $file["name"][$x];
             $tipo = $file["type"][$x];
             $ruta_provisional = $file["tmp_name"][$x];
-            $size = $file["size"][$x];
-            $destino1 = "img/programa/gallery-".$name."/".$nombre;
+            $destino1 = "img/programa/gallery-".utf8_encode($name)."/".$emptygallerylength.'.jpg';
+            $valueimg=$emptygallerylength.'.jpg';
             if (copy($_FILES['file']['tmp_name'][$x],$destino1)){
                 $id = $db->selectSpecific("id_prog","programa_ips", "nombre_prog like '$name'");
                 if(empty($id)){
-                    $prog = $progaux;
+                    $id = $idaux;
                 }
                 else{
-                    $prog = implode($id[0]);
-                    $progaux = $prog;
-                    if(empty($exist)){
-                        $data2 = array( 
-                            "imagen" =>"'$nombre'",
-                            "id_prog" => intval($prog),
-                        );  
-                    }
+                    $id = implode($id[0]);
+                    $idaux = $id;
+                    $data2 = array( 
+                        "imagen" =>"'$valueimg'",
+                        "id_prog" => intval($id),
+                    );  
+
+                    $db->insert($data2, "imagephp");
                 }
 
-             if ($mode == "add") {
-              $db->insert($data2, "imagephp");
-              $msg = "<div class='kode-alert kode-alert-icon alert3'><i class='fa fa-check'></i><a href='#' class='closed'>×</a>".$lan["add_success"]."</div>";
-             }
-             if ($mode == "update") {
-                $db->update($data2, "imagephp", "id_prog = $levelid");
-                $msg = "<div class='kode-alert kode-alert-icon alert3'><i class='fa fa-check'></i><a href='#' class='closed'>×</a>".$lan["update_success"]."</div>";
-             }
-            }
+            $emptygallerylength++;
          }
+
+
+        if ($mode == "add") {
+            $db->insert($data, "programa_ips");
+            $db->insert($data2, "imagephp");
+            $msg = "<div class='kode-alert kode-alert-icon alert3'><i class='fa fa-check'></i><a href='#' class='closed'>×</a>".$lan["add_success"]."</div>";
+            }
+       
+        if ($mode == "update") {
+            $db->update($data, "programa_ips", "id_prog = $levelid");
+            
+            $msg = "<div class='kode-alert kode-alert-icon alert3'><i class='fa fa-check'></i><a href='#' class='closed'>×</a>".$lan["update_success"]."</div>";
         }
-    }
-}}
+    }}
+
+
+
+}
 if(isset($_GET['mode'])) {
     $mode = $_GET['mode'];
     $levelid = $_GET['id'];
@@ -238,6 +267,60 @@ if(isset($_GET['mode'])) {
 
                         reader.readAsDataURL(input.files[0]);
                     }
+                }function readURL0(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#blah0').attr('src', e.target.result);
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+                function readURL1(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#blah1').attr('src', e.target.result);
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+                function readURL2(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#blah2').attr('src', e.target.result);
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+                function readURL3(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#blah3').attr('src', e.target.result);
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+                function readURL4(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#blah4').attr('src', e.target.result);
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
                 }
             </script>
 
@@ -265,25 +348,27 @@ if(isset($_GET['mode'])) {
                         <label>Galeria de Imágenes</label>
                         <br>
                         <br>
-                        <div class="form-group col-md-2">
-                             <input style ="display: none" class="userfile2" type="file" id="file" name="file[]" multiple accept="image/x-png,image/gif,image/jpeg">
+                        <div id="controlinp" class="form-group col-md-2">
+                             <input  style ="display: none" class="userfile2" type="file" id="file" name="file[]" multiple accept="image/x-png,image/gif,image/jpeg">
                             <label for="file" id="labelimg" class="form-label">
-                            <img id="blah1" width="100" height="70" src="<?=$levelimg?>" alt="your image" />
+                            <img id="blah" width="100" height="70" src="http://www.freeiconspng.com/uploads/no-image-icon-13.png" alt="your image" />
                             <br><span>Selecciona una imagen</span></label>
+
                         </div>
                         <?php 
                             $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
                             if(substr($actual_link, strrpos($actual_link, '/') + 1) != "list"){
-                                $i=1;
-                                $list_programs = $db->onlySelect("programa_ips as p inner join imagephp as im on im.id_prog = p.id_prog");
+                                $list_programs = $db->select("programa_ips as p inner join imagephp as im on im.id_prog = p.id_prog","p.nombre_prog like '$levelname' limit 5");
+                                $i=0;
                                 foreach ($list_programs as $key => $value) {
                                     echo '
                                     <div class="form-group col-md-2">
-                                    <label for="file" id="labelimg" class="form-label">
-                                    <img id="blah1" width="100" height="70" src="../../img/programa/gallery-'.$list_programs[$key]["nombre_prog"].'/'.$list_programs[$key]["imagen"].'" alt="your image" />
-                                    <br><span>Selecciona una imagen</span></label>
+                                    <label for="file'.$i.'" class="form-label">
+                                    <img id="blah'.$i.'" class="imgval" width="100" height="70" src="../../img/programa/gallery-'.utf8_encode($list_programs[$key]["nombre_prog"]).'/'.$i.'.jpg" alt="your image" />
+                                    <input style ="display: none" name="userfile'.$i.'" id="file'.$i.'"  type="file" onchange="readURL'.$i.'(this);">
+                                    <br><span>Cambia la imagen</span></label>
                                     </div>';
-
+                                    $i++;
                                 }
                             }?>
                          <div id="vista-previa"></div>
@@ -340,34 +425,35 @@ if(isset($_GET['mode'])) {
   </div>
 
 <script type="text/javascript">
+
+    $(".importar").hide();
+    var inputs = document.querySelectorAll( '.userfile2' );
+    Array.prototype.forEach.call( inputs, function( input )
+    {
+        var label    = input.nextElementSibling,
+            labelVal = label.innerHTML;
+
+        input.addEventListener( 'change', function( e )
+        {
+            var fileName = '';
+            if( this.files && this.files.length > 1 ){
+                
+                fileName =  this.files.length + " Archivos subidos" ;
+            }
+            else{
+                fileName = e.target.value.split( '\\' ).pop();
+            }
+            if( fileName ){
+                label.querySelector( 'span' ).innerHTML = fileName;
+                $(".importar").show();
+
+            }
+            else{
+                label.innerHTML = labelVal;
                 $(".importar").hide();
-                var inputs = document.querySelectorAll( '.userfile2' );
-                Array.prototype.forEach.call( inputs, function( input )
-                {
-                    var label    = input.nextElementSibling,
-                        labelVal = label.innerHTML;
-
-                    input.addEventListener( 'change', function( e )
-                    {
-                        var fileName = '';
-                        if( this.files && this.files.length > 1 ){
-                            
-                            fileName =  this.files.length + " Archivos subidos" ;
-                        }
-                        else{
-                            fileName = e.target.value.split( '\\' ).pop();
-                        }
-                        if( fileName ){
-                            label.querySelector( 'span' ).innerHTML = fileName;
-                            $(".importar").show();
-
-                        }
-                        else{
-                            label.innerHTML = labelVal;
-                            $(".importar").hide();
-                        }
-                    });
-                });
+            }
+        });
+    });
      $(function(){   
        $("#file").on("change", function(){
            /* Limpiar vista previa */
@@ -375,7 +461,8 @@ if(isset($_GET['mode'])) {
            var archivos = document.getElementById('file').files;
            var navegador = window.URL || window.webkitURL;
            /* Recorrer los archivos */
-           for(x=0; x<archivos.length; x++)
+           var imgval = document.getElementsByClassName("imgval");
+           for(x=0; x<=(5-imgval.length); x++)
            {
                /* Validar tamaño y tipo de archivo */
                var size = archivos[x].size;
@@ -391,8 +478,16 @@ if(isset($_GET['mode'])) {
                }
                else
                {
-                 var objeto_url = navegador.createObjectURL(archivos[x]);
-                 $("#vista-previa").append("<img src="+objeto_url+" width='120' height='80' style='margin-left:10px;'>");
+                 
+                 if(imgval.length <5){
+                    var objeto_url = navegador.createObjectURL(archivos[x]);
+                     $("#vista-previa").append(" <div class='form-group col-md-2'><img class='imgval' src="+objeto_url+" width='120' height='80' style='margin-left:10px;'></div>");
+                     var imgval = document.getElementsByClassName("imgval");
+                 }
+                 else{
+                    window.alert("Solo pueden ser 5 imagenes en la galeria");
+                    archivos.value="";
+                 }
                }
            }
        });

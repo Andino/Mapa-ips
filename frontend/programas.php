@@ -91,14 +91,15 @@ include ('../cms/classes/DB.class.php');
             <div class="row container">
 
             <div class="col s4" style="text-align:left">
-                <a href="#" title="Lorem ipsum" class="thumbnail">
+                <a title="Lorem ipsum" class="thumbnail">
                 '; 
                 if(empty($key["imagen"])){
 	                  echo '<img width="250" src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" />';
 	                }
 	                else{
-	                  echo'<img src="../cms/img/programa/'.$key["imagen"].'" class="center" alt="Lorem ipsum" />';
+	                  echo'<center><img src="../cms/img/programa/'.$key["imagen"].'" style="object-fit:  cover;width: 18em;" class="center" alt="Lorem ipsum" /></center>';
 	                }
+	                $name=mysqli_real_escape_string($db->connect(), $key["nombre_prog"]);
                 echo'
                 <div class="info-program">
                 <p style="text-align:left; font-weight:bold; width:90%; margin-left:2px; color:#9e9e9e; font-size:20px!important;">'.$key["nombre_fundaorg"].'</p>
@@ -109,19 +110,24 @@ include ('../cms/classes/DB.class.php');
                 <p><i style="color:#00afbe!important" class="fas fa-user"></i> '.$key["nombre_contactoorg"].'</p>
                 </div>
                 <div class="gallery-container">
-                	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
-                	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
-                	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
-                	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
-                	<div class="item"><img  src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" /></div>
-                </div>
+                ';
+                $img=$db->select("imagephp as im 
+				            	inner join programa_ips as p on p.id_prog = im.id_prog  ", 
+				                "p.nombre_prog like '".$key["nombre_prog"]."' limit 5");
+                $i=0;
+                foreach ($img as $key2) {
+	            echo'<div class="item"><img class="materialboxed" style="height:50px!important;" src="../cms/img/programa/gallery-'.utf8_encode($name).'/'.$i.'.jpg"/></div>';
+                
+                $i++;
+                }
+                echo'</div>
             </div>
             <div class="col s8" style="text-align: left; font-weight:bold;">
          
                 <a style="float:right;color:#f49715;font-weight:bold!important;font-size:20px;margin-right:50px;" href="'.$_SERVER['HTTP_REFERER'].'"><img src="img/left-arrow.png" alt="" style="vertical-align: middle;" /> Regresar</a>
 
                 <br><br>
-                <center><a href="#" style="font-weight:bold!important;text-transform: uppercase; font-size:18px;"><p style:"font-weight:bolder;">'.$key["nombre_prog"].'</p> </a></center>
+                <center><a style="font-weight:bold!important;text-transform: uppercase; font-size:18px;"><p style:"font-weight:bolder;">'.$key["nombre_prog"].'</p> </a></center>
                 	<div class ="row">	
 	                	<div class="col s5">
 			            	<h4 class="content-a">CLASIFICACIÓN DE LA ORGANIZACIÓN:</h4> 
@@ -246,7 +252,7 @@ include ('../cms/classes/DB.class.php');
 			            </div>
                 	</div>
 
-                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+                <span class="plus"><a title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
             </div>
             </div>
             <hr>';
@@ -271,4 +277,9 @@ include ('../cms/classes/DB.class.php');
   </center>
 </section>
 <?php include("footer.php");?>
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $('.materialboxed').materialbox();
+	  });
+</script>
 </html>

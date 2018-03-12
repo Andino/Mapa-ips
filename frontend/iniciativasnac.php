@@ -147,17 +147,15 @@ include ('../cms/classes/DB.class.php');
          	<div class="text-apartament">
     					<a href="index.php"><img src="img/left-arrow.png" alt="left"></a><span class="name-apartament">El Salvador</span></div>
 
-<center>
-<div id="map-svg">
+<div class="col s8 " id="map-svg">
 	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mapa_nacional.svg" width="700">
 </div>
-</center>   
 
          </div> 
 	
 
 
-         <div class="col s3 ssection map-depart" style="display: flex; justify-content: center; align-items: center;height: 100%">
+         <div class="col s4 ssection map-depart" style="display: flex; justify-content: center; align-items: center; margin-top:110px!important;height: 100%">
          	<style type="text/css">
          		.ulcontent {
          			margin: 0px;
@@ -452,7 +450,7 @@ include ('../cms/classes/DB.class.php');
 		        $("#txtHint").hide();
 				var compo=this.textContent;
 		        setTimeout(function(){
-				    xmlhttp.open("GET","getuser.php?&q="+compo,true);
+				    xmlhttp.open("GET","nacdata.php?&q="+compo,true);
 		    		xmlhttp.send();
 		        	$("#loading").hide();
 		        	$("#txtHint").show();
