@@ -115,7 +115,40 @@ if(!empty($_FILES['prueba']['name'])){ //this is just to check if isset($_FILE).
 
                     $totalRows = $maxCell['row'];
 
+                    $fundaaux="";
+                    $funda="";
+                    // Getting columns data for the "contactoorg_ips" table
+                    $nombre_contactoorg = $objWorksheet->getCell('C20');
+                    $cargo_contactoorg = $objWorksheet->getCell('C21');
+                    $mail_contactoorg = $objWorksheet->getCell('C22');
+                    $urlwebsite_contactoorg = $objWorksheet->getCell('C23');
+                    $telefono = $objWorksheet->getCell('C24');
+                    $exist=$db->select("contactoorg_ips", "nombre_contactoorg like '$nombre_contactoorg'");
+                    $tempnombre_fundaorg = $objWorksheet->getCell('C3');
+                    $fundaquery = $db->selectSpecific("id_fundaorg","fundaorg_ips", "nombre_fundaorg like '$tempnombre_fundaorg'");
+                    if(empty($fundaquery)){
+                        $funda = $fundaaux;
+                    }
+                    else{
+                        $funda = implode($fundaquery[0]);
+                        $fundaaux = $funda;
+                        if(empty($exist)){
+                            $bandera = array(
+                               "nombre_contactoorg" => "'$nombre_contactoorg'",
+                               "cargo_contactoorg" => "'$cargo_contactoorg'",
+                               "mail_contactoorg" => "'$mail_contactoorg'",
+                               "urlwebsite_contactoorg" => "'$urlwebsite_contactoorg'",
+                               "telefono" => "'$telefono'",
+                               "id_fundaorg" => intval($funda),
+                            );    
+                            $db->insert($bandera, "contactoorg_ips");
+                        }
+                    }
+
+
                     // Getting columns data for the "programa_ips" table
+                    $contactoaux="";
+                    $contacto="";
                     $nombre_prog = $objWorksheet->getCell('C2');
                     $actPrinc = $objWorksheet->getCell('C5');
                     $proposito_prog = $objWorksheet->getCell('C8');
@@ -126,7 +159,15 @@ if(!empty($_FILES['prueba']['name'])){ //this is just to check if isset($_FILE).
                     $instpriv_prog = $objWorksheet->getCell('C17');
                     $instpubli_prog = $objWorksheet->getCell('C18');
                     $exist=$db->select("programa_ips", "nombre_prog like '$nombre_prog'");
-                    if(empty($exist)){
+                    $tempcontacto = $objWorksheet->getCell('C20');
+                    $contactoquery = $db->selectSpecific("id_contactoorg","contactoorg_ips", "nombre_contactoorg like '$tempcontacto'");
+                    if(empty($contactoquery)){
+                        $contacto = $contactoaux;
+                    }
+                    else{
+                        $contacto = implode($contactoquery[0]);
+                        $contactoaux = $contacto;
+                        if(empty($exist)){
                         $bandera = array(
                             "nombre_prog" => "'$nombre_prog'",
                             "actPrinc_prog" => "'$actPrinc'",
@@ -137,9 +178,12 @@ if(!empty($_FILES['prueba']['name'])){ //this is just to check if isset($_FILE).
                             "indMetricas" => "'$indMetricas'",
                             "instpriv_prog" => "'$instpriv_prog'",
                             "instpubli_prog" => "'$instpubli_prog'",
+                            "id_contacto" => intval($contacto),
                         );
                         $db->insert($bandera, "programa_ips");
                     }
+                    }
+
 
                     // Getting columns data for the "fundaorg_ips" table
                     $nombre_fundaorg = $objWorksheet->getCell('C3');
@@ -150,62 +194,7 @@ if(!empty($_FILES['prueba']['name'])){ //this is just to check if isset($_FILE).
                         );    
                         $db->insert($bandera, "fundaorg_ips");
                     }
-
-                    // Getting columns data for the "contactoorg_ips" table
-                    $nombre_contactoorg = $objWorksheet->getCell('C20');
-                    $cargo_contactoorg = $objWorksheet->getCell('C21');
-                    $mail_contactoorg = $objWorksheet->getCell('C22');
-                    $urlwebsite_contactoorg = $objWorksheet->getCell('C23');
-                    $telefono = $objWorksheet->getCell('C24');
-                    $exist=$db->select("contactoorg_ips", "nombre_contactoorg like '$nombre_contactoorg'");
-                    $tempnombre_fundaorg = $objWorksheet->getCell('C3');
-                    $depidquery = $db->selectSpecific("id_fundaorg","fundaorg_ips", "nombre_fundaorg like '$tempnombre_fundaorg'");
-                    if(empty($depidquery)){
-                        $depid = $depidaux;
-                    }
-                    else{
-                        $depid = implode($depidquery[0]);
-                        $depidaux = $depid;
-                    }
-                    if(empty($exist)){
-                        $bandera = array(
-                           "nombre_contactoorg" => "'$nombre_contactoorg'",
-                           "cargo_contactoorg" => "'$cargo_contactoorg'",
-                           "mail_contactoorg" => "'$mail_contactoorg'",
-                           "urlwebsite_contactoorg" => "'$urlwebsite_contactoorg'",
-                           "telefono" => "'$telefono'",
-                           "id_fundaorg" => intval($depid),
-                        );    
-                        $db->insert($bandera, "contactoorg_ips");
-                    }
-
-                    // Getting columns data for the "contactoorg_ips" table
-                    $nombre_contactoorg = $objWorksheet->getCell('C20');
-                    $cargo_contactoorg = $objWorksheet->getCell('C21');
-                    $mail_contactoorg = $objWorksheet->getCell('C22');
-                    $urlwebsite_contactoorg = $objWorksheet->getCell('C23');
-                    $telefono = $objWorksheet->getCell('C24');
-                    $exist=$db->select("contactoorg_ips", "nombre_contactoorg like '$nombre_contactoorg'");
-                    $tempnombre_fundaorg = $objWorksheet->getCell('C3');
-                    $depidquery = $db->selectSpecific("id_fundaorg","fundaorg_ips", "nombre_fundaorg like '$tempnombre_fundaorg'");
-                    if(empty($depidquery)){
-                        $depid = $depidaux;
-                    }
-                    else{
-                        $depid = implode($depidquery[0]);
-                        $depidaux = $depid;
-                        if(empty($exist)){
-                            $bandera = array(
-                               "nombre_contactoorg" => "'$nombre_contactoorg'",
-                               "cargo_contactoorg" => "'$cargo_contactoorg'",
-                               "mail_contactoorg" => "'$mail_contactoorg'",
-                               "urlwebsite_contactoorg" => "'$urlwebsite_contactoorg'",
-                               "telefono" => "'$telefono'",
-                               "id_fundaorg" => intval($depid),
-                            );    
-                            $db->insert($bandera, "contactoorg_ips");
-                        }
-                    }
+                   
                     
 
                     //foreign keys
@@ -256,7 +245,7 @@ if(!empty($_FILES['prueba']['name'])){ //this is just to check if isset($_FILE).
                         }
                     }
 
-                    //"proxobj" table
+                    /*"proxdep" table
                     $dep="";
                     $depaux="";
                     $prog="";
@@ -285,7 +274,8 @@ if(!empty($_FILES['prueba']['name'])){ //this is just to check if isset($_FILE).
                                 $db->insert($bandera, "proxdep");
                             }
                         }
-                    }
+                    }*/
+
                     //"progxmuni" table
                     $muni="";
                     $muniaux="";
@@ -348,31 +338,6 @@ if(!empty($_FILES['prueba']['name'])){ //this is just to check if isset($_FILE).
                         }
                         
                     }
-
-                    // Getting columns data for the "funxpro" table
-                    $fundid="";
-                    $fundidaux="";
-                        $nombre_prog = $objWorksheet->getCell('C2');
-                        $nombre_fun = $objWorksheet->getCell('C3');
-                        $progidquery = $db->selectSpecific("id_prog", "programa_ips", "nombre_prog like '$nombre_prog'");
-                        $compidquery = $db->selectSpecific("id_fundaorg","fundaorg_ips", "nombre_fundaorg like '$nombre_fun'");
-                        if(empty($progidquery) || empty($compidquery)){
-                            $prog="";
-                            $fundid="";
-                        }
-                        else{
-                            $fundid = implode($fundidquery[0]);
-                            $prog = implode($progidquery[0]);
-                            $fundidaux = $fundid;
-                            $exist=$db->select("funxpro", "id_prog like '$prog' and id_fundaorg like '$fundid'");
-                            if(empty($exist)){
-                                $bandera = array(
-                                   "id_prog" => intval($prog),
-                                   "id_fundaorg" => intval($fundid),
-                                );    
-                                $db->insert($bandera, "funxpro");
-                            }
-                        }
                 }
             }
        }
@@ -444,7 +409,7 @@ else{
                 <label for="file" class="fileLabel" id="pruebas">
                     <img src="<?=BASE_URL?>/img/excel.png">
                     <br>
-                    <span>Selecciona un Archivo</span>
+                    <s
                 </label>
                 <br>
                 <input type="submit" value="Importar" name="enviar" class="importar"/>

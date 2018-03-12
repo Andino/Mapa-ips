@@ -3,10 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
 <?php include ('header.php');
 include ('../cms/classes/DB.class.php'); 
- $id=$_GET['n'];
- if(!isset($id)){
- 	header("location:index.php");
- }
+
 	 if (file_exists('../cms/config.php')) {
 		require_once '../cms/config.php'; 
 		require_once '../cms/version.php'; 
@@ -138,7 +135,7 @@ include ('../cms/classes/DB.class.php');
 
 
          <div class="col s3 fsection fsection-info">
-         	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mpsa.svg">
+         	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mpes.svg">
          	<h4>Midiendo el</h4>
          	<h1>Progreso Social</h1>
          	<p>El modelo del Progreso Social se fundamenta en una visión holística y rigurosa de las condiciones sociales y ambientales de las sociedades. Tanto el modelo como la metodología del Índice de Progreso Social son el resultado de un proceso colaborativo de investigación en el que se ha recurrido a una amplia gama de académicos y expertos en políticas.
@@ -147,61 +144,14 @@ include ('../cms/classes/DB.class.php');
          	El modelo sintetiza el amplio conjunto de investigaciones en numerosos campos, a fin de identificar las múltiples dimensiones del desempeño social y ambiental de las sociedades.</p>
          </div> 
          <div class="col s3 ssection map-depart">
-         	<?php
-         		$prueba=$db->selectSpecific("nombre_dep", "departamento", "nombre_dep like '$id'");
-				foreach ($prueba as $key) {
-					echo '	<div class="text-apartament">
-    					<a href="index.php"><img src="img/left-arrow.png" alt="left"></a><span class="name-apartament">'.$key["nombre_dep"].'</span></div>';
-				}
-         	?>
-
+         	<div class="text-apartament">
+    					<a href="index.php"><img src="img/left-arrow.png" alt="left"></a><span class="name-apartament">El Salvador</span></div>
 
 <center>
 <div id="map-svg">
-	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 900 1200" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
-	<style type="text/css">
-	.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
-	.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
-	.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
-	</style>
-	<?php
-	$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
-	inner join municipio as m on m.id_dep = d.id_dep ", "nombre_dep like '$id'");
-	foreach ($prueba as $key) {
-	if($key["tag"] == "path"){
-			echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
-	}
-	else if($key["tag"] == "polygon"){
-			echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';	
-	}
-	}?>
-	
-</svg>
+	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mapa_nacional.svg" width="700">
 </div>
 </center>   
-			  <div class="right-align">
-			    <div class="stadistic">
-			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:rgb(0, 126, 193); margin-right:5px;"></a> Necesidades basicas</p>
-			    </div>
-
-			    <div class="stadistic">
-			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#ff9800; margin-right:5px;"></a> Fundamentos y bienestar</p>
-			    </div>
-
-			    <div class="stadistic">
-			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#8bc34a; margin-right:5px;"></a>Oportunidades</p>
-
-			    </div>
-			    <div class="stadistic">
-			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#bdbdbd; margin-right:5px;"></a> Municipios no Habilitados</p>
-
-			    </div>
-			    <div class="stadistic">
-			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#00afbe; margin-right:5px;"></a> Rios y lagos</p>
-
-			    </div>
-			  </div>
 
          </div> 
 	
@@ -411,6 +361,7 @@ include ('../cms/classes/DB.class.php');
 			  <li><a class="bouton">Educación Superior</a></li>
 			</ul>
          	<!--<nav class ="comnav" style="">
+>>>>>>> 5bdffb69f2943afb3fbd2f55071c995bcf10b6b1
 			    <div class="nav-wrapper nav-option" >
 			      <ul class="ulcontent " style="line-height: 20px; text-align: center; color: ">
 
@@ -449,9 +400,12 @@ include ('../cms/classes/DB.class.php');
 			  				<p>Oportunidades</p>
 			  			</div>
 			  			</a>
-			  		</div>	
+			  		</div>
+					
 			  </div>
+
          </div>
+	
       </div>
       
          	
@@ -497,10 +451,8 @@ include ('../cms/classes/DB.class.php');
 		        $("#loading").show();
 		        $("#txtHint").hide();
 				var compo=this.textContent;
-		        xmlhttp2.open("GET","maps-svg.php?id=<?php echo $id?>&q="+compo,true);
-		    	xmlhttp2.send();
 		        setTimeout(function(){
-				    xmlhttp.open("GET","programdata.php?id=<?php echo $id?>&q="+compo,true);
+				    xmlhttp.open("GET","getuser.php?&q="+compo,true);
 		    		xmlhttp.send();
 		        	$("#loading").hide();
 		        	$("#txtHint").show();

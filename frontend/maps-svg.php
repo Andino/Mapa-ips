@@ -31,31 +31,30 @@ include ('../cms/classes/DB.class.php');
     $prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
     inner join municipio as m on m.id_dep = d.id_dep ", "nombre_dep like '$p'");
     foreach ($prueba as $key) {
-    if($key["tag"] == "path"){
-            echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
-    }
-    else if($key["tag"] == "polygon"){
-            echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';    
-    }
+        if($key["tag"] == "path"){
+                echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
+        }
+        else if($key["tag"] == "polygon"){
+                echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';    
+        }
     }
 
-    $prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag, s.nombre_servicio", 
-    "programa_ips as p
-    inner join proxcomp as pc on pc.id_prog = p.id_prog 
-    inner join funxpro as fp on fp.id_prog = p.id_prog 
+    $prueba=$db->preSelectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag, s.nombre_servicio, m.nombre_muni", 
+    "programa_ips as p 
+    inner join proxcomp as pc on pc.id_prog = p.id_prog
+    inner join componentes as c on c.id_comp = pc.id_comp
     inner join proxmuni as pm on pm.id_prog = p.id_prog 
     inner join municipio as m on m.id_muni = pm.id_muni
-    inner join departamento as d on d.id_dep = m.id_dep
-    inner join componentes as c on c.id_comp = pc.id_comp 
-    inner join servicios_ips as s on s.id_servicio = c.id_servicio
-    inner join fundaorg_ips as f on f.id_fundaorg = fp.id_fundaorg 
-    inner join contactoorg_ips as ci on ci.id_fundaorg = f.id_fundaorg", "nombre_dep like '$p' and c.nombre_comp like '$comp'");
+    inner join contactoorg_ips as ci on ci.id_contactoorg = p.id_contacto
+    inner join fundaorg_ips as f on f.id_fundaorg = ci.id_fundaorg
+    inner join servicios_ips as s on s.id_servicio = c.id_servicio 
+    inner join departamento as d on d.id_dep = m.id_dep ", "d.nombre_dep like '$p' and c.nombre_comp like '$comp' ");
     foreach ($prueba as $key) {
     if($key["tag"] == "path"){
         if($key["nombre_servicio"] == "Necesidades Basicas"){
             echo '<'.$key["tag"].' class="st2" d="'.$key["mapvalue"].'"/>';
         }
-        else if($key["nombre_servicio"] == "Fundamentos de bienestar"){
+        else if($key["nombre_servicio"] == "Fundamentos de Bienestar"){
             echo '<'.$key["tag"].' class="st3" d="'.$key["mapvalue"].'"/>';
         }
         else if ($key["nombre_servicio"] == "Oportunidades"){
@@ -66,15 +65,14 @@ include ('../cms/classes/DB.class.php');
         if($key["nombre_servicio"] == "Necesidades Basicas"){
             echo '<'.$key["tag"].' class="st2" points="'.$key["mapvalue"].'"/>'; 
         }
-        else if($key["nombre_servicio"] == "Fundamentos de bienestar"){
-            echo '<'.$key["tag"].' class="st3" points="'.$key["mapvalue"].'"/>'; 
+        else if($key["nombre_servicio"] == "Fundamentos de Bienestar"){
+            echo '<'.$key["tag"].' class="st3" points="'.$key["mapvalue"].'"/>';
         }
         else if ($key["nombre_servicio"] == "Oportunidades"){
             echo '<'.$key["tag"].' class="st4" points="'.$key["mapvalue"].'"/>'; 
         }   
     }
-    }?>
-
+}?>
     </svg>
 </body>
 <script type="text/javascript">

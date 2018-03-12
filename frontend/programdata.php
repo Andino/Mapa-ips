@@ -50,13 +50,14 @@ include ('../cms/classes/DB.class.php');
             $dep=mysqli_real_escape_string($db->connect(), $p);
             $prueba=$db->preSelectSpecific("f.nombre_fundaorg, p.nombre_prog, c.nombre_comp, p.imagen",
                "programa_ips as p 
-                inner join proxcomp as pc on pc.id_prog = p.id_prog 
-                inner join proxdep as pd on pd.id_prog = p.id_prog 
-                inner join funxpro as fp on fp.id_prog = p.id_prog 
-                inner join departamento as d on d.id_dep = pd.id_dep 
-                inner join componentes as c on c.id_comp = pc.id_comp 
-                inner join fundaorg_ips as f on f.id_fundaorg = fp.id_fundaorg 
-                inner join contactoorg_ips as ci on ci.id_fundaorg = f.id_fundaorg", 
+                inner join proxcomp as pc on pc.id_prog = p.id_prog
+                inner join componentes as c on c.id_comp = pc.id_comp
+                inner join proxmuni as pm on pm.id_prog = p.id_prog 
+                inner join municipio as m on m.id_muni = pm.id_muni
+                inner join contactoorg_ips as ci on ci.id_contactoorg = p.id_contacto
+                inner join fundaorg_ips as f on f.id_fundaorg = ci.id_fundaorg 
+                inner join departamento as d on d.id_dep = m.id_dep 
+                ", 
                 " d.nombre_dep like '$dep' and c.nombre_comp like '$comp'");
             if(!empty($prueba)){
                 foreach ($prueba as $key) {
@@ -83,12 +84,12 @@ include ('../cms/classes/DB.class.php');
                     <p style="font-size:12px;">COMPONENTE IPS:'.$key["nombre_comp"].'</p>
                     <p style="font-size:12px;">AREA GEOGRAFICA DE ALCANCE: ';
                     $nombre_prog=mysqli_real_escape_string($db->connect(), $key["nombre_prog"]);
-                    $geo=$db->select("programa_ips as p 
+                    $geo=$db->preSelectSpecific("d.nombre_dep","programa_ips as p 
                                      inner join proxcomp as pc on pc.id_prog = p.id_prog 
-                                     inner join proxdep as pd on pd.id_prog = p.id_prog 
-                                     inner join funxpro as fp on fp.id_prog = p.id_prog
+                                     inner join proxmuni as pm on pm.id_prog = p.id_prog 
+                                     inner join municipio as m on m.id_muni = pm.id_muni
                                      inner join componentes as c on c.id_comp = pc.id_comp  
-                                     inner join departamento as d on d.id_dep = pd.id_dep 
+                                     inner join departamento as d on d.id_dep = m.id_dep 
                                      ", "p.nombre_prog like'$nombre_prog' and c.nombre_comp like '$comp'");
                     foreach ($geo as $val){
                         echo $val["nombre_dep"].", ";

@@ -57,16 +57,19 @@ include ('../cms/classes/DB.class.php');
     	<br>
       <div class="row"> 
       	<?php 
-      		$a="a";
-      		echo '<'.$a.'>XDDDDDDDDDDDDDDDDDD</'.$a.'>';
       		$db = new DB(); 
     		$comp = $_GET['pro'];
             
             $compo=mysqli_real_escape_string($db->connect(), $comp);
-            $prueba=$db->select("programa_ips as p 
-            	inner join funxpro as fp on fp.id_prog = p.id_prog 
-            	inner join fundaorg_ips as f on f.id_fundaorg = fp.id_fundaorg 
-            	inner join contactoorg_ips as ci on ci.id_fundaorg = f.id_fundaorg", 
+            $prueba=$db->preSelectSpecific("nombre_fundaorg, instpubli_prog, instpriv_prog, cantBenef, telefono, nombre_prog, mail_contactoorg, imagen, urlwebsite_contactoorg, nombre_contactoorg, actPrinc_prog, proposito_prog, indMetricas, actEsp_prog","programa_ips as p 
+		    inner join proxcomp as pc on pc.id_prog = p.id_prog
+		    inner join componentes as c on c.id_comp = pc.id_comp
+		    inner join proxmuni as pm on pm.id_prog = p.id_prog 
+		    inner join municipio as m on m.id_muni = pm.id_muni
+		    inner join contactoorg_ips as ci on ci.id_contactoorg = p.id_contacto
+		    inner join fundaorg_ips as f on f.id_fundaorg = ci.id_fundaorg
+		    inner join servicios_ips as s on s.id_servicio = c.id_servicio 
+		    inner join departamento as d on d.id_dep = m.id_dep ", 
                 "p.nombre_prog like '$comp'");
             foreach ($prueba as $key) {
             echo '
@@ -147,14 +150,13 @@ include ('../cms/classes/DB.class.php');
 			            	<h4 class="content-c">OBJETIVOS DE DESARROLLO SOSTENIBLE A LOS QUE CONTRIBUYE:</h4> 
 			            	<h4 class="content-b" style="right">';
 			            	$p=$comp;
-			            	$dep=mysqli_real_escape_string($db->connect(), $p);
-			            	$dep2=utf8_encode($dep);
 				            $prueba2=$db->select("programa_ips as p 
 				            	inner join proxobj as po on po.id_prog = p.id_prog 
 				            	inner join objetivosdesarrollo_ips as o on o.id_objetivos = po.id_objetivos ", 
-				                "p.nombre_prog like '$comp'");
+				                "p.nombre_prog like '".$key["nombre_prog"]."'");
+
 				            foreach ($prueba2 as $key2) {
-			            		$key2["descripcion_objetivo"];
+			            		echo($key2["descripcion_objetivo"]."<br>");
 			            	}
 			            echo'</h4>
 
@@ -170,7 +172,7 @@ include ('../cms/classes/DB.class.php');
 				            	inner join componentes as c on c.id_comp = pc.id_comp ", 
 				                "p.nombre_prog like '".$key["nombre_prog"]."'");
 				            foreach ($prueba2 as $key2) {
-			            		$key2["nombre_comp"];
+			            		echo($key2["nombre_comp"]." <br>");
 			            }
 			            echo'</h4>
 			            </div>
@@ -214,13 +216,13 @@ include ('../cms/classes/DB.class.php');
 			            	$nombre_prog=mysqli_real_escape_string($db->connect(), $key["nombre_prog"]);
                 			$geo=$db->select("programa_ips as p 
                                  inner join proxcomp as pc on pc.id_prog = p.id_prog 
-                                 inner join proxdep as pd on pd.id_prog = p.id_prog 
-                                 inner join funxpro as fp on fp.id_prog = p.id_prog
+                                 inner join proxmuni as pm on pm.id_prog = p.id_prog 
+                                 inner join municipio as m on m.id_muni = pm.id_muni
                                  inner join componentes as c on c.id_comp = pc.id_comp  
-                                 inner join departamento as d on d.id_dep = pd.id_dep 
+                                 inner join departamento as d on d.id_dep = m.id_dep 
                                  ", "p.nombre_prog like'$nombre_prog'");
 			                foreach ($geo as $val){
-			                    echo $val["nombre_dep"].", ";
+			                    echo $val["nombre_dep"]." <br>";
 			                }
 
 			            	echo'</h4>

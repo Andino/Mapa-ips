@@ -1,25 +1,27 @@
 <?php
 $msg = "";
 $levelname="";
-$levelactPrinc="";
-$levelproposito="";
-$levelactEsp="";
-$levelurlwebsite="";
+$levelactPrinc_prog="";
+$levelproposito_prog="";
+$levelactEsp_prog="";
+$levelurlwebsite_fundaorg="";
 $levelcantBenef="";
 $levelindMetricas="";
-$levelinstpriv="";
-$levelinstpubli="";
+$levelinstpriv_prog="";
+$levelinstpubli_prog="";
+$levelcontactos="";
+$levelcontactosna="";
 $levelimg="http://www.freeiconspng.com/uploads/no-image-icon-13.png";
 $modetype = "add";
 if(isset($_POST['submit-form'])) {
+        $contactos=$_POST['contactos'];
         $levelmodules = json_encode($levelmodules);
         if ($_FILES["userfile"]["type"]=="image/jpeg" || $_FILES["userfile"]["type"]=="image/pjpeg" || $_FILES["userfile"]["type"]=="image/gif" || $_FILES["userfile"]["type"]=="image/bmp" || $_FILES["userfile"]["type"]=="image/png")
             {
         # Cogemos la anchura y altura de la imagen
-        $info=getimagesize($_FILES["userfile"]["name"]);
         $name2=$_FILES["userfile"]["name"];
         $type=$_FILES["userfile"]["type"];
-        $destino = "img/programa/".$name;
+        $destino = "img/programa/".$name2;
         if (copy($_FILES['userfile']['tmp_name'],$destino)){
         $data = array( 
             "nombre_prog" =>"'$name'",
@@ -32,16 +34,53 @@ if(isset($_POST['submit-form'])) {
             "instpriv_prog" =>"'$instpriv'",
             "instpubli_prog" =>"'$instpubli'",
             "imagen" =>"'$name2'",
+            "id_contacto" => "'$contactos'",
             
         );
         if ($mode == "add") {
             $db->insert($data, "programa_ips");
-            $db->insert($data2, "imagephp");
             $msg = "<div class='kode-alert kode-alert-icon alert3'><i class='fa fa-check'></i><a href='#' class='closed'>×</a>".$lan["add_success"]."</div>";
         }
         if ($mode == "update") {
             $db->update($data, "programa_ips", "id_prog = $levelid");
             $msg = "<div class='kode-alert kode-alert-icon alert3'><i class='fa fa-check'></i><a href='#' class='closed'>×</a>".$lan["update_success"]."</div>";
+        }
+        if($_FILES['file']['size'] != 0){
+
+        mkdir("img/programa/gallery-".$name, 0777, true);
+         for($x=0; $x<count($_FILES["file"]["name"]); $x++){
+            $file = $_FILES["file"];
+            $nombre = $file["name"][$x];
+            $tipo = $file["type"][$x];
+            $ruta_provisional = $file["tmp_name"][$x];
+            $size = $file["size"][$x];
+            $destino1 = "img/programa/gallery-".$name."/".$nombre;
+            if (copy($_FILES['file']['tmp_name'][$x],$destino1)){
+                $id = $db->selectSpecific("id_prog","programa_ips", "nombre_prog like '$name'");
+                if(empty($id)){
+                    $prog = $progaux;
+                }
+                else{
+                    $prog = implode($id[0]);
+                    $progaux = $prog;
+                    if(empty($exist)){
+                        $data2 = array( 
+                            "imagen" =>"'$nombre'",
+                            "id_prog" => intval($prog),
+                        );  
+                    }
+                }
+
+             if ($mode == "add") {
+              $db->insert($data2, "imagephp");
+              $msg = "<div class='kode-alert kode-alert-icon alert3'><i class='fa fa-check'></i><a href='#' class='closed'>×</a>".$lan["add_success"]."</div>";
+             }
+             if ($mode == "update") {
+                $db->update($data2, "imagephp", "id_prog = $levelid");
+                $msg = "<div class='kode-alert kode-alert-icon alert3'><i class='fa fa-check'></i><a href='#' class='closed'>×</a>".$lan["update_success"]."</div>";
+             }
+            }
+         }
         }
     }
 }}
@@ -56,7 +95,7 @@ if(isset($_GET['mode'])) {
   if($mode=="updateform"){
     //get the info
         $modetype = "update";
-        $datarow = $db->select("programa_ips","id_prog = $levelid");
+        $datarow = $db->select("programa_ips as p inner join contactoorg_ips as ci on ci.id_contactoorg = p.id_contacto","id_prog = $levelid");
         $levelname = $datarow[0]['nombre_prog'];
         $levelactPrinc_prog = $datarow[0]['actPrinc_prog'];
         $levelproposito_prog = $datarow[0]['proposito_prog'];
@@ -66,6 +105,8 @@ if(isset($_GET['mode'])) {
         $levelindMetricas = $datarow[0]['indMetricas'];
         $levelinstpriv_prog = $datarow[0]['instpriv_prog'];
         $levelinstpubli_prog = $datarow[0]['instpubli_prog'];
+        $levelcontactos = $datarow[0]['id_contactoorg'];
+        $levelcontactosna = $datarow[0]['nombre_contactoorg'];
         
         if(empty($datarow[0]['imagen'])){
             $levelimg="http://www.freeiconspng.com/uploads/no-image-icon-13.png";
@@ -123,7 +164,7 @@ if(isset($_GET['mode'])) {
                     </tr>
                    <?php
                         
-                        $list_programs = $db->select("programa_ips","id_prog > 0 ORDER BY id_prog ASC");
+                        $list_programs = $db->onlySelect("programa_ips as p inner join contactoorg_ips as ci on ci.id_contactoorg = p.id_contacto");
                         foreach ($list_programs as $key => $value) {
 
 
@@ -147,6 +188,7 @@ if(isset($_GET['mode'])) {
                                     <td>".$list_programs[$key]["indMetricas"]."</td>
                                     <td>".$list_programs[$key]["instpriv_prog"]."</td>
                                     <td>".$list_programs[$key]["instpubli_prog"]."</td>
+                                    <td>".$list_programs[$key]["nombre_contactoorg"]."</td>
                             <td>
                                 <center>
                                     <div class='btn-group' role='group' aria-label='...'>
@@ -219,34 +261,72 @@ if(isset($_GET['mode'])) {
                             <input style ="display: none" name="userfile" id="userfile" type="file" onchange="readURL(this);">
                         </div>
                     </div>
+                    <div class="form-group col-md-12">
+                        <label>Galeria de Imágenes</label>
+                        <br>
+                        <br>
+                        <div class="form-group col-md-2">
+                             <input style ="display: none" class="userfile2" type="file" id="file" name="file[]" multiple accept="image/x-png,image/gif,image/jpeg">
+                            <label for="file" id="labelimg" class="form-label">
+                            <img id="blah1" width="100" height="70" src="<?=$levelimg?>" alt="your image" />
+                            <br><span>Selecciona una imagen</span></label>
+                        </div>
+                        <?php 
+                            $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                            if(substr($actual_link, strrpos($actual_link, '/') + 1) != "list"){
+                                $i=1;
+                                $list_programs = $db->onlySelect("programa_ips as p inner join imagephp as im on im.id_prog = p.id_prog");
+                                foreach ($list_programs as $key => $value) {
+                                    echo '
+                                    <div class="form-group col-md-2">
+                                    <label for="file" id="labelimg" class="form-label">
+                                    <img id="blah1" width="100" height="70" src="../../img/programa/gallery-'.$list_programs[$key]["nombre_prog"].'/'.$list_programs[$key]["imagen"].'" alt="your image" />
+                                    <br><span>Selecciona una imagen</span></label>
+                                    </div>';
+
+                                }
+                            }?>
+                         <div id="vista-previa"></div>
+                         <div id="respuesta"></div>
+                    </div>
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["proposito"]?></label>
                         <input type="text" name="proposito" class="form-control" required value="<?=$levelproposito_prog?>">
                     </div>
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["actEsp"]?></label>
-                        <input type="text" name="actEsp" class="form-control" required value="<?=$levelactEsp_prog?>">
+                        <textarea type="text" name="actEsp" class="form-control" required ><?=$levelactEsp_prog?></textarea> 
                     </div>
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["urlwebsite"]?></label>
                         <input type="text" name="urlwebsite" class="form-control" required value="<?=$levelurlwebsite_fundaorg?>">
                     </div>
+
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["cantBenef"]?></label>
-                        <input type="text" name="cantBenef" class="form-control" required value="<?=$levelcantBenef?>">
+                        <textarea type="text" name="cantBenef" class="form-control" required value=""><?=$levelcantBenef?></textarea> 
                     </div>
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["indMetricas"]?></label>
-                        <input type="text" name="indMetricas" class="form-control" required value="<?=$levelindMetricas?>">
+                        <textarea type="text" name="indMetricas" class="form-control" required value=""><?=$levelindMetricas?></textarea> 
                     </div>
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["instpriv"]?></label>
-                        <input type="text" name="instpriv" class="form-control" required value="<?=$levelinstpriv_prog?>">
+                        <textarea type="text" name="instpriv" class="form-control" required value=""><?=$levelinstpriv_prog?></textarea> 
                     </div>
                     <div class="form-group">
                         <label for="input1" class="form-label"><?=$lan["instpubli"]?></label>
-                        <input type="text" name="instpubli" class="form-control" required value="<?=$levelinstpubli_prog?>">
+                        <textarea type="text" name="instpubli" class="form-control" required value=""><?=$levelinstpubli_prog?></textarea> 
                     </div>
+                    <select name="contactos">
+                    <option value='<?=$levelcontactos?>'><?=$levelcontactosna?></option>
+                        <?php 
+                            $list_contacts = $db->onlySelect("contactoorg_ips"); 
+                            foreach ($list_contacts as $key => $value) {
+                                echo "<option value='".$list_contacts[$key]["id_contactoorg"]."'>".$list_contacts[$key]["nombre_contactoorg"]."</option>"; 
+                            } 
+                        ?> 
+                    </select> 
                     <input type="hidden" name="mode" value="<?=$modetype?>">
                     <input type="hidden" name="levelid" value="<?=$levelid?>">
                     <button type="submit" name="submit-form" class="btn btn-default"><?=$lan["save"]?></button>
@@ -259,7 +339,82 @@ if(isset($_GET['mode'])) {
 
   </div>
 
+<script type="text/javascript">
+                $(".importar").hide();
+                var inputs = document.querySelectorAll( '.userfile2' );
+                Array.prototype.forEach.call( inputs, function( input )
+                {
+                    var label    = input.nextElementSibling,
+                        labelVal = label.innerHTML;
 
+                    input.addEventListener( 'change', function( e )
+                    {
+                        var fileName = '';
+                        if( this.files && this.files.length > 1 ){
+                            
+                            fileName =  this.files.length + " Archivos subidos" ;
+                        }
+                        else{
+                            fileName = e.target.value.split( '\\' ).pop();
+                        }
+                        if( fileName ){
+                            label.querySelector( 'span' ).innerHTML = fileName;
+                            $(".importar").show();
+
+                        }
+                        else{
+                            label.innerHTML = labelVal;
+                            $(".importar").hide();
+                        }
+                    });
+                });
+     $(function(){   
+       $("#file").on("change", function(){
+           /* Limpiar vista previa */
+           $("#vista-previa").html('');
+           var archivos = document.getElementById('file').files;
+           var navegador = window.URL || window.webkitURL;
+           /* Recorrer los archivos */
+           for(x=0; x<archivos.length; x++)
+           {
+               /* Validar tamaño y tipo de archivo */
+               var size = archivos[x].size;
+               var type = archivos[x].type;
+               var name = archivos[x].name;
+               if (size > 1024*1024)
+               {
+                   $("#vista-previa").append("<p style='color: red'>El archivo "+name+" supera el máximo permitido 1MB</p>");
+               }
+               else if(type != 'image/jpeg' && type != 'image/jpg' && type != 'image/png' && type != 'image/gif')
+               {
+                   $("#vista-previa").append("<p style='color: red'>El archivo "+name+" no es del tipo de imagen permitida.</p>");
+               }
+               else
+               {
+                 var objeto_url = navegador.createObjectURL(archivos[x]);
+                 $("#vista-previa").append("<img src="+objeto_url+" width='120' height='80' style='margin-left:10px;'>");
+               }
+           }
+       });
+       
+       $("#btn").on("click", function(){
+            var formData = new FormData($("#formulario")[0]);
+            var ruta = "multiple-ajax.php";
+            $.ajax({
+                url: ruta,
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(datos)
+                {
+                    $("#respuesta").html(datos);
+                }
+            });
+           });
+       
+     });
+    </script>
 
 </div>
 <!-- END CONTAINER -->

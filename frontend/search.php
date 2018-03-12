@@ -82,16 +82,16 @@ include ('../cms/classes/DB.class.php');
             
             //$compo=mysqli_real_escape_string($db->connect(), $comp);
             //$dep=mysqli_real_escape_string($db->connect(), $p);
-            $prueba=$db->preSelectSpecific("f.nombre_fundaorg, p.nombre_prog, c.nombre_comp, p.imagen","programa_ips as p 
-                inner join proxcomp as pc on pc.id_prog = p.id_prog 
-                inner join proxdep as pd on pd.id_prog = p.id_prog 
-                inner join proxmuni as pm on pm.id_prog = p.id_prog
-                inner join funxpro as fp on fp.id_prog = p.id_prog 
-                inner join departamento as d on d.id_dep = pd.id_dep 
-                inner join componentes as c on c.id_comp = pc.id_comp 
-                inner join fundaorg_ips as f on f.id_fundaorg = fp.id_fundaorg 
-                inner join servicios_ips as s on s.id_servicio = c.id_servicio
-                inner join municipio as m on m.id_muni = pm.id_muni",
+            $prueba=$db->preSelectSpecific("f.nombre_fundaorg, p.nombre_prog, c.nombre_comp, p.imagen"," 
+                programa_ips as p 
+			    inner join proxcomp as pc on pc.id_prog = p.id_prog
+			    inner join componentes as c on c.id_comp = pc.id_comp
+			    inner join proxmuni as pm on pm.id_prog = p.id_prog 
+			    inner join municipio as m on m.id_muni = pm.id_muni
+			    inner join contactoorg_ips as ci on ci.id_contactoorg = p.id_contacto
+			    inner join fundaorg_ips as f on f.id_fundaorg = ci.id_fundaorg
+			    inner join servicios_ips as s on s.id_servicio = c.id_servicio 
+			    inner join departamento as d on d.id_dep = m.id_dep ",
                 " (f.nombre_fundaorg like '%$sear%' or d.nombre_dep like '%$sear%' or m.nombre_muni like '%$sear%') and s.nombre_servicio like'$serv'");
             if(!empty($prueba)){
             	echo "<center><h1 style='font-weight:bold; font-size:40px; color:gray;'>RESULTADOS</h1></center>
@@ -123,9 +123,11 @@ include ('../cms/classes/DB.class.php');
 	                <p style="font-size:12px;">AREA GEOGRAFICA DE ALCANCE: ';
 	                $nombre_prog=$key["nombre_prog"];
 	                $geo=$db->select("programa_ips as p 
-	                                 inner join proxdep as pd on pd.id_prog = p.id_prog 
-	                                 inner join funxpro as fp on fp.id_prog = p.id_prog 
-	                                 inner join departamento as d on d.id_dep = pd.id_dep 
+	                                 inner join proxcomp as pc on pc.id_prog = p.id_prog 
+                                     inner join proxmuni as pm on pm.id_prog = p.id_prog 
+                                     inner join municipio as m on m.id_muni = pm.id_muni
+                                     inner join componentes as c on c.id_comp = pc.id_comp  
+                                     inner join departamento as d on d.id_dep = m.id_dep  
 	                                 ", "p.nombre_prog like'$nombre_prog'");
 	                foreach ($geo as $val){
 	                    echo $val["nombre_dep"].", ";
@@ -144,6 +146,7 @@ include ('../cms/classes/DB.class.php');
 ?>
 		</article>
 	</section>
+
 <script type="text/javascript">
 		var dbutton = document.getElementsByClassName("bouton");
 		var i=0;

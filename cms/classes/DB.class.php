@@ -41,10 +41,31 @@ class DB {
   
         return $this->processRowSet($result);  
     }  
+    public function onlySelect($table) {  
+        $link = $this->connect();
+        $sql = "SELECT * FROM $table";
+        $result = mysqli_query($link, $sql); 
+
+        if(mysqli_num_rows($result) == 1)  
+            return $this->processRowSet($result, true);  
+  
+        return $this->processRowSet($result);  
+    }  
     public function preSelect($table, $where) {  
 
         $link = $this->connect();
         $sql = "SELECT DISTINCT * FROM $table WHERE $where";
+        $result = mysqli_query($link, $sql); 
+
+        if(mysqli_num_rows($result) == 1)  
+            return $this->processRowSet($result, true);  
+  
+        return $this->processRowSet($result);  
+    }  
+    public function selectempty($table) {  
+
+        $link = $this->connect();
+        $sql = "SELECT * FROM $table";
         $result = mysqli_query($link, $sql); 
 
         if(mysqli_num_rows($result) == 1)  

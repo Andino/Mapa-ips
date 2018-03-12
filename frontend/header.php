@@ -34,7 +34,7 @@
           <a class="nav-link" href="index.php">INICIATIVAS POR MUNICIPIO</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="alianzas2.php?n=ElSalvador">INICIATIVAS NIVEL NACIONAL</a>
+          <a class="nav-link" href="iniciativasnac.php">INICIATIVAS NIVEL NACIONAL</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="acercade.php">ACERCA DEL IPS</a>
