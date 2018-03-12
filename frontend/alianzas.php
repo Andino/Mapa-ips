@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php include ('header.php');
 include ('../cms/classes/DB.class.php'); 
  $id=$_GET['n'];
@@ -50,7 +51,7 @@ include ('../cms/classes/DB.class.php');
 
 	}
 	.ssection{
-		margin:80px !important; 
+		
 		margin-top: 47px !important;
 	}
 	.ssection .responsive{
@@ -82,15 +83,17 @@ include ('../cms/classes/DB.class.php');
 }
 	
 .nav-option{
-	margin-left: 23px;
+	
 }
 .comnav{
 	border-radius: 5px;
 	margin-left: 10px;
 }
 
-.map-depart{
-	
+.menu-category{
+ margin-left: 15em!important;
+ height: 100vh!important;
+ width: 60vh;
 	
 }
 .container-maps{
@@ -104,7 +107,7 @@ include ('../cms/classes/DB.class.php');
 	position: static;!important;
 	width: 100%;
 	margin-left: 25em;
-	margin-top: -5em;
+	margin-top: -3em;
 	z-index: 10000;
 	display: grid;
 	grid-template-columns: repeat(3,190px);
@@ -134,10 +137,11 @@ include ('../cms/classes/DB.class.php');
   <center>
   <div class="card text-center svg-map-card " style="z-index: 999; width: 95%;">
     <div class="card-body container-maps">
+	
       <div class="row"> 
 
 
-         <div class="col s3 fsection fsection-info">
+         <div class="col s4 fsection fsection-info" >
          	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mpsa.svg">
          	<h4>Midiendo el</h4>
          	<h1>Progreso Social</h1>
@@ -146,7 +150,7 @@ include ('../cms/classes/DB.class.php');
          	<br>
          	El modelo sintetiza el amplio conjunto de investigaciones en numerosos campos, a fin de identificar las múltiples dimensiones del desempeño social y ambiental de las sociedades.</p>
          </div> 
-         <div class="col s3 ssection map-depart">
+         <div class="col s3 ssection map-depart" style="">
          	<?php
          		$prueba=$db->selectSpecific("nombre_dep", "departamento", "nombre_dep like '$id'");
 				foreach ($prueba as $key) {
@@ -157,9 +161,9 @@ include ('../cms/classes/DB.class.php');
 
 
 <center>
-<div id="map-svg">
+<div id="map-svg" style=" width: 100%;">
 	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 900 1200" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
+	 viewBox="0 0 950 1200" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
 	<style type="text/css">
 	.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
 	.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
@@ -207,7 +211,7 @@ include ('../cms/classes/DB.class.php');
 	
 
 
-         <div class="col s3 ssection map-depart" style="display: flex; justify-content: center; align-items: center;height: 100%">
+         <div class="col s3 menu-category" style="display: flex; justify-content: center; align-items: center;">
          	<style type="text/css">
          		.ulcontent {
          			margin: 0px;
@@ -294,10 +298,13 @@ include ('../cms/classes/DB.class.php');
 	
 					.padre{
 						border-radius: 5px;
+						
 					}
 					.hijo{
 						display: grid;
-						grid-template-columns: repeat(3,200px);
+						box-sizing: border-box;
+						 grid-template-columns: repeat(3,2fr);
+						
 					}
 					.sub-hijo{
 						 background-color: rgb(0,126,193);
@@ -307,9 +314,9 @@ include ('../cms/classes/DB.class.php');
 						 align-items: center;
 						 flex-direction: column;
 						 padding: 15px;
-						 cursor: pointer;
-						 
+						 cursor: pointer; 
 					}
+
 					.sub-hijo:hover{
 						filter: brightness(130%);
 						transition-duration: 1s;
@@ -322,9 +329,9 @@ include ('../cms/classes/DB.class.php');
 					.sub-hijo img{
 						width: 50%;
 					}
+				@media screen and( max-width: 1920px){
 
-         		@media only screen and (min-width: 1466px) {
-	         	
+
 
 
 					.comnav{
@@ -336,11 +343,11 @@ include ('../cms/classes/DB.class.php');
 						position: absolute; 
 						left:60%;
 					}
-					.responsive{
-						width: 500px;
-					}
+					
+				
+
 				}
-				@media only screen and (max-width: 1066px) {
+				@media screen and (max-width: 1066px) {
 
 
 					.comnav{
@@ -365,7 +372,8 @@ include ('../cms/classes/DB.class.php');
 				
 					}
          		}
-				@media only screen and (max-width: 1366px) {
+				@media screen and (max-width: 1366px) {
+
 					.fsection-info{
 						width: 26%!important
 					}
@@ -376,9 +384,9 @@ include ('../cms/classes/DB.class.php');
 					.responsive{
 						width: 450px;
 					}
-					.ulcontent li a{
-						width: 121px;
-						font-size: 13px;
+			
+					.hijo{
+
 					}
 				}
          	</style>
@@ -410,22 +418,7 @@ include ('../cms/classes/DB.class.php');
 			  <li class="divider"></li>
 			  <li><a class="bouton">Educación Superior</a></li>
 			</ul>
-         	<!--<nav class ="comnav" style="">
-			    <div class="nav-wrapper nav-option" >
-			      <ul class="ulcontent " style="line-height: 20px; text-align: center; color: ">
 
-			        <li class="1 option-map border dropdown-button" data-activates="dropdown1">
-			        	<a  style="" class="" href="#!" >
-			        	<img src="img/iconos/basicas.svg" alt="hola"><p>Necesidades Basicas</p></a></li>
-
-			        <li class="2 option-map dropdown-button" data-activates="dropdown2" >
-			        <a style="" class="dropdown-button" href="#!" data-activates="dropdown2"><img src="img/iconos/fundamentos.svg" alt="hola" width="100"><p>Fundamentos de Bienestar</p></a>
-			    </li>
-
-			        <li class="3 option-map border1 dropdown-button" data-activates="dropdown3"><a style="" class="dropdown-button" href="#!" data-activates="dropdown3"><p style="position: relative; left:-4px; top: 6px;color: #085eaa!important;font-weight: 400;font-size: 15px;"><img src="img/iconos/oportunidades.svg" alt="hola"><p>Oportunidades</p></a></li>
-			      </ul>
-			    </div>
-			  </nav>-->
 
 			  <div class="padre nav-option">
 			  		<div class="hijo">

@@ -1,6 +1,7 @@
 
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <title>Fundación Poma </title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="css/materialize.css">
