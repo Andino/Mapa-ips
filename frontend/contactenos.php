@@ -22,6 +22,7 @@
 	<style type="text/css">
 		.modal {
 			width: 600px!important;
+			overflow-y: hidden!important;
 		}
 		.modal-header {
 		  padding: 15px;
@@ -35,6 +36,28 @@
 		}
 		.modal-header p{
 			font-size: 25px;
+		}
+		input[type=text]:not(.browser-default):focus:not(readonly){
+			border-bottom: 2px solid #00afbe!important;
+			color: black!important;
+		}
+		input[type=email]:not(.browser-default):focus:not(readonly){
+			border-bottom: 2px solid #00afbe!important;
+			color: black!important;
+		}
+		input[type=password]:not(.browser-default):focus:not(readonly){
+			border-bottom: 2px solid #00afbe!important;
+			color: black!important;
+		}
+		.btnsend{
+			margin-bottom: 10px; 
+		}
+		.btnsend:hover{
+			color: white!important;
+		}
+		.modal-overlay{
+			background: #00afbe!important;
+			opacity: 0.1%;
 		}
 
 	</style>	
@@ -53,6 +76,7 @@
 							<button class="waves-effect waves-light btn modal-trigger" href="#modal1" style="background-color: #f49715;font-size: 32px;width: 400px; height: 100px;"><img src="img/boton_contacto01.svg" style="padding-right: 15px;vertical-align: middle;">Contáctanos</button>
 							<br>
 							<a class="btn btn-primary btn-lg" href="formulario.php" style="background-color: #f49715;font-size: 32px;width: 400px;margin-top: 25px;height: 100px;"><img src="img/boton_contacto.svg" style="padding-right: 15px;vertical-align: middle;">Involúcrate</a>
+						
 						</div>
 					</div>
 					</center>
@@ -69,6 +93,8 @@
 								<a href="mailto:mapaips@fundacionpoma.org" target="_blank" style="text-decoration: none;">
 									<img src="img/mido_red04.svg" style="padding: 10px;">
 								</a> 
+
+
 						</div>
 					</div>
 					</div>
@@ -84,37 +110,39 @@
     </div>
 		    <div class="modal-content">
 		      
-		      <div class="col-sm-12">
+		      <div class="col s12">
 					<div class="row">
-					    <form class="col s12">
+					    <form class="col s12" style="z-index: 100000;">
 					      <div class="row">
 					        <div class="input-field col s12">
-					          <input id="Nombre" type="text" class="validate">
+					          <input id="Nombre" type="text" class="validate" style="margin-top: 10px!important; font-size: 15px;">
 					          <label for="first_name">Nombre</label>
 					        </div>
 					     
 					      </div>
 					      <div class="row">
 					        <div class="input-field col s12">
-					          <input id="Organizacion" type="text" class="validate">
+					          <input id="Organizacion" type="text" class="validate" style="margin-top: 10px!important; font-size: 15px;">
 					          <label for="Organizacion">Organización</label>
 					        </div>
 					      </div>
 					      <div class="row">
 					        <div class="input-field col s12">
-					          <input id="email" type="email" class="validate">
+					          <input id="email" type="email" class="validate" style="margin-top: 10px!important; font-size: 15px;">
 					          <label for="email">Email</label>
 					        </div>
 					      </div>
 					      <div class="row">
 					        <div class="input-field col s12">
-					          <input id="Telefono" type="text" class="validate">
+					          <input id="Telefono" type="text" class="validate" style="margin-top: 10px!important; font-size: 15px;">
 					          <label for="Telefono">Teléfono</label>
 					        </div>
 					      </div>
 					      <div align="center">
-					      <a class="waves-effect waves-light btn-large" align="center" style="background: #00afbe!important;">Enviar</a>
+					      <a class="waves-effect waves-light btn-large btnsend align="center" style="background: #00afbe!important;">Enviar</a>
+							
 					  </div>
+					  
 					  </form>
 					</div>
 		    </div>
@@ -130,6 +158,7 @@
 		</footer>
 
 	</div>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script type="text/javascript">
 	 $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
