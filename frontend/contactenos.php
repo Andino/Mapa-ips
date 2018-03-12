@@ -14,28 +14,45 @@
 
 	<!-- CSS Files -->
 	<link href="css/material-kit.css" rel="stylesheet">
-	<link href="css/site.css" rel="stylesheet">
-</head>
 
+	
+</head>
 <?php include ('header.php');?>
 <body class="landing-page" style="">
-	
+	<style type="text/css">
+		.modal {
+			width: 600px!important;
+		}
+		.modal-header {
+		  padding: 15px;
+		  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		  background: #f49715;
+		  color: white;
+		  text-align: center;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		}
+		.modal-header p{
+			font-size: 25px;
+		}
+
+	</style>	
 
 	<div class="wrapper">
-		<div class="header" style="background-color: transparent; margin-top: -5%;">
-		</div>
+		
 		<div class="main main-raised">
 			<div>
 				<img src="img/banner_contactenos.png" style="height: 100%;width:100%;">
 			</div>
-			<div class="container" style="margin: 0px;width: 100%;">
+			<div class="" style="margin: 0px;width: 100%;">
 				<div class="section text-center section-landing " style="padding: 10px;">
 					<center>
 					<div class="row" style="padding-top: 90px;padding-bottom: 90px">
 						<div class="col-md-12">
-							<button class="waves-effect waves-light btn modal-trigger" href="#modal1" style="background-color: #f49715;font-size: 32px;width: 400px; height: 100px;"><img src="img/boton_contacto01.svg" style="padding-right: 15px;">Contáctanos</button>
+							<button class="waves-effect waves-light btn modal-trigger" href="#modal1" style="background-color: #f49715;font-size: 32px;width: 400px; height: 100px;"><img src="img/boton_contacto01.svg" style="padding-right: 15px;vertical-align: middle;">Contáctanos</button>
 							<br>
-							<a class="btn btn-primary btn-lg" href="formulario.php" style="background-color: #f49715;font-size: 32px;width: 400px;margin-top: 25px;height: 100px;"><img src="img/boton_contacto.svg" style="padding-right: 15px;">Involúcrate</a>
+							<a class="btn btn-primary btn-lg" href="formulario.php" style="background-color: #f49715;font-size: 32px;width: 400px;margin-top: 25px;height: 100px;"><img src="img/boton_contacto.svg" style="padding-right: 15px;vertical-align: middle;">Involúcrate</a>
 						</div>
 					</div>
 					</center>
@@ -61,38 +78,48 @@
 				
 			</div>
 		</div>
-		 <div id="modal1" class="modal">
+		 <div id="modal1" class="modal" >
+				<div class="modal-header">
+      <p>Contactenos</p>
+    </div>
 		    <div class="modal-content">
-		      <h4>Modal Header</h4>
+		      
 		      <div class="col-sm-12">
 					<div class="row">
 					    <form class="col s12">
 					      <div class="row">
-					        <div class="input-field col s6">
-					          <input placeholder="Nombre" id="Nombre" type="text" class="validate">
+					        <div class="input-field col s12">
+					          <input id="Nombre" type="text" class="validate">
 					          <label for="first_name">Nombre</label>
 					        </div>
-					        <div class="input-field col s6">
-					          <input placeholder="Organizacion" id="Organizacion" type="text" class="validate">
+					     
+					      </div>
+					      <div class="row">
+					        <div class="input-field col s12">
+					          <input id="Organizacion" type="text" class="validate">
 					          <label for="Organizacion">Organización</label>
 					        </div>
 					      </div>
 					      <div class="row">
 					        <div class="input-field col s12">
-					          <input placeholder="Email" id="email" type="email" class="validate">
+					          <input id="email" type="email" class="validate">
 					          <label for="email">Email</label>
 					        </div>
 					      </div>
 					      <div class="row">
 					        <div class="input-field col s12">
-					          <input placeholder="Teléfono" id="Telefono" type="text" class="validate">
+					          <input id="Telefono" type="text" class="validate">
 					          <label for="Telefono">Teléfono</label>
 					        </div>
 					      </div>
-					s</div>
+					      <div align="center">
+					      <a class="waves-effect waves-light btn-large" align="center" style="background: #00afbe!important;">Enviar</a>
+					  </div>
+					  </form>
+					</div>
 		    </div>
 		  </div>
-		
+		</div>
 	
 		<footer class="footer">
 			<div class="container" style="margin: 0px 30px 0px;">

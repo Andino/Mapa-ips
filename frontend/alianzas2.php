@@ -23,11 +23,11 @@
 	<div class="wrapper">
 		<div class="header" style="background-color: transparent; margin-top: -5%;">
 		</div>
-		<div class="main main-raised">
+		<div class="main main-raised" style="top:1em;">
 			<div>
 				<img src="img/banner_alianzas2.png" style="height: 100%;width:100%;">
 			</div>
-			<div class="container" style="margin: 0px;width: 100%;">
+			<div style="margin: 0px;width: 100%;">
 				<div class="section text-center section-landing " style="padding: 10px;">
 
 
