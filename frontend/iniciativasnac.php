@@ -210,7 +210,7 @@ include ('../cms/classes/DB.class.php');
          			left:67%;
          			box-shadow: 0 0 0 transparent;
          		}
-         		.dropdown-content{
+         		.content-sidemenu{
          			margin-top: 140px!important;
          		}
          		.dropdown-content li a{
@@ -331,7 +331,7 @@ include ('../cms/classes/DB.class.php');
 				}
          	</style>
 
-         	<ul id="dropdown1" class="dropdown-content" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important;border:1px solid #039be5;">
+         	<ul id="dropdown1" class="dropdown-content content-sidemenu" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important;border:1px solid #039be5;">
 			  <li><a class="bouton">Nutricion y Asistencia Medica Basica</a></li>
 			  <li class="divider"></li>
 			  <li><a class="bouton">Agua y Saneamiento</a></li>
@@ -340,7 +340,7 @@ include ('../cms/classes/DB.class.php');
 			  <li class="divider"></li>
 			  <li><a class="bouton">Seguridad personal</a></li>
 			</ul>
-			<ul id="dropdown2" class="dropdown-content" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important;border:1px solid #ff9800;">
+			<ul id="dropdown2" class="dropdown-content content-sidemenu" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important;border:1px solid #ff9800;">
 			  <li><a class="bouton" style="margin-bottom: 20px">Acceso a Conocimientos Básicos</a></li>
 			  <li class="divider"></li>
 			  <li><a class="bouton">Acceso a Información y Comunicaciones</a></li>
@@ -349,7 +349,7 @@ include ('../cms/classes/DB.class.php');
 			  <li class="divider"></li>
 			  <li><a class="bouton">Sustentabilidad del Ecosistema</a></li>
 			</ul>
-			<ul id="dropdown3" class="dropdown-content" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important; border:1px solid #8bc34a;">
+			<ul id="dropdown3" class="dropdown-content content-sidemenu" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important; border:1px solid #8bc34a;">
 			  <li><a class="bouton">Derechos Personales</a></li>
 			  <li class="divider"></li>
 			  <li><a class="bouton">Libertad Personal y de Elección</a></li>
