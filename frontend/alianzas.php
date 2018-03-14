@@ -272,14 +272,17 @@ include ('../cms/classes/DB.class.php');
          		.dropdown-content li a{
          			color: #9e9e9e;
          			font-family: 'Roboto', sans-serif;
-         			font-size: 12px!important;
+         			font-size: 10.5px!important;
          			font-weight: 500;
-         			height: 40px;
+         			height: 100%;
          			margin-top: 0px;
          			text-align: left;
-         			line-height: 15px;
-         			letter-spacing: 0.2px;
+         			line-height: 12.5px;
+         			letter-spacing: 0.5px;
          			
+         		}
+         		.dropdown-content li:hover{
+         			background: #E0E0E0!important;
          		}
          		.responsive{
 						width: 500px;
@@ -365,7 +368,7 @@ include ('../cms/classes/DB.class.php');
 	         			margin-top: 0px;
 	         			font-size: 7px;
 	         			text-align: left;
-	         			line-height: 15px;
+	         			line-height: 5%;
 	         		}
 	         		.responsive{
 						
@@ -401,7 +404,7 @@ include ('../cms/classes/DB.class.php');
 			  <li><a class="bouton">Seguridad personal</a></li>
 			</ul>
 			<ul id="dropdown2" class="dropdown-content content-sidemenu" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important;border:1px solid #ff9800;">
-			  <li><a class="bouton" style="margin-bottom: 20px">Acceso a Conocimientos Básicos</a></li>
+			  <li><a class="bouton">Acceso a Conocimientos Básicos</a></li>
 			  <li class="divider"></li>
 			  <li><a class="bouton">Acceso a Información y Comunicaciones</a></li>
 			  <li class="divider"></li>

@@ -126,6 +126,7 @@ include ('../cms/classes/DB.class.php');
 
 
 
+
 </style>
 <section class="svg-map">
   <center>
@@ -143,19 +144,11 @@ include ('../cms/classes/DB.class.php');
          	<br>
          	El modelo sintetiza el amplio conjunto de investigaciones en numerosos campos, a fin de identificar las múltiples dimensiones del desempeño social y ambiental de las sociedades.</p>
          </div> 
-         <div class="col s3 ssection map-depart">
-         	<div class="text-apartament">
-    					<a href="index.php"><img src="img/left-arrow.png" alt="left"></a><span class="name-apartament">El Salvador</span></div>
-
-<div class="col s8 " id="map-svg">
-	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mapa_nacional.svg" width="700">
-</div>
-
-         </div> 
-	
+       
 
 
-         <div class="col s4 ssection map-depart" style="display: flex; justify-content: center; align-items: center; margin-top:110px!important;height: 100%">
+<div class="col s8 " id="map-svg" style="width: 70%;display: flex;flex-direction: column;padding-left: 2%!important; "> 
+         <div class="col s12" style="display: flex; justify-content: center; align-items: center; margin-top:110px!important;height: 100%;">
          	<style type="text/css">
          		.ulcontent {
          			margin: 0px;
@@ -241,21 +234,23 @@ include ('../cms/classes/DB.class.php');
 					}
 	
 					.padre{
-						border-radius: 5px;
-					}
-					.hijo{
 						display: grid;
-						grid-template-columns: repeat(3,200px);
+						box-sizing: border-box;
+						grid-template-columns: repeat(3,3fr);
+						grid-gap: 15px;
 					}
+				
 					.sub-hijo{
 						 background-color: rgb(0,126,193);
-						 height: 100%;
+						 height: 60px;
 						 display: flex; 
 						 justify-content: center;
 						 align-items: center;
 						 flex-direction: column;
 						 padding: 15px;
 						 cursor: pointer;
+						 text-transform: uppercase;
+
 						 
 					}
 					.sub-hijo:hover{
@@ -263,14 +258,19 @@ include ('../cms/classes/DB.class.php');
 						transition-duration: 1s;
 					}
 					.sub-hijo p{
-						color: #05579f;
+						color: white;
 						font-family: 'Roboto', sans-serif;
-						font-size: 15px; 
+						font-size: 13px; 
+						letter-spacing: .5px;
 					}
-					.sub-hijo img{
-						width: 50%;
-					}
+					
 
+					.iniciative{
+						margin-top: -7em!important;
+					}
+					.content-sidemenu{
+						margin-top: 4em!important;
+					}
          		@media only screen and (min-width: 1466px) {
 	         	
 
@@ -341,7 +341,7 @@ include ('../cms/classes/DB.class.php');
 			  <li><a class="bouton">Seguridad personal</a></li>
 			</ul>
 			<ul id="dropdown2" class="dropdown-content content-sidemenu" style="margin-top: 80px; background: white!important; width: 19px!important; padding: 0!important;border:1px solid #ff9800;">
-			  <li><a class="bouton" style="margin-bottom: 20px">Acceso a Conocimientos Básicos</a></li>
+			  <li><a class="bouton" style="">Acceso a Conocimientos Básicos</a></li>
 			  <li class="divider"></li>
 			  <li><a class="bouton">Acceso a Información y Comunicaciones</a></li>
 			  <li class="divider"></li>
@@ -358,43 +358,27 @@ include ('../cms/classes/DB.class.php');
 			  <li class="divider"></li>
 			  <li><a class="bouton">Educación Superior</a></li>
 			</ul>
-         	<!--<nav class ="comnav" style="">
->>>>>>> 5bdffb69f2943afb3fbd2f55071c995bcf10b6b1
-			    <div class="nav-wrapper nav-option" >
-			      <ul class="ulcontent " style="line-height: 20px; text-align: center; color: ">
 
-			        <li class="1 option-map border dropdown-button" data-activates="dropdown1">
-			        	<a  style="" class="" href="#!" >
-			        	<img src="img/iconos/basicas.svg" alt="hola"><p>Necesidades Basicas</p></a></li>
 
-			        <li class="2 option-map dropdown-button" data-activates="dropdown2" >
-			        <a style="" class="dropdown-button" href="#!" data-activates="dropdown2"><img src="img/iconos/fundamentos.svg" alt="hola" width="100"><p>Fundamentos de Bienestar</p></a>
-			    </li>
-
-			        <li class="3 option-map border1 dropdown-button" data-activates="dropdown3"><a style="" class="dropdown-button" href="#!" data-activates="dropdown3"><p style="position: relative; left:-4px; top: 6px;color: #085eaa!important;font-weight: 400;font-size: 15px;"><img src="img/iconos/oportunidades.svg" alt="hola"><p>Oportunidades</p></a></li>
-			      </ul>
-			    </div>
-			  </nav>-->
-
-			  <div class="padre nav-option">
-			  		<div class="hijo">
+			  <div class="nav-option iniciative">
+			  		<div class="padre">
 			  			<a class="dropdown-button" data-activates="dropdown1">
 			  			<div class="sub-hijo 1 border">
-			  				<img src="img/iconos/basicas.svg" alt="hola">
+			  				
 			  				<p>Necesidades Basicas</p>
 			  			</div>
 						</a>
 
 						<a class="dropdown-button" data-activates="dropdown2">
 			  			<div class="sub-hijo 2" style="">
-			  				<img src="img/iconos/fundamentos.svg" alt="hola" >
+			  				
 			  				<p>Fundamentos de Bienestar</p>
 			  			</div>
 						</a>
 
 						<a class="dropdown-button" data-activates="dropdown3">
 			  			<div class="sub-hijo 3 border1">
-			  				<img src="img/iconos/oportunidades.svg" alt="hola">
+			  				
 			  				<p>Oportunidades</p>
 			  			</div>
 			  			</a>
@@ -402,7 +386,17 @@ include ('../cms/classes/DB.class.php');
 					
 			  </div>
 
-         </div>
+         </div>   
+     	<div class="text-apartament">
+    					<a href="index.php"><img src="img/left-arrow.png" alt="left"></a><span class="name-apartament">El Salvador</span></div>
+	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mapa_nacional.svg" >
+</div>
+
+      
+	
+
+
+
 	
       </div>
       

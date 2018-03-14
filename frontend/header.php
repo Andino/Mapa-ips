@@ -14,7 +14,27 @@
     $(document).ready(function() {
       $('select').material_select();
     });
+
+
     </script>
+    <script type="text/javascript">
+$(function() {
+  
+  // elementos de la lista
+  var menues = $(".customul li"); 
+
+  // manejador de click sobre todos los elementos
+  menues.click(function() {
+     // eliminamos active de todos los elementos
+     menues.removeClass("active");
+     // activamos el elemento clicado.
+     $(this).addClass("active");
+     console.log("active");
+  });
+
+});
+</script>
+
   </head>
   <style type="text/css">
     a{text-decoration: none!important;}
@@ -30,21 +50,21 @@
    <nav class="snavbar">
     <div class="nav-wrapper navbarcustom"  style="" id="navbarNav">
     
-      <ul class="nav-mobile customul" style="">
-        <li class="nav-item ">
-          <a class="nav-link" href="index.php">INICIATIVAS POR MUNICIPIO</a>
+      <ul class="hide-on-med-and-down customul" id="cssmenu" style="">
+        <li class="nav-item">
+          <a class="active" href="index.php">INICIATIVAS POR MUNICIPIO</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="iniciativasnac.php">INICIATIVAS NIVEL NACIONAL</a>
+          <a class="" href="iniciativasnac.php">INICIATIVAS NIVEL NACIONAL</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="acercade.php">ACERCA DEL IPS</a>
+          <a class="" href="acercade.php">ACERCA DEL IPS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="alianzas2.php">ALIANZAS</a>
+          <a class="" href="alianzas2.php">ALIANZAS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contactenos.php">CONTACTO</a>
+          <a class="" href="contactenos.php">CONTACTO</a>
         </li>
         <li style="width: 20px;">
        </li>
