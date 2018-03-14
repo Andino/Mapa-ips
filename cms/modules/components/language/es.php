@@ -5,7 +5,7 @@
 
 $lan["component"] = "Componentes";
 
-$lan["component_title"] = "Lista de Componentes";
+$lan["components_title"] = "Lista de Componentes";
 
 $lan["component_success"] = "Nuevo Componente agregado exitosamente!";
 $lan["component_updated"] = "Componente actualizado exitosamente!";
