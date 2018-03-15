@@ -97,7 +97,7 @@ include ('../cms/classes/DB.class.php');
 	                  echo '<img width="250" src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" />';
 	                }
 	                else{
-	                  echo'<center><img src="../cms/img/programa/'.$key["imagen"].'" style="object-fit:  cover;width: 18em;" class="center" alt="Lorem ipsum" /></center>';
+	                  echo'<center><img src="../cms/img/programa/'.$key["imagen"].'" style="object-fit:  cover;width: 15em;" class="center" alt="Lorem ipsum" /></center>';
 	                }
 	                $name=mysqli_real_escape_string($db->connect(), $key["nombre_prog"]);
                 echo'
@@ -109,7 +109,7 @@ include ('../cms/classes/DB.class.php');
                 <p style="font-weight:bold;color:black;">Persona de contacto</p>
                 <p><i style="color:#00afbe!important" class="fas fa-user"></i> '.$key["nombre_contactoorg"].'</p>
                 </div>
-                <div class="gallery-container">
+                <div class="gallery-container" style="margin-top:2em;">
                 ';
                 $img=$db->select("imagephp as im 
 				            	inner join programa_ips as p on p.id_prog = im.id_prog  ", 
@@ -124,7 +124,7 @@ include ('../cms/classes/DB.class.php');
             </div>
             <div class="col s8" style="text-align: left; font-weight:bold;">
          
-                <a style="float:right;color:#f49715;font-weight:bold!important;font-size:20px;margin-right:50px;" href="'.$_SERVER['HTTP_REFERER'].'"><img src="img/left-arrow.png" alt="" style="vertical-align: middle;" /> Regresar</a>
+                <a style="float:right;color:#f49715;font-weight:bold!important;font-size:20px;margin-right:50px;" href="'.$_SERVER['HTTP_REFERER'].'"><img src="img/left-arrow.png" alt="" style="vertical-align: middle;" />&nbsp;&nbsp;Regresar</a>
 
                 <br><br>
                 <center><a style="font-weight:bold!important;text-transform: uppercase; font-size:18px;"><p style:"font-weight:bolder;">'.$key["nombre_prog"].'</p> </a></center>
@@ -255,7 +255,7 @@ include ('../cms/classes/DB.class.php');
                 <span class="plus"><a title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
             </div>
             </div>
-            <hr>';
+           ';
             }
       	?>
       </div>

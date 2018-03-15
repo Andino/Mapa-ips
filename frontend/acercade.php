@@ -16,6 +16,7 @@
 	<link href="css/site.css" rel="stylesheet">
 </head>
 <?php include ('header.php');?>
+
 <body class="landing-page" style="">
 	
 

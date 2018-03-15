@@ -31,8 +31,11 @@ body {
 	font-weight: 300;
 
 }
+.main-raised{
+	top: 11px!important;
+}
 .title-svg{
-	font-size: 1.2em;
+	font-size: 1.1em;
 	font-weight: bold;
 	color: rgb(0,126,193);
 	filter: brightness(70%);
@@ -102,8 +105,8 @@ body {
 #search::placeholder{
 	color: white;
 	height: 1rem!important;
-	font-size: 9px!important;
-	margin-bottom: -10%!important;
+	font-size: 10.5px!important;
+	
 }
 
 .snavbar .item:hover{

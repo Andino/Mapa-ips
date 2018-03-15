@@ -85,7 +85,7 @@ $(function() {
        <li>
         
           <div class="input-field input">
-            <input class="input-header" style="width:160px;" placeholder="Departamento, Municipio, Organización" id="search" name="sbar" type="text" class="validate">
+            <input class="input-header" style="width:180px;" placeholder="Departamento, Municipio, Organización" id="search" name="sbar" type="text" class="validate">
         </div>
         </form>
        </li>
