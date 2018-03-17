@@ -233,7 +233,7 @@ include ('../cms/classes/DB.class.php');
 						width: 40%;
 					}
 	
-					.padre{
+					.padrenac{
 						display: grid;
 						box-sizing: border-box;
 						grid-template-columns: repeat(3,3fr);
@@ -361,7 +361,7 @@ include ('../cms/classes/DB.class.php');
 
 
 			  <div class="nav-option iniciative">
-			  		<div class="padre">
+			  		<div class="padrenac">
 			  			<a class="dropdown-button" data-activates="dropdown1">
 			  			<div class="sub-hijo 1 border">
 			  				

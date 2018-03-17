@@ -1,12 +1,9 @@
+<?php $serv = $_POST['taskOption'];$sear = $_POST['sbar'];if(empty($sear)||empty($serv)){header("location:index.php");}?>
 <!DOCTYPE html>
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
-<?php include ('header.php');
-$serv = $_POST['taskOption'];
- $sear = $_POST['sbar'];
- if(empty($sear) || empty($serv)){
- 	header("location:index.php");
- }
+<?php
+include ('header.php');
+
  
 include ('../cms/classes/DB.class.php');
 	 if (file_exists('../cms/config.php')) {
@@ -114,7 +111,7 @@ include ('../cms/classes/DB.class.php');
 	            <div class="col s8" style="text-align: left; color:gray; font-weight:bold;">
 	                <h3 style="font-size: 17px; text-align: left;">
 	                    <a href="#" style=" color:gray!important; font-weight:bold;">'.$key["nombre_prog"].' </a>
-	                    <small class="right" style="color:#38aab3; margin-top:-7px;"><i class="fas fa-plus-circle"></i><a href="programas.php?pro='.$key["nombre_prog"].'">Ver más</a></small>
+	                    <small class="right" style="color:#38aab3; margin-top:-7px;"><i class="fas fa-plus-circle"></i><a href="programas.php?pro='.$key["nombre_prog"].'">&nbsp;Ver más</a></small>
 	                </h3>
 	                <p style="font-size:15px;">'.$key["nombre_fundaorg"].
 	                //.' - '.$key["nombre_prog"].'
@@ -144,8 +141,7 @@ include ('../cms/classes/DB.class.php');
             	<hr>
 
             	<h1 style="font-weight:bold; font-size:40px; color:gray;">No Encontrados</h1>
-	        		<script>Materialize.toast("Se han encontrado 0 registros en común", 3000, "rounded");
-	        		</script>');
+	        		');
 	        }
 ?>
 		</article>

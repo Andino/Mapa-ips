@@ -16,16 +16,37 @@ include ('../cms/classes/DB.class.php');
     $db = new DB(); 
     $comp = $_GET['q'];
     $p = $_GET['id'];
-?>
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     viewBox="0 0 900 1200" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
+
+    if($p == "usulután" ){?>
+    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="80 -90 1810 1540" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
+    <?php 
+    } else if( $p=="chalatenango"){?>
+    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="70 -390 1810 2140" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="550">   
+    <?php
+    }else if($p == "cabañas" ){?>
+    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="40 -90 1610 1240" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
+    
+    <?php
+    }else if($p == "cuscatlán" || $p == "la unión" || $p == "san miguel" || $p == "morazán"){?>
+    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="40 60 1610 1840" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
+    
+    <?php
+    }else{?>
+    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="20 60 1310 1290" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="620">
+    
+<?php } ?>
     <style type="text/css">
-    .st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
-    .st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
-    .st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
-    .st2{fill:blue;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
-    .st3{fill:orange;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
-    .st4{fill:green;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+    .st0{fill:#F4F4F4;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+    .st0:hover{fill:yellow;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+    .st1{fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+    .st2{fill:blue;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+    .st3{fill:orange;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+    .st4{fill:green;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
     </style>
     <?php
     $prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 

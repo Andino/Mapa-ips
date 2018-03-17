@@ -13,7 +13,11 @@ table, td, th {
 }
 
 th {text-align: left;}
-
+.error{
+    font-size: 25px!important;
+    color: #F44336;
+    font-weight: bold;
+  
 .programs p {
     color: #bdbdbd;
     font-weight: 300;
@@ -101,7 +105,7 @@ include ('../cms/classes/DB.class.php');
                 </center>';
                 }
             }
-            else{  echo '<h3>NO SE HAN ENCONTRADO REGISTROS EXISTENTES</h3>';
+            else{  echo '<h3 class="error" >NO SE HAN ENCONTRADO REGISTROS</h3>';
             } ?>
 </body>
 <script type="text/javascript">

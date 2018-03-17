@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <?php include ('header.php');
 include ('../cms/classes/DB.class.php'); 
  $id=$_GET['n'];
@@ -19,9 +18,9 @@ include ('../cms/classes/DB.class.php');
 ?>
 <style type="text/css">
 	.fsection{
-		background-color: #00afbe; 
+		 
 		color: white;  
-		margin-left: 25px!important;
+		margin-left: 20px!important;
 		max-width: 100%;
 	}
 	.fsection img{
@@ -40,14 +39,16 @@ include ('../cms/classes/DB.class.php');
 	}
 	.fsection p{
 		text-align: left; 
-		font-size: 13px;
+		font-size: 10px!important;
 		font-weight: 300;
 	}
 
 	.fsection-info{
-		padding: 40px!important;
+		
 		position: relative!important;
-		width: 25%!important;
+		width: 30%!important;
+		height: 10%;
+
 
 	}
 	.ssection{
@@ -91,8 +92,8 @@ include ('../cms/classes/DB.class.php');
 }
 
 .menu-category{
- margin-left: 15em!important;
- height: 100vh!important;
+
+
  width: 60vh;
 	
 }
@@ -104,13 +105,13 @@ include ('../cms/classes/DB.class.php');
 }
 
 .right-align{
-	position: static;!important;
-	width: 100%;
-	margin-left: 25em;
+	position: static!important;
+	/*width: 100%;*/
+	
 	margin-top: -3em;
-	z-index: 10000;
+	z-index: 1;
 	display: grid;
-	grid-template-columns: repeat(3,190px);
+	grid-template-columns: repeat(3,150px);
 	padding: 5px;
 }
 
@@ -126,9 +127,14 @@ include ('../cms/classes/DB.class.php');
 
 .stadistic p{
 	color: #9e9e9e;
-	font-size: 14px;
+	font-size: 10.5px;
 
 }
+
+.sta-1{
+	margin-left: -2.1em;
+}
+
 
 
 
@@ -138,19 +144,24 @@ include ('../cms/classes/DB.class.php');
   <div class="card text-center svg-map-card " style="z-index: 999; width: 95%;">
     <div class="card-body container-maps">
 	
-      <div class="row"> 
+      <div class="row" style="display: flex;flex-wrap: nowrap;"> 
 
 
-         <div class="col s4 fsection fsection-info" >
-         	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mpsa.svg">
-         	<h4>Midiendo el</h4>
-         	<h1>Progreso Social</h1>
-         	<p>El modelo del Progreso Social se fundamenta en una visión holística y rigurosa de las condiciones sociales y ambientales de las sociedades. Tanto el modelo como la metodología del Índice de Progreso Social son el resultado de un proceso colaborativo de investigación en el que se ha recurrido a una amplia gama de académicos y expertos en políticas.
-         	<br>
-         	<br>
-         	El modelo sintetiza el amplio conjunto de investigaciones en numerosos campos, a fin de identificar las múltiples dimensiones del desempeño social y ambiental de las sociedades.</p>
+         <div class="fsection fsection-info" style="display: flex;justify-content: center;align-items: center;" >
+	         	<div style="display: flex;justify-content: center; align-items: center;flex-direction: column;background-color: #00afbe;padding:10px;width: 25em;">
+		         	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mpsa.svg" width="200">
+		         	<h4>Midiendo el</h4>
+		         	<h1>Progreso Social</h1>
+		         	<p>El modelo del Progreso Social se fundamenta en una visión holística y rigurosa de las condiciones sociales y ambientales de las sociedades. Tanto el modelo como la metodología del Índice de Progreso Social son el resultado de un proceso colaborativo de investigación en el que se ha recurrido a una amplia gama de académicos y expertos en políticas.
+		         	<br>
+		         	<br>
+		         	El modelo sintetiza el amplio conjunto de investigaciones en numerosos campos, a fin de identificar las múltiples dimensiones del desempeño social y ambiental de las sociedades.</p>
+	         </div>
          </div> 
-         <div class="col s3 ssection map-depart" style="">
+
+
+
+         <div class="col s4 ssection map-depart" style="margin-left: 0!important;">
          	<?php
          		$prueba=$db->selectSpecific("nombre_dep", "departamento", "nombre_dep like '$id'");
 				foreach ($prueba as $key) {
@@ -161,13 +172,104 @@ include ('../cms/classes/DB.class.php');
 
 
 <center>
-<div id="map-svg" style=" width: 100%;">
+
+	<?php
+	if($id == "usulután"){?>
+	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="80 -90 1810 1540" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
+		<style type="text/css">
+		.st0{fill:#F4F4F4;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		</style>
+		<?php
+		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
+		inner join municipio as m on m.id_dep = d.id_dep ", "nombre_dep like '$id'");
+		foreach ($prueba as $key) {
+		if($key["tag"] == "path"){
+				echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
+		}
+		else if($key["tag"] == "polygon"){
+				echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';	
+		}
+		}?>
+		
+	</svg>
+	<?php
+	}else if($id=="chalatenango"){?>
 	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 950 1200" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
+		 viewBox="70 -390 1810 2140" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="550">
+		<style type="text/css">
+		.st0{fill:#F4F4F4;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		</style>
+		<?php
+		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
+		inner join municipio as m on m.id_dep = d.id_dep ", "nombre_dep like '$id'");
+		foreach ($prueba as $key) {
+		if($key["tag"] == "path"){
+				echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
+		}
+		else if($key["tag"] == "polygon"){
+				echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';	
+		}
+		}?>
+		
+	</svg>
+	
+	<?php
+	}else if($id == "cabañas" ){?>
+	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="40 -90 1610 1240" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
+		<style type="text/css">
+		.st0{fill:#F4F4F4;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		</style>
+		<?php
+		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
+		inner join municipio as m on m.id_dep = d.id_dep ", "nombre_dep like '$id'");
+		foreach ($prueba as $key) {
+		if($key["tag"] == "path"){
+				echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
+		}
+		else if($key["tag"] == "polygon"){
+				echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';	
+		}
+		}?>
+		
+	</svg>
+	<?php
+	}else if($id == "cuscatlán" || $id == "la unión" || $id == "san miguel" || $id == "morazán"){?>
+	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="40 60 1610 1840" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
+		<style type="text/css">
+		.st0{fill:#F4F4F4;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		</style>
+		<?php
+		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
+		inner join municipio as m on m.id_dep = d.id_dep ", "nombre_dep like '$id'");
+		foreach ($prueba as $key) {
+		if($key["tag"] == "path"){
+				echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
+		}
+		else if($key["tag"] == "polygon"){
+				echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';	
+		}
+		}?>
+		
+	</svg>
+	<?php
+	}else{
+	?>
+	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="20 60 1310 1290" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="620">
 	<style type="text/css">
-	.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
-	.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
-	.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+	.st0{fill:#F4F4F4;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+	.st0:hover{fill:yellow;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+	.st1{fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
 	</style>
 	<?php
 	$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
@@ -182,36 +284,17 @@ include ('../cms/classes/DB.class.php');
 	}?>
 	
 </svg>
-</div>
+<?php } ?>
+
 </center>   
-			  <div class="right-align">
-			    <div class="stadistic">
-			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:rgb(0, 126, 193); margin-right:5px;"></a> Necesidades basicas</p>
-			    </div>
 
-			    <div class="stadistic">
-			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#ff9800; margin-right:5px;"></a> Fundamentos y bienestar</p>
-			    </div>
-
-			    <div class="stadistic">
-			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#8bc34a; margin-right:5px;"></a>Oportunidades</p>
-
-			    </div>
-			    <div class="stadistic">
-			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#bdbdbd; margin-right:5px;"></a> Municipios no Habilitados</p>
-
-			    </div>
-			    <div class="stadistic">
-			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#00afbe; margin-right:5px;"></a> Rios y lagos</p>
-
-			    </div>
-			  </div>
 
          </div> 
 	
 
 
-         <div class="col s3 menu-category" style="display: flex; justify-content: center; align-items: center;">
+
+         <div class="col s4 menu-category" style="display: flex; justify-content: center; align-items: center;flex-direction: column;margin-left: 0px!important;">
          	<style type="text/css">
          		.ulcontent {
          			margin: 0px;
@@ -316,7 +399,8 @@ include ('../cms/classes/DB.class.php');
 						 justify-content: center;
 						 align-items: center;
 						 flex-direction: column;
-						 padding: 15px;
+						 padding: 10px;
+						 width: 140px;
 						 cursor: pointer; 
 					}
 
@@ -332,10 +416,48 @@ include ('../cms/classes/DB.class.php');
 					.sub-hijo img{
 						width: 50%;
 					}
+					@media screen and (max-width:1000px ){
+						.right-align{
+							grid-template-columns: auto!important;
+						}
+							.hijo{
+						display: grid;
+						box-sizing: border-box;
+						 grid-template-columns: auto!important;
+						 grid-gap: 10px;
+						
+						}
+						.border{
+	         			border-top-left-radius:5px;
+	         			border-top-right-radius: 5px;
+			         	}
+		         		.border1{
+		         			border-bottom-left-radius:5px;
+		         			border-bottom-right-radius: 5px;
+		         		}
+						.stadistic{
+							height: 100%;
+							display: flex;
+							justify-content: flex-start;
+							align-items: baseline;
+							flex-direction: column;
+
+						}
+						.sta-1{
+							margin-left: 0px;
+						}
+						.row .menu-category{
+							width: 35.333333%!important;
+						}
+					}
+
 				@media screen and( max-width: 1920px){
 
 
-
+					.padre{
+						margin-top: -200px;
+						
+					}
 
 					.comnav{
 						height: 100px; 
@@ -423,7 +545,7 @@ include ('../cms/classes/DB.class.php');
 			</ul>
 
 
-			  <div class="padre nav-option">
+			  <div class="padre nav-option" style="margin-right: 0;">
 			  		<div class="hijo">
 			  			<a class="dropdown-button" data-activates="dropdown1">
 			  			<div class="sub-hijo 1 border">
@@ -447,16 +569,36 @@ include ('../cms/classes/DB.class.php');
 			  			</a>
 			  		</div>	
 			  </div>
+			  <br><br><br><br><br>
+			  <div class="right-align">
+			    <div class="stadistic">
+			    	<p class="sta-1"><a style="padding-left:8px;padding-right: 8px;background-color:rgb(0, 126, 193); margin-right:5px;"></a> Necesidades basicas</p>
+			    </div>
+
+			    <div class="stadistic">
+			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#ff9800; margin-right:5px;"></a> Fundamentos y bienestar</p>
+			    </div>
+
+			    <div class="stadistic">
+			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#8bc34a; margin-right:5px;"></a>Oportunidades</p>
+
+			    </div>
+			    <div class="stadistic">
+			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#bdbdbd; margin-right:5px;"></a> Municipios no Habilitados</p>
+
+			    </div>
+			    <div class="stadistic">
+			    	<p><a style="padding-left:8px;padding-right: 8px;background-color:#00afbe; margin-right:5px;"></a> Rios y lagos</p>
+
+			    </div>
+			  </div>
          </div>
       </div>
       
          	
          	
  <div class="container">
-   <!-- <hgroup class="mb20">
-		<h1>Search Results</h1>
-		<h2 class="lead"><strong class="text-danger">3</strong> results were found for the search for <strong class="text-danger">Lorem</strong></h2>								
-	</hgroup>-->
+
 
     <section class="col s12" style="margin-top: 0em;">
 		<article class="search-result row">
