@@ -19,23 +19,7 @@
 
 
     </script>
-    <script type="text/javascript">
-$(function() {
-  
-  // elementos de la lista
-  var menues = $(".customul li"); 
 
-  // manejador de click sobre todos los elementos
-  menues.click(function() {
-     // eliminamos active de todos los elementos
-     menues.removeClass("active");
-     // activamos el elemento clicado.
-     $(this).addClass("active");
-     console.log("active");
-  });
-
-});
-</script>
 
   </head>
   <style type="text/css">
@@ -54,19 +38,19 @@ $(function() {
     
       <ul class="hide-on-med-and-down customul" id="cssmenu" style="">
         <li class="nav-item">
-          <a class="active" href="index.php">INICIATIVAS POR MUNICIPIO</a>
+          <a href="index.php">INICIATIVAS POR MUNICIPIO</a>
         </li>
         <li class="nav-item">
           <a class="" href="iniciativasnac.php">INICIATIVAS NIVEL NACIONAL</a>
         </li>
         <li class="nav-item">
-          <a class="" href="acercade.php">ACERCA DEL IPS</a>
+          <a class="" href="#">ACERCA DEL IPS</a>
         </li>
         <li class="nav-item">
-          <a class="" href="alianzas2.php">ALIANZAS</a>
+          <a class="" href="#">ALIANZAS</a>
         </li>
         <li class="nav-item">
-          <a class="" href="contactenos.php">CONTACTO</a>
+          <a class="" href="#">CONTACTO</a>
         </li>
         <li style="width: 20px;">
        </li>

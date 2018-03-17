@@ -68,6 +68,11 @@ body {
 	font-weight: 200;
 }
 
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #d67013!important;
+  border-radius: 2px;
+}
 .snavbar ul li a{
 	font-size: 12.2px!important;
 	font-weight: 300;
@@ -85,6 +90,7 @@ body {
 	list-style: none;
 	
 }
+	
 .dropdown-content .select-dropdown{
 	background-color: red!important;
 
