@@ -175,11 +175,11 @@ include ('../cms/classes/DB.class.php');
 
 	<?php
 	if($id == "usulután"){?>
-	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="80 -90 1810 1540" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
+	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="80 -90 1450 1540" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="100%">
 		<style type="text/css">
-		.st0{fill:#F4F4F4;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
-		.st0:hover{fill:yellow;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
-		.st1{fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
 		</style>
 		<?php
 		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
@@ -197,11 +197,11 @@ include ('../cms/classes/DB.class.php');
 	<?php
 	}else if($id=="chalatenango"){?>
 	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-		 viewBox="70 -390 1810 2140" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="550">
+		 viewBox="20 -150 1860 1740" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="100%">
 		<style type="text/css">
-		.st0{fill:#F4F4F4;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
-		.st0:hover{fill:yellow;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
-		.st1{fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
 		</style>
 		<?php
 		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
@@ -220,11 +220,143 @@ include ('../cms/classes/DB.class.php');
 	<?php
 	}else if($id == "cabañas" ){?>
 	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-		 viewBox="40 -90 1610 1240" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
+		 viewBox="20 -300 1300 1440" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="100%">
 		<style type="text/css">
-		.st0{fill:#F4F4F4;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
-		.st0:hover{fill:yellow;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
-		.st1{fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		</style>
+		<?php
+		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
+		inner join municipio as m on m.id_dep = d.id_dep ", "nombre_dep like '$id'");
+		foreach ($prueba as $key) {
+		if($key["tag"] == "path"){
+				echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
+		}
+		else if($key["tag"] == "polygon"){
+				echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';	
+		}
+		}?>
+		
+	</svg>
+		<?php
+	}else if($id == "san salvador" ){?>
+	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="20 2 1000 1140" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="100%">
+		<style type="text/css">
+		.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		</style>
+		<?php
+		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
+		inner join municipio as m on m.id_dep = d.id_dep ", "nombre_dep like '$id'");
+		foreach ($prueba as $key) {
+		if($key["tag"] == "path"){
+				echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
+		}
+		else if($key["tag"] == "polygon"){
+				echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';	
+		}
+		}?>
+		
+	</svg>
+		<?php
+	}else if($id == "santa ana" ){?>
+	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="20 0 950 1240" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="100%">
+		<style type="text/css">
+		.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		</style>
+		<?php
+		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
+		inner join municipio as m on m.id_dep = d.id_dep ", "nombre_dep like '$id'");
+		foreach ($prueba as $key) {
+		if($key["tag"] == "path"){
+				echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
+		}
+		else if($key["tag"] == "polygon"){
+				echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';	
+		}
+		}?>
+		
+	</svg>
+		<?php
+	}else if($id == "ahuachapán" ){?>
+	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="20 80 1000 1100" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="100%">
+		<style type="text/css">
+		.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		</style>
+		<?php
+		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
+		inner join municipio as m on m.id_dep = d.id_dep ", "nombre_dep like '$id'");
+		foreach ($prueba as $key) {
+		if($key["tag"] == "path"){
+				echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
+		}
+		else if($key["tag"] == "polygon"){
+				echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';	
+		}
+		}?>
+		
+	</svg>
+		<?php
+	}else if($id == "sonsonate" ){?>
+	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="20 100 900 1000" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="100%">
+		<style type="text/css">
+		.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		</style>
+		<?php
+		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
+		inner join municipio as m on m.id_dep = d.id_dep ", "nombre_dep like '$id'");
+		foreach ($prueba as $key) {
+		if($key["tag"] == "path"){
+				echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
+		}
+		else if($key["tag"] == "polygon"){
+				echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';	
+		}
+		}?>
+		
+	</svg>
+		<?php
+	}else if($id == "la libertad" ){?>
+	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="20 -20 1100 1200" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="100%">
+		<style type="text/css">
+		.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		</style>
+		<?php
+		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
+		inner join municipio as m on m.id_dep = d.id_dep ", "nombre_dep like '$id'");
+		foreach ($prueba as $key) {
+		if($key["tag"] == "path"){
+				echo '<'.$key["tag"].' class="st0" d="'.$key["mapvalue"].'"/>';
+		}
+		else if($key["tag"] == "polygon"){
+				echo '<'.$key["tag"].' class="st0" points="'.$key["mapvalue"].'"/>';	
+		}
+		}?>
+		
+	</svg>
+		<?php
+	}else if($id == "cuscatlán" ){?>
+	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="-30 20 1600 1740" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="100%">
+		<style type="text/css">
+		.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
 		</style>
 		<?php
 		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
@@ -244,9 +376,9 @@ include ('../cms/classes/DB.class.php');
 	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 		 viewBox="40 60 1610 1840" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="600">
 		<style type="text/css">
-		.st0{fill:#F4F4F4;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
-		.st0:hover{fill:yellow;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
-		.st1{fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+		.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+		.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
 		</style>
 		<?php
 		$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
@@ -267,9 +399,9 @@ include ('../cms/classes/DB.class.php');
 	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="20 60 1310 1290" style="enable-background:new 0 0 900 1200;" xml:space="preserve" width="620">
 	<style type="text/css">
-	.st0{fill:#F4F4F4;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
-	.st0:hover{fill:yellow;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
-	.st1{fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+	.st0{fill:#F4F4F4;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round; transition: fill .4s ease;}
+	.st0:hover{fill:yellow;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+	.st1{fill:none;stroke:#00AFBE;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
 	</style>
 	<?php
 	$prueba=$db->selectSpecific("d.id_dep, d.nombre_dep, m.mapvalue, m.tag", "departamento as d 
