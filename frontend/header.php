@@ -48,7 +48,7 @@
           <a class="" href="acerca.php">ACERCA DEL IPS</a>
         </li>
         <li class="nav-item">
-          <a class="" href="#">ALIANZAS</a>
+          <a class="" href=alianzas-ips.php>ALIANZAS</a>
         </li>
         <li class="nav-item">
           <a class="" href="#">CONTACTO</a>

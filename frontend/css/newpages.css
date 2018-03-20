@@ -106,3 +106,34 @@
 	font-weight: 400;
 
 }
+
+
+/*Pagina alianzas*/
+
+.alianzas-info{
+	padding: 5em!important;
+	display: flex;
+	text-align: left;
+	flex-direction: column;
+}
+
+.alianzas-info p{
+	color: #9E9E9E!important;
+ font-size: 1vw;
+ font-family: 'Roboto';
+ font-weight: 400;
+}
+
+.social-link img{
+	width: 50%;
+}
+
+.allies{
+	background-color: #e0e0e0;
+	padding: 0;
+}
+
+.allies .row > [class*='col s6']{
+	
+	padding: 2em;
+}
