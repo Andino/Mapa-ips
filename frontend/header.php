@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="css/materialize.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="css/newpages.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
@@ -36,7 +37,7 @@
    <nav class="snavbar">
     <div class="nav-wrapper navbarcustom"  style="" id="navbarNav">
     
-      <ul class="hide-on-med-and-down customul" id="cssmenu" style="">
+      <ul class="customul" id="cssmenu" style="">
         <li class="nav-item">
           <a href="index.php">INICIATIVAS POR MUNICIPIO</a>
         </li>
@@ -44,7 +45,7 @@
           <a class="" href="iniciativasnac.php">INICIATIVAS NIVEL NACIONAL</a>
         </li>
         <li class="nav-item">
-          <a class="" href="#">ACERCA DEL IPS</a>
+          <a class="" href="acerca.php">ACERCA DEL IPS</a>
         </li>
         <li class="nav-item">
           <a class="" href="#">ALIANZAS</a>

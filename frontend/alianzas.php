@@ -46,7 +46,7 @@ include ('../cms/classes/DB.class.php');
 	.fsection-info{
 		
 		position: relative!important;
-		width: 30%!important;
+		
 		height: 10%;
 
 
@@ -147,8 +147,8 @@ include ('../cms/classes/DB.class.php');
       <div class="row" style="display: flex;flex-wrap: nowrap;"> 
 
 
-         <div class="fsection fsection-info" style="display: flex;justify-content: center;align-items: center;" >
-	         	<div style="display: flex;justify-content: center; align-items: center;flex-direction: column;background-color: #00afbe;padding:10px;width: 25em;">
+         <div class="fsection fsection-info" style="display: flex;justify-content: initial;align-items: center;" >
+	         	<div style="display: flex;justify-content: center; align-items: center;flex-direction: column;background-color: #00afbe;padding:15px;width: 25em;">
 		         	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mpsa.svg" width="200">
 		         	<h4>Midiendo el</h4>
 		         	<h1>Progreso Social</h1>
@@ -161,7 +161,7 @@ include ('../cms/classes/DB.class.php');
 
 
 
-         <div class="col s4 ssection map-depart" style="margin-left: 0!important;">
+         <div class="col s4 ssection map-depart" style="margin-left: 10px!important;">
          	<?php
          		$prueba=$db->selectSpecific("nombre_dep", "departamento", "nombre_dep like '$id'");
 				foreach ($prueba as $key) {
@@ -426,7 +426,7 @@ include ('../cms/classes/DB.class.php');
 
 
 
-         <div class="col s4 menu-category" style="display: flex; justify-content: center; align-items: center;flex-direction: column;margin-left: 0px!important;">
+         <div class="col s4 menu-category" style="display: flex; justify-content: center; align-items: center;flex-direction: column;margin-left: 1%!important; padding-top: 1em;">
          	<style type="text/css">
          		.ulcontent {
          			margin: 0px;
@@ -622,7 +622,7 @@ include ('../cms/classes/DB.class.php');
 	         			margin-top: 0px;
 	         			font-size: 7px;
 	         			text-align: left;
-	         			line-height: 5%;
+	         			line-height: 12px;
 	         		}
 	         		.responsive{
 						

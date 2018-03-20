@@ -109,7 +109,7 @@ include ('../cms/classes/DB.class.php');
                 <hr style="border:0.7px solid #BDBDBD!important;">';
                 }
             }
-            else{  echo '<h3 class="error" >NO SE HAN ENCONTRADO REGISTROS EXISTENTES</h3>';
+            else{  echo '<h3 class="error" >NO SE HAN ENCONTRADO REGISTROS</h3>';
             } ?>
 </body>
 <script type="text/javascript">
