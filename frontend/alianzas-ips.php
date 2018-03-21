@@ -8,7 +8,7 @@
 
 <section class="svg-map " >
   <center>
-  <div class="card text-center" style="z-index: 999; width: 75%;-webkit-box-shadow: 0 2px 2px 0 transparent, 0 1px 5px 0 transparent, 0 3px 1px -2px transparent;">
+  <div class="card text-center" style="z-index: 999; width: 75%;margin-top: -3em;-webkit-box-shadow: 0 2px 2px 0 transparent, 0 1px 5px 0 transparent, 0 3px 1px -2px transparent;">
    
       <div class="row" style="display: flex;flex-wrap: wrap; "> 
         <div class="col s12" style="padding:0;">
@@ -44,9 +44,9 @@
 
     </div>
     <section class="allies" style="">
-      <div class="row" style="margin-left: 10%;margin-right: 10%; display: flex;flex-wrap: nowrap;">
+      <div class="row" style="margin-left: 10%;margin-right: 10%; display: flex;flex-wrap: nowrap;margin-bottom: 0!important">
           <div class="col s6" style="text-align: right;flex-direction: column;">
-            <h1 class="text-blue" style="text-transform: uppercase;font-size: 3.5vw;">Organizaciones</h1>
+            <h1 class="text-blue" style="text-transform: uppercase;font-size: 3.5vw;letter-spacing: 0.1px;">Organizaciones</h1>
             <h1 class="text-blue" style="text-transform: uppercase;font-size: 3.5vw;line-height: 1px;">Aliadas</h1>
           </div>
 
@@ -56,6 +56,13 @@
       </div>
     </section>
 
+  <footer style="padding: 0!important;background-color: #757575;">
+    <div class="row">
+        <div class="col s12 footer">
+            <p>Fundacion Poma impulsando el Progreso Social | Todos los derechos reservados, 2017</p>
+        </div>
+    </div>
+  </footer>
 
   </center>
 </section>

@@ -8,7 +8,7 @@
 
 <section class="svg-map " >
   <center>
-  <div class="card text-center" style="z-index: 999; width: 95%;-webkit-box-shadow: 0 2px 2px 0 transparent, 0 1px 5px 0 transparent, 0 3px 1px -2px transparent;">
+  <div class="card text-center" style="z-index: 999; width: 75%;margin-top:-3em;-webkit-box-shadow: 0 2px 2px 0 transparent, 0 1px 5px 0 transparent, 0 3px 1px -2px transparent;">
    
       <div class="row" style="display: flex;flex-wrap: wrap; "> 
         <div class="col s12" style="padding:0;">
@@ -108,8 +108,8 @@
       <section class="separator-blue">
          <div class="row" >
             <div class="col s6 img-separator"> 
-               <img src="img/iconos/icn_PIB.png" alt="" width="100" style="margin-right: 5em;"> 
-               <img src="img/iconos/icn_IPS.png" alt="" width="100"> 
+               <img src="img/iconos/icn_PIB.png" alt="" width="20%" class="responsive-img" style="margin-right: 5em;"> 
+               <img src="img/iconos/icn_IPS.png" alt="" width="20%" class="responsive-img"> 
             </div>
             <div class="col s6 text-separator">
               <div class="container">
@@ -119,13 +119,67 @@
             </div>
         </div>
       </section>
+
       <section class="wrapper-our">
-        <div class="row">
-        <div class="col s12" style="width: 100%;padding:10em;">
-            <h3 style="text-align: left;">¿Como se compara el salvador?</h3>
+        <div class="row" style="width: 75%;">
+        <div class="col s12" style="width: 100%;padding: 2em;">
+            <h3 style="text-align: left;font-weight: bold;font-size: 2vw;text-align: left;color:#757575; ">¿Como se compara el salvador?</h3>
             <img src="img/mapamundi.svg" width="100%">
         </div>
       </div>
+      </section>
+
+      <section>
+        <div class="row" style="width:75%">
+          <div class="col s12">
+            <br><br>  
+            <h2 style="color: rgb(245, 147, 20);font-size: 2vw;font-weight: bold;">Datos relevantes</h2>
+              <ul class="timeline-both-side">
+            <li>
+              <div class="border-line"></div>
+              <div class="timeline-description">
+                <img src="img/iconos/icn_jovenes.png" class="responsive-img" width="50%">
+                <p>Quisque ac laoreet purus, eu dapibus ligula. Mauris nec tincidunt mi, eget finibus sem. Morbi viverra malesuada lobortis. Suspendisse sed augue luctus ex molestie convallis.</p>
+              </div>
+            </li>
+            <li class="opposite-side">
+              <div class="border-line"></div>
+              <div class="timeline-description">
+                <img src="img/iconos/icn_jovenes.png" class="responsive-img" width="50%">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed erat consectetur, tempor odio sit amet, euismod sapien. </p>
+              </div>
+            </li>
+            <li>
+              <div class="border-line"></div>
+              <div class="timeline-description">
+                <img src="img/iconos/750mil.png" class="responsive-img" width="50%">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed erat consectetur, tempor odio sit amet, euismod sapien. </p>
+              </div>
+            </li>
+            <li class="opposite-side">
+              <div class="border-line"></div>
+              <div class="timeline-description">
+                <img src="img/iconos/130mundial.png" class="responsive-img" width="50%">
+                <p>Quisque ac laoreet purus, eu dapibus ligula. Mauris nec tincidunt mi, eget finibus sem. Morbi viverra malesuada lobortis. Suspendisse sed augue luctus ex molestie convallis.</p>
+              </div>
+            </li>
+            <li>
+              <div class="border-line"></div>
+              <div class="timeline-description">
+                <img src="img/iconos/81años.png" class="responsive-img" width="50%">
+                <p>Quisque ac laoreet purus, eu dapibus ligula. Mauris nec tincidunt mi, eget finibus sem. Morbi viverra malesuada lobortis. Suspendisse sed augue luctus ex molestie convallis.</p>
+              </div>
+            </li>
+             <li class="opposite-side">
+              <div class="border-line"></div>
+              <div class="timeline-description">
+                <img src="img/iconos/ambiente.png" class="responsive-img" width="50%">
+                <p>Quisque ac laoreet purus, eu dapibus ligula. Mauris nec tincidunt mi, eget finibus sem. Morbi viverra malesuada lobortis. Suspendisse sed augue luctus ex molestie convallis.</p>
+              </div>
+            </li>
+          </ul>
+          </div>
+        </div>
       </section>
   </center>
 </section>

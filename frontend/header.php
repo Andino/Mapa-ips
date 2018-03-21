@@ -51,7 +51,7 @@
           <a class="" href=alianzas-ips.php>ALIANZAS</a>
         </li>
         <li class="nav-item">
-          <a class="" href="#">CONTACTO</a>
+          <a class="" href="contacto.php">CONTACTO</a>
         </li>
         <li style="width: 20px;">
        </li>
