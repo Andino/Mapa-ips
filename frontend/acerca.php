@@ -168,7 +168,7 @@
             <li>
               <div class="border-line"></div>
               <div class="timeline-description">
-                <img src="img/iconos/81años.png" class="responsive-img" width="70%">
+                <img src="img/iconos/81years.png" class="responsive-img" width="70%">
                 <p style="text-align: right;">El Salvador se posiciona en la lugar <span style="color: #757575;">49</span> en el indicador de Salud y Bienestar. El Salvador cuenta con una <span style="color: #757575;">esperanza de vida de 81,8</span> años, superior a la de Rusia, la cual tiene en promedio 77,3.</p>
 
               </div>
