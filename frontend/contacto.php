@@ -342,21 +342,21 @@
         </div>
  
             <script type="text/javascript">
-jQuery(document).ready(function($){
-  // Get current path and find target link
-  var path = window.location.pathname.split("/").pop();
-  
-  // Account for home page with empty path
-  if ( path == '' ) {
-    path = 'index.php';
-  }
-      
-  var target = $('nav a[href="'+path+'"]');
-  // Add active class to target link
-  target.addClass('active');
-});
+            jQuery(document).ready(function($){
+              // Get current path and find target link
+              var path = window.location.pathname.split("/").pop();
+              
+              // Account for home page with empty path
+              if ( path == '' ) {
+                path = 'index.php';
+              }
+                  
+              var target = $('nav a[href="'+path+'"]');
+              // Add active class to target link
+              target.addClass('active');
+            });
 
-</script>
+            </script>
   <footer style="padding: 0!important;background-color: #757575;">
     <div class="row" style="margin-bottom: 0!important;">
         <div class="col s12 footer">

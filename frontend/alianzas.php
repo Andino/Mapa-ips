@@ -33,13 +33,13 @@ include ('../cms/classes/DB.class.php');
 		margin-bottom: -20px;
 	}
 	.fsection h1{
-		font-size: 24px; 
+		font-size: 1.2vw; 
 		font-weight: bold; 
 		text-align: left;
 	}
 	.fsection p{
 		text-align: left; 
-		font-size: 10px!important;
+		font-size: 0.7vw!important;
 		font-weight: 300;
 	}
 
@@ -148,7 +148,7 @@ include ('../cms/classes/DB.class.php');
 
 
          <div class="fsection fsection-info" style="display: flex;justify-content: initial;align-items: center;" >
-	         	<div style="display: flex;justify-content: center; align-items: center;flex-direction: column;background-color: #00afbe;padding:15px;width: 25em;">
+	         	<div style="display: flex;justify-content: center;flex-direction: column;background-color: #00afbe;padding:15px;width: 25em;">
 	         		<?php
 		         		$prueba=$db->selectSpecific("nombre_dep", "departamento", "nombre_dep like '$id'");
 						foreach ($prueba as $key) {
@@ -588,6 +588,10 @@ include ('../cms/classes/DB.class.php');
 						.row .menu-category{
 							width: 35.333333%!important;
 						}
+
+						.sub-hijo .icon-subhijo{
+							display: none;
+						}
 					}
 
 				@media screen and( max-width: 1920px){
@@ -688,21 +692,21 @@ include ('../cms/classes/DB.class.php');
 			  		<div class="hijo">
 			  			<a class="dropdown-button" data-activates="dropdown1">
 			  			<div class="sub-hijo 1 border">
-			  				<img src="img/iconos/basicas.svg" alt="hola" class="hide-on-small-only">
+			  				<img src="img/iconos/basicas.svg" alt="hola" class="icon-subhijo">
 			  				<p>Necesidades Basicas</p>
 			  			</div>
 						</a>
 
 						<a class="dropdown-button" data-activates="dropdown2">
 			  			<div class="sub-hijo 2" style="">
-			  				<img src="img/iconos/fundamentos.svg" alt="hola" class="hide-on-small-only">
+			  				<img src="img/iconos/fundamentos.svg" alt="hola" class="icon-subhijo">
 			  				<p>Fundamentos de Bienestar</p>
 			  			</div>
 						</a>
 
 						<a class="dropdown-button" data-activates="dropdown3">
 			  			<div class="sub-hijo 3 border1">
-			  				<img src="img/iconos/oportunidades.svg" alt="hola" class="hide-on-small-only">
+			  				<img src="img/iconos/oportunidades.svg" alt="hola" class="icon-subhijo">
 			  				<p>Oportunidades</p>
 			  			</div>
 			  			</a>
