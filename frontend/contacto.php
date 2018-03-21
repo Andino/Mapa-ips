@@ -32,11 +32,11 @@
         <div id="test1" class="col s12">
           <div class="contact-form">
             <div class="row">
-            <form class="col s12">
+            <form class="col s12" method="POST" action="includes/sendmail.php">
               <div class="row">
                 <div class="input-field col s6">
                   <input placeholder="" id="name" type="text" class="validate">
-                  <label for="nombre">Nombre</label>
+                  <label for="name">Nombre</label>
                 </div>
     
                 <div class="input-field col s6">
@@ -48,12 +48,12 @@
              <div class="row">
                 <div class="input-field col s6">
                   <input placeholder="" id="name" type="text" class="validate">
-                  <label for="nombre">Organizacion</label>
+                  <label for="org">Organizacion</label>
                 </div>
 
                 <div class="input-field col s6">
                   <input placeholder="" id="email" type="text" class="validate">
-                  <label for="telefono">Telefono</label>
+                  <label for="phone">Telefono</label>
                 </div>
               </div>
               <br><br>
@@ -61,7 +61,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <textarea placeholder="Escriba su mensaje" id="textarea1" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Textarea</label>
+                  <label for="message">Mensaje</label>
                 </div>
               </div>
               <div class="row">
