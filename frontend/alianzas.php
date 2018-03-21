@@ -149,7 +149,14 @@ include ('../cms/classes/DB.class.php');
 
          <div class="fsection fsection-info" style="display: flex;justify-content: initial;align-items: center;" >
 	         	<div style="display: flex;justify-content: center; align-items: center;flex-direction: column;background-color: #00afbe;padding:15px;width: 25em;">
-		         	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mpsa.svg" width="200">
+	         		<?php
+		         		$prueba=$db->selectSpecific("nombre_dep", "departamento", "nombre_dep like '$id'");
+						foreach ($prueba as $key) {
+							echo '
+		    					<img src="../frontend/img/depto-sideb/'.$key["nombre_dep"].'.svg" width="200">';
+						}
+		         	?>
+		         	
 		         	<h4>Midiendo el</h4>
 		         	<h1>Progreso Social</h1>
 		         	<p>El modelo del Progreso Social se fundamenta en una visión holística y rigurosa de las condiciones sociales y ambientales de las sociedades. Tanto el modelo como la metodología del Índice de Progreso Social son el resultado de un proceso colaborativo de investigación en el que se ha recurrido a una amplia gama de académicos y expertos en políticas.
@@ -161,7 +168,7 @@ include ('../cms/classes/DB.class.php');
 
 
 
-         <div class="col s4 ssection map-depart" style="margin-left: 10px!important;">
+         <div  class="col s4 ssection map-depart" style="margin-left: 10px!important;">
          	<?php
          		$prueba=$db->selectSpecific("nombre_dep", "departamento", "nombre_dep like '$id'");
 				foreach ($prueba as $key) {
@@ -171,7 +178,7 @@ include ('../cms/classes/DB.class.php');
          	?>
 
 
-<center>
+<div id="map-svg">
 
 	<?php
 	if($id == "usulután"){?>
@@ -418,7 +425,7 @@ include ('../cms/classes/DB.class.php');
 </svg>
 <?php } ?>
 
-</center>   
+</div>   
 
 
          </div> 
@@ -764,17 +771,20 @@ include ('../cms/classes/DB.class.php');
 		                document.getElementById("map-svg").innerHTML = this.responseText;
 		            }
 		        };
-		        $("#loading").show();
-		        $("#txtHint").hide();
 				var compo=this.textContent;
+				var timews;
 		        xmlhttp2.open("GET","maps-svg.php?id=<?php echo $id?>&q="+compo,true);
 		    	xmlhttp2.send();
-		        setTimeout(function(){
+		    	$("#txtHint").hide();
+		        $("#loading").show();
+		        window.clearTimeout(timews);
+
+		        timews=setTimeout(function(){
 				    xmlhttp.open("GET","programdata.php?id=<?php echo $id?>&q="+compo,true);
 		    		xmlhttp.send();
 		        	$("#loading").hide();
 		        	$("#txtHint").show();
-		        }, 3700); 
+		        }, 2700); 
 			}
 		}
 </script>

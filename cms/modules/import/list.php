@@ -281,33 +281,65 @@ if(!empty($_FILES['prueba']['name'])){ //this is just to check if isset($_FILE).
                     $muniaux="";
                     $prog="";
                     $progaux="";
+
                     for ($z=67; $z <= 81; $z++) { 
+
                         $col = chr($z);
+                        $dep=$objWorksheet->getCell($col.'13');
                         $nombre_muni = $objWorksheet->getCell($col.'14');
                         $nombre_munitemp = explode(',' , $nombre_muni);
-                        foreach($nombre_munitemp as $value =>$key) {
-                            $nombre_prog = $objWorksheet->getCell('C2');
-                            $munival = $key;
-                            $muniidquery = $db->selectSpecific("id_muni","municipio", "nombre_muni like '$munival'");
-                            $progidquery = $db->selectSpecific("id_prog","programa_ips", "nombre_prog like '$nombre_prog'");
-                            if(empty($muniidquery) || empty($progidquery)){
-                                $prog="";
-                                $muni="";
-                            }
-                            else{
-                                $muni = implode($muniidquery[0]);
-                                $muniaux = $muni;
-                                $prog = implode($progidquery[0]);
-                                $progaux = $prog;
-                                $exist=$db->select("proxmuni", "id_muni like '$muni' and id_prog like '$prog'");
-                                if(empty($exist)){
-                                    $bandera = array(
-                                       "id_muni" => intval($muni),
-                                       "id_prog" => intval($prog),
-                                    );    
-                                    $db->insert($bandera, "proxmuni");
+                        if(count($nombre_munitemp) > 1){
+                            foreach($nombre_munitemp as $value =>$key) {
+                                $nombre_prog = $objWorksheet->getCell('C2');
+                                $munival = $key;
+                                $muniidquery = $db->selectSpecific("id_muni","municipio", "nombre_muni like '$munival'");
+                                $progidquery = $db->selectSpecific("id_prog","programa_ips", "nombre_prog like '$nombre_prog'");
+                                if(empty($muniidquery) || empty($progidquery)){
+                                    $prog="";
+                                    $muni="";
+                                }
+                                else{
+                                    $muni = implode($muniidquery[0]);
+                                    $muniaux = $muni;
+                                    $prog = implode($progidquery[0]);
+                                    $progaux = $prog;
+                                    $exist=$db->select("proxmuni", "id_muni like '$muni' and id_prog like '$prog'");
+                                    if(empty($exist)){
+                                        $bandera = array(
+                                           "id_muni" => intval($muni),
+                                           "id_prog" => intval($prog),
+                                        );    
+                                        $db->insert($bandera, "proxmuni");
+                                    }
                                 }
                             }
+                        }
+                        else{
+                            $nombre_prog = $objWorksheet->getCell('C2');
+                                $munival = $key;
+                                $muniidquery = $db->selectSpecific("m.id_muni, d.nombre_dep","departamento as d 
+                                                                    inner join municipio as m on m.id_dep = d.id_dep ", "d.nombre_dep like '$dep'");
+                                $progidquery = $db->selectSpecific("id_prog","programa_ips", "nombre_prog like '$nombre_prog'");
+                                foreach ($muniidquery as $depval ) {
+                                    if(empty($progidquery)){
+                                         $prog="";
+                                    }
+                                    else{
+
+                                        $datva=intval($depval["id_muni"]);
+                                        $prog = implode($progidquery[0]);
+                                        $progaux = $prog;
+                                        $exist=$db->select("proxmuni", "id_muni like '$datva' and id_prog like '$prog'");
+
+                                        if(empty($exist)){
+                                            $bandera = array(
+                                               "id_muni" => intval($datva),
+                                               "id_prog" => intval($prog),
+                                            );    
+                                            $db->insert($bandera, "proxmuni");
+                                        }
+                                    }
+                                }
                         }
                     }
 
@@ -409,7 +441,7 @@ else{
                 <label for="file" class="fileLabel" id="pruebas">
                     <img src="<?=BASE_URL?>/img/excel.png">
                     <br>
-                    <s
+                    <span></span>
                 </label>
                 <br>
                 <input type="submit" value="Importar" name="enviar" class="importar"/>
