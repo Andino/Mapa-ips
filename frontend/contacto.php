@@ -4,7 +4,14 @@
 <?php include ('header.php'); ?>
 
 <body style="background: white;">
-  
+ <style type="text/css">
+   .dropdown-content{
+    background-color: white!important;
+   }
+   .dropdown-content li span{
+      color: black!important;
+   }
+ </style> 
 
 <section class="svg-map " >
   <center>
@@ -35,24 +42,24 @@
             <form class="col s12" method="POST" action="includes/sendmail.php">
               <div class="row">
                 <div class="input-field col s6">
-                  <input placeholder="" id="name" type="text" class="validate">
+                  <input placeholder="" id="name" name="name" type="text" class="validate">
                   <label for="name">Nombre</label>
                 </div>
     
                 <div class="input-field col s6">
-                  <input placeholder="" id="email" type="email" class="validate">
+                  <input placeholder="" id="email" name="email" type="email" class="validate">
                   <label for="email">Email</label>
                 </div>
               </div>
               <br><br>
              <div class="row">
                 <div class="input-field col s6">
-                  <input placeholder="" id="name" type="text" class="validate">
+                  <input placeholder="" id="name" type="text" name="org" class="validate">
                   <label for="org">Organizacion</label>
                 </div>
 
                 <div class="input-field col s6">
-                  <input placeholder="" id="email" type="text" class="validate">
+                  <input placeholder="" id="email" name="phone" type="text" class="validate">
                   <label for="phone">Telefono</label>
                 </div>
               </div>
@@ -60,14 +67,14 @@
 
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea placeholder="Escriba su mensaje" id="textarea1" class="materialize-textarea"></textarea>
+                  <textarea placeholder="Escriba su mensaje" name="message" id="textarea1" class="materialize-textarea"></textarea>
                   <label for="message">Mensaje</label>
                 </div>
               </div>
               <div class="row">
                 <div class="col s12">
                   
-                  <a class=" btn-large">Enviar</a>
+                  <input type="submit" name=""  class=" btn-large" value="Enviar">
                 </div>
               </div>
             </form>
@@ -83,37 +90,38 @@
 
     </div>
             <div id="test2" class="col s12 involucrate-form">
-            <form>
+            <form method="post" action="includes/sendform.php">
                 <div class="row" style="width: 75%;">
                     <div class="col s4">
                         <h5 style="text-align: left;color:#757575;font-weight: bolder;font-size: 1.5vw;">Datos Generales</h5>
                         <br>
                           <div class="input-field">
-                            <input placeholder="" id="name" type="text" class="validate">
+                            <input placeholder="" id="name" name ="name" type="text" class="validate">
                             <label for="nombre">Nombre del programa:</label>
                           </div>
                             <br><br>
                           <div class="input-field">
-                            <input placeholder="" id="name" type="text" class="validate">
-                            <label for="nombre">Nombre nombre del programa:</label>
+                            <input placeholder="" id="name" type="text" name ="nameorg" class="validate">
+                            <label for="nombre">Nombre de Organización:</label>
                           </div>
                           <br>
                             <div class="input-field col s12">
                               <br>
-                              <select >
-                                <option style="font-size: 1vw;color: #757575!important" value="1">Empresa Privada</option>
-                                <option style="font-size: 1vw;color: #757575!important" value="2">Option 2</option>
-                                <option style="font-size: 1vw;color: #757575!important" value="3">Option 3</option>
+                              <select name="clasif">
+                                <option style="font-size: 1vw;color: #757575!important" value="Empresa Privada">Empresa Privada</option>
+                                <option style="font-size: 1vw;color: #757575!important" value="ONG">ONG</option>
+                                <option style="font-size: 1vw;color: #757575!important" value="Asocio público-privado">Asocio público-privado</option>
+                                <option style="font-size: 1vw;color: #757575!important" value="Fundación privada sin fines de lucro">Fundación privada sin fines de lucro</option>
                               </select>
-                              <label style="    font-size: 1vw;">Clasificacion de la organizacion que ejecuta el programa:</label>
+                              <label style="font-size: 1vw;">Clasificacion de la organizacion que ejecuta el programa:</label>
                               <br><br>
                           </div> 
                           <br>
 
                       
                         <div class="input-field col s12">
-                          <textarea placeholder="Actividad principal de la organizacion:" id="textarea1" class="materialize-textarea"></textarea>
-                          <label for="textarea1">Textarea</label>
+                          <textarea placeholder="Actividad principal de la organizacion:" id="textarea1" class="materialize-textarea" name="actprinc"></textarea>
+                          <label for="textarea1">Actividad principal de la organización</label>
                         </div>
                     </div>
 
@@ -121,94 +129,94 @@
                         <h5 style="text-align: left;color:#757575;font-weight: bolder;font-size: 1.3vw;">Objetivos de desarrollo sostenible a los que contribuye</h5>
                         <div class="col s6 check-form">
                              <p>
-                              <input type="checkbox" id="1" />
+                              <input type="checkbox" id="1" value="Fin de la pobreza" name="1"/>
                               <label for="1">Fin de la pobreza</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="2" />
+                              <input type="checkbox" id="2" value="Hambre y cero" name="2"/>
                               <label for="2">Hambre y cero</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="3" />
+                              <input type="checkbox" id="3" value="Salud y bienestar" name="3"/>
                               <label for="3">Salud y bienestar</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="4" />
+                              <input type="checkbox" id="4" value="Educacion de calidad" name="4"/>
                               <label for="4">Educacion de calidad</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="5" />
+                              <input type="checkbox" id="5" value="Igualdad de genero" name="5"/>
                               <label for="5">Igualdad de genero</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="6" />
+                              <input type="checkbox" id="6" value="Agua limpia y sanamiento" name="6"/>
                               <label for="6">Agua limpia y sanamiento</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="7" />
+                              <input type="checkbox" id="7" value="Energia asequible y no contaminante" name="7"/>
                               <label for="7">Energia asequible y no contaminante</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="8" />
+                              <input type="checkbox" id="8" value="Trabajo decente y crecimiento econimico" name="8"/>
                               <label for="8">Trabajo decente y crecimiento econimico</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="9" />
+                              <input type="checkbox" id="9" value="Industria, innovacion e insfraestructura" name="9"/>
                               <label for="9">Industria, innovacion e insfraestructura</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="10" />
+                              <input type="checkbox" id="10" value="Reducion de las desigualdes" name="10"/>
                               <label for="10">Reducion de las desigualdes</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="11" />
+                              <input type="checkbox" id="11" value="Cuidades y comunidades sostenibles" name="11"/>
                               <label for="11">Cuidades y comunidades sostenibles</label>
                             </p>
                         </div>
                         <div class="col s6 check-form">
                             <p>
-                              <input type="checkbox" id="12" />
+                              <input type="checkbox" id="12" value="Produccion y consumo responsable" name="12"/>
                               <label for="12">Produccion y consumo responsable</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="13" />
+                              <input type="checkbox" id="13" value="Accion por el clima" name="13"/>
                               <label for="13">Accion por el clima</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="14" />
+                              <input type="checkbox" id="14" value="Vida submarina" name="14"/>
                               <label for="14">Vida submarina</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="15" />
+                              <input type="checkbox" id="15" value="Vida de ecosistemas terrestres" name="15"/>
                               <label for="15">Vida de ecosistemas terrestres</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="16" />
+                              <input type="checkbox" id="16" value="Paz, justicia e instituciones solidas" name="16"/>
                               <label for="16">Paz, justicia e instituciones solidas</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="17" />
+                              <input type="checkbox" id="17" value="Alianzas para lograr los objetivos" name="17"/>
                               <label for="17">Alianzas para lograr los objetivos</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="18" />
+                              <input type="checkbox" id="18" value="Energia asequible y no contaminant" name="18"/>
                               <label for="18">Energia asequible y no contaminant</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="19" />
+                              <input type="checkbox" id="19" value="Trabajo decente y crecimiento econimico" name="19"/>
                               <label for="19">Trabajo decente y crecimiento econimico</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="19" />
-                              <label for="19">Industria, innovacion e insfraestructura</label>
+                              <input type="checkbox" id="20" value="Industria, innovacion e insfraestructura" name="20"/>
+                              <label for="20">Industria, innovacion e insfraestructura</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="20" />
-                              <label for="20">Reducion de las desigualdes</label>
+                              <input type="checkbox" id="21" value="Reducion de las desigualdes" name="21"/>
+                              <label for="21">Reducion de las desigualdes</label>
                             </p>
                             <p>
-                              <input type="checkbox" id="21" />
-                              <label for="21">Cuidades y comunidades sostenibles</label>
+                              <input type="checkbox" id="22" value="Cuidades y comunidades sostenibles" name="22"/>
+                              <label for="22">Cuidades y comunidades sostenibles</label>
                             </p>
                         </div>
                       
@@ -223,19 +231,19 @@
                           <h2 style="text-align: left;color:#424242;font-weight: bolder;font-size: 1.2vw;">Descripcion del programa</h2>
                           <div class="input-field">
                             <p for="nombre">Explicar brevemente el proposito del proyecto</p>
-                            <input placeholder="" id="name" type="text" class="validate" style=";">
+                            <input placeholder="" name="purpose" id="name" type="text" class="validate" style=";">
                             
                           </div>
                           <br>
                           <div class="input-field">
                               <p for="nombre">  Mencione las actividades especificas que lleva acabo para cumplir con el proposito del proyecto</p>
-                            <input placeholder="" id="name" type="text" class="validate" style="">
+                            <input placeholder="" id="name" type="text" name="actesp" class="validate" style="">
                           
                           </div>
                           <br>
                           <div class="input-field">
                              <p for="nombre">¿Posee video explicativo del programa? De ser asi, anexarlo o indicar link:</p>
-                            <input placeholder="" id="name" type="text" class="validate" style="margin-top:   5%;">
+                            <input placeholder="" id="name" type="text" name="urlmedia" class="validate" style="margin-top:   5%;">
                            
                           </div>
 
@@ -246,13 +254,13 @@
                         
                           <div class="input-field ">
                             <p for="nombre">Cantidad de beneficiarios directos del proyecto</p>
-                            <input placeholder="" id="name" type="text" class="validate">
+                            <input placeholder="" id="name" name="benef" type="text" class="validate">
                             
                           </div>
                           
                            <div class="input-field ">
                           <p for="nombre">Area Geografica (Departamento, Municipio, Comunidades) en que se desarrolla el proyecto:</p>
-                            <input placeholder="" id="name" type="text" class="validate">
+                            <input placeholder="" id="name" type="text" name="geo" class="validate">
                            
                           </div>
 
@@ -263,13 +271,13 @@
                         <br>
                           <div class="input-field">
                             <br>
-                            <input placeholder="" id="name" type="text" class="validate">
+                            <input name="publi" placeholder="" id="name" type="text" class="validate">
                             <label for="nombre">Instituciones publicas:</label>
                           </div>
                           <br>
                           <div class="input-field">
                             <br>
-                            <input placeholder="" id="name" type="text" class="validate">
+                            <input name="priv" placeholder="" id="name" type="text" class="validate">
                             <label for="nombre">Instituciones privadas:</label>
                           </div>
                           <br>
@@ -284,7 +292,7 @@
                           <p style="text-align: left;color:#9E9E9E;font-weight: 400;font-size: 0.8vw;">¿El programa tiene definido indicadores o metricas para la medición del impacto? De ser asi, identificarlas </p>
                           <br>
                           <div class="input-field">
-                            <input placeholder="" id="name" type="text" class="validate">
+                            <input name="metric" placeholder="" id="name" type="text" class="validate">
                           </div>
                        </div>
                      </div>
@@ -293,13 +301,13 @@
                             <h3 style="text-align: left;color:#757575;font-weight: bolder;font-size: 1.2vw;">Información del contacto</h3>
                               <div class="col s6">
                                 <div class="input-field col s12">
-                                  <input placeholder="Nombre de la persona encargada del proyecto" id="name" type="text" class="validate">
+                                  <input name="nameenc" placeholder="Nombre de la persona encargada del proyecto" id="name" type="text" class="validate">
                                   <label for="nombre">Nombre</label>
 
                                 </div>
                                 
                                 <div class="input-field col s12" style="margin-top: 4em!important;">
-                                  <input placeholder="Cargo adentro de la organización" id="name" type="text" class="validate">
+                                  <input name="position" placeholder="Cargo adentro de la organización" id="name" type="text" class="validate">
                                   <label for="nombre">Cargo</label>
                                 </div>
                               </div>
@@ -307,16 +315,16 @@
 
                               <div class="col s6">
                                   <div class="input-field col s12">
-                                  <input placeholder="Correo dentro de la organización" id="name" type="text" class="validate">
+                                  <input name="contmail" placeholder="Correo dentro de la organización" id="name" type="text" class="validate">
                                   <label for="nombre">Correo</label>
                                 </div>
                           
                                 <div class="input-field col s12" style="margin-top: 4em!important;">
-                                  <input placeholder="Url de la organización" id="name" type="text" class="validate">
+                                  <input name="urlweb" placeholder="Url de la organización" id="name" type="text" class="validate">
                                   <label for="nombre">Pagina Web</label>
                                 </div>
                                 <div class="input-field col s12" style="margin-top: 4em!important;">
-                                  <input placeholder="telefonos de contacto en la organización" id="name" type="text" class="validate">
+                                  <input name="phone" placeholder="telefonos de contacto en la organización" id="name" type="text" class="validate">
                                   <label for="nombre">Telefono</label>
 
                                 </div>
@@ -328,7 +336,7 @@
                               <br><br>
                        <div class="col s12" style="float: left">
                   
-                  <a class=" btn-large">Enviar</a>
+                  <input type="submit" name=""  class=" btn-large" value="Enviar">
                 </div>
                       </div>
                       <br><br><br>

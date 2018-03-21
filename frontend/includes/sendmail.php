@@ -41,7 +41,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             $mail->AddAddress( $toemail , $toname );
             $mail->Subject = $subject;
 
-            $name = isset($name) ? "Name: $name<br><br>" : '';
+            $name = isset($name) ? "Nombre: $name<br><br>" : '';
             $email = isset($email) ? "Email: $email<br><br>" : '';
             $org = isset($org) ? "Organización: $org<br><br>" : '';
             $phone = isset($phone) ? "Teléfono: $org<br><br>" : '';
@@ -76,5 +76,5 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 $status_array = array( 'message' => $message, 'status' => $status);
 echo json_encode($status_array);
-echo "<script>window.location = 'http://localhost/mapa-ips/frontend/index.php'</script>";
+echo "<script>window.location = 'http://toolboxsv.com/dev/Mapa-ips/frontend/index.php'</script>";
 ?>
