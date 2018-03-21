@@ -18,7 +18,7 @@
       </div>
       </div>
       
-      <div style="display: flex;flex-wrap: nowrap;position: relative;width: 100%;margin-top: 2em;">
+      <div style="display: flex;flex-wrap: nowrap;position: relative;width: 100%;margin-top: -3em;">
         <div class="col s4 our-info">
            <img src="img/fundemas_logo.png" alt="" width="250">
         </div>
@@ -29,10 +29,11 @@
           <p>FUNDEMAS es una organización dedicada a promover la RSE y la sostenibilidad, desde el año 2000, como una manera en que las empresas pueden contribuir al desarrollo sostenible de el Salvador, en los aspectos sociales, económicos y ambientales. </p>
 
           <p>El Mapa de Iniciativas Sociales no solo permitirá dar a conocer estos esfuerzos, sino que además contribuirá motivar a que otras empresas realicen estas acciones en beneﬁcio de El Salvador.</p>
+          <br>
            <div class="social-link" style="display: flex;">
-            <a href=""><img src="img/iconos/blog.png" alt=""></a>
-             <a href=""><img src="img/iconos/tw.png" alt=""></a>
-              <a href=""><img src="img/iconos/fb.png" alt=""></a>
+            <a href=""><img src="img/iconos/blog.png" alt="" class="responsive-img"></a>
+             <a href=""><img src="img/iconos/tw.png" alt="" class="responsive-img"></a>
+              <a href=""><img src="img/iconos/fb.png" alt="" class="responsive-img"></a>
           </div>
           </div>
          
@@ -55,9 +56,25 @@
           </div>
       </div>
     </section>
+    
+        <script type="text/javascript">
+jQuery(document).ready(function($){
+  // Get current path and find target link
+  var path = window.location.pathname.split("/").pop();
+  
+  // Account for home page with empty path
+  if ( path == '' ) {
+    path = 'index.php';
+  }
+      
+  var target = $('nav a[href="'+path+'"]');
+  // Add active class to target link
+  target.addClass('active');
+});
 
+</script>
   <footer style="padding: 0!important;background-color: #757575;">
-    <div class="row">
+    <div class="row" style="margin-bottom: 0!important;">
         <div class="col s12 footer">
             <p>Fundacion Poma impulsando el Progreso Social | Todos los derechos reservados, 2017</p>
         </div>
@@ -66,5 +83,5 @@
 
   </center>
 </section>
-<?php include("footer.php");?>
+
 </html>

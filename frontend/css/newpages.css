@@ -43,14 +43,14 @@
 }
 
 .text-green{
-	color: rgb(0, 255, 0);
+	color: rgb(43, 213, 0);
 }
 
 /*seccion linea de tiempo*/
 
 .wrapper-our{
 	padding: 0;
-	background-color: #e0e0e0;
+	background-color: #EEEEEE;
 	padding: 10px;
 }
 .info-ips{
@@ -161,7 +161,7 @@
 
 
  .contact-form .input-field input[type=text]:focus + label {
-     color: #00afbe!important;
+     color: #9e9e9e!important;
 
    }
 
@@ -192,6 +192,48 @@
    	font-size: 1.2vw
    }
 
+
+    .involucrate-form .input-field input[type=text]:focus + label {
+     color: #9e9e9e!important;
+   }
+
+     .involucrate-form .input-field textarea:focus + label {
+     color: #9e9e9e!important;
+   }
+
+   .involucrate-form .input-field input[type=text] + label {
+     font-size: 1.2vw;
+   }
+
+   .involucrate-form .input-field input[type=email] + label {
+     font-size: 1vw;
+   }
+	.involucrate-form .input[type=text]:not(.browser-default){
+		border-bottom: 1px solid #e0e0e0!important;
+	}
+   .involucrate-form .input-field input[type=text]{
+   	font-size: 0.8vw;
+   	margin: 5px;
+   }
+     .involucrate-form .input-field input[type=email]{
+   	font-size: 0.8vw;
+   	margin: 5px;
+   }
+
+    .involucrate-form .input-field textarea{
+   	font-size: 0.8vw;
+   	margin: 5px;
+   }
+   .involucrate-form .input-field textarea + label{
+   	font-size: 1.2vw
+   }
+
+   .option-form .input-field p {
+     font-size: 0.9vw;
+     color: #9e9e9e;
+   }
+
+
    .tabs .tab a.active {
     background-color: transparent;
     color: #FF9800!important;
@@ -216,12 +258,24 @@
    	padding-left: 5em;
    	padding-right: 5em;
    }
+   .btn-large:hover{
+   	background-color: #FF9800!important;
+   	filter: brightness(110%);
+   }
    .option-form{
    	background-color: white!important;
-   	padding: 2em!important;
+   	padding: 1em!important;
    	margin: 2em;
    }
 
+.check-form p > label{
+	font-size: 1vw!important;
+}
+
+
+
+
+/*TIMELINE*/
    .timeline-both-side{
   float: left; 
   width: 96%; 
@@ -238,17 +292,7 @@
   top: 0; 
   width: 1.2px;
 }
-.timeline-both-side:after{
-  border-radius: 50%; 
-  bottom: -22px; 
-  content: ""; 
-  height: 18px; 
-  left: 50%; 
-  margin-left: -11px; 
-  position: absolute; 
-  width: 18px; 
-  border: 2px solid #ccc;
-}
+
 .timeline-both-side li {
   position: relative; 
   float: left; 
@@ -279,7 +323,7 @@
 }
 .timeline-both-side li .timeline-description{
   border-radius: 2px; 
-  background-color: #f1f1f1; 
+  background-color: transparent; 
   float: left; 
   font-size: 13px; 
   padding: 2em; 
@@ -292,9 +336,27 @@
 .timeline-description p{
 	color: #9E9E9E;
 	font-family: 'Roboto';
-	font-size: 1vw;
-	font-weight: 400;
+	font-size: 1.1vw;
+	font-weight: 500;
 }
 .timeline-both-side li.opposite-side .timeline-description{
   float: right;
+}
+
+.social-progress{
+	background-color: #eeeeee;
+}
+.progress-text{
+	padding: 2em;
+}
+.social-progress p{
+	color: #bdbdbd;
+	font-size: 1.8vw;
+	line-height: 5px;
+}
+.social-progress h2{
+	color: #424242;
+	font-size: 2vw;
+	font-weight: bolder;
+	line-height: 8px;
 }

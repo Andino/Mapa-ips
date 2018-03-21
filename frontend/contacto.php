@@ -21,10 +21,10 @@
         <div class="col s12" style="display: flex;justify-content: center;">
           <ul class="tabs" style="justify-content: center;display: flex;height: 4.5em;">
             <li class="tab col s3" style="display: flex;justify-content: center;align-items: center;margin-left: 0!important;">
-              <a  href="#test1">Contáctanos</a>
+              <a class="active" href="#test1">Contáctanos</a>
             </li>
             <li class="tab col s3" style="display: flex;justify-content: center;align-items: center;margin-left: 0!important;">
-              <a class="active" href="#test2">Involúcrate</a>
+              <a href="#test2">Involúcrate</a>
             </li>
             
           </ul>
@@ -82,10 +82,10 @@
         </div>
 
     </div>
-            <div id="test2" class="col s12 contact-form">
+            <div id="test2" class="col s12 involucrate-form">
             <form>
                 <div class="row" style="width: 75%;">
-                    <div class="col s6">
+                    <div class="col s4">
                         <h5 style="text-align: left;color:#757575;font-weight: bolder;font-size: 1.5vw;">Datos Generales</h5>
                         <br>
                           <div class="input-field">
@@ -117,9 +117,9 @@
                         </div>
                     </div>
 
-                    <div class="col s6">
+                    <div class="col s8">
                         <h5 style="text-align: left;color:#757575;font-weight: bolder;font-size: 1.3vw;">Objetivos de desarrollo sostenible a los que contribuye</h5>
-                        <div class="col s6">
+                        <div class="col s6 check-form">
                              <p>
                               <input type="checkbox" id="1" />
                               <label for="1">Fin de la pobreza</label>
@@ -165,7 +165,7 @@
                               <label for="11">Cuidades y comunidades sostenibles</label>
                             </p>
                         </div>
-                        <div class="col s6">
+                        <div class="col s6 check-form">
                             <p>
                               <input type="checkbox" id="12" />
                               <label for="12">Produccion y consumo responsable</label>
@@ -218,65 +218,49 @@
                  </div>
 
                  <section class="form2" style="padding:0!important;background-color: #e0e0e0 ">
-                    <div class="row" style="width: 75%; padding-top: 2em; display: flex;flex-wrap: nowrap;">
+                    <div class="row" style="width: 75%; display: flex;flex-wrap: nowrap;">
                         <div class="col s4 option-form">
-                          <h2 style="text-align: left;color:#757575;font-weight: bolder;font-size: 1vw;">Descripcion del programa</h2>
+                          <h2 style="text-align: left;color:#424242;font-weight: bolder;font-size: 1.2vw;">Descripcion del programa</h2>
                           <div class="input-field">
-                            <br>
-                            <br>
-                            <input placeholder="" id="name" type="text" class="validate">
-                            <label for="nombre">Explicar brevemente el proposito del proyecto</label>
+                            <p for="nombre">Explicar brevemente el proposito del proyecto</p>
+                            <input placeholder="" id="name" type="text" class="validate" style=";">
+                            
                           </div>
                           <br>
                           <div class="input-field">
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-
-                            <input placeholder="" id="name" type="text" class="validate">
-                            <label for="nombre">Mencione las actividades especificas que lleva acabo para cumplir con el proposito del proyecto</label>
+                              <p for="nombre">  Mencione las actividades especificas que lleva acabo para cumplir con el proposito del proyecto</p>
+                            <input placeholder="" id="name" type="text" class="validate" style="">
+                          
                           </div>
                           <br>
                           <div class="input-field">
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <input placeholder="" id="name" type="text" class="validate">
-                            <label for="nombre">¿Posee video explicativo del programa? De ser asi, anexarlo o indicar link:</label>
+                             <p for="nombre">¿Posee video explicativo del programa? De ser asi, anexarlo o indicar link:</p>
+                            <input placeholder="" id="name" type="text" class="validate" style="margin-top:   5%;">
+                           
                           </div>
 
                         </div>
                         <div class="col s4 option-form">
-                          <h2 style="text-align: left;color:#757575;font-weight: bolder;font-size: 1vw;">Descripcion del programa</h2>
-                          <div class="input-field">
-                            <br>
-                            <input placeholder="" id="name" type="text" class="validate">
-                            <label for="nombre">Beneficiarios</label>
-                          </div>
-                          <br>
+                          <h2 style="text-align: left;color:#424242;font-weight: bolder;font-size: 1.2vw;">Descripcion del programa</h2>
+                          
+                        
                           <div class="input-field ">
-                            <br>
-                            <br>
+                            <p for="nombre">Cantidad de beneficiarios directos del proyecto</p>
                             <input placeholder="" id="name" type="text" class="validate">
-                            <label for="nombre">Cantidad de beneficiarios directos del proyecto</label>
+                            
                           </div>
-                          <br>
+                          
                            <div class="input-field ">
-                            <br>
-                            <br>
-                            <br>
-                            <br>
+                          <p for="nombre">Area Geografica (Departamento, Municipio, Comunidades) en que se desarrolla el proyecto:</p>
                             <input placeholder="" id="name" type="text" class="validate">
-                            <label for="nombre">Area Geografica (Departamento, Municipio, Comunidades) en que se desarrolla el proyecto:</label>
+                           
                           </div>
 
                         </div>
                         <div class="col s4 option-form">
-                        <h2 style="text-align: left;color:#757575;font-weight: bolder;font-size: 1vw;">Colaboracion</h2>
-                        <p style="text-align: left;color:#9E9E9E;font-weight: 400;font-size: 0.8vw;">¿Existen otras instituciones que colaboran en la ejecución del programa? De ser asi identificarlas</p>
+                        <h2 style="text-align: left;color:#424242;font-weight: bolder;font-size: 1.2vw;">Colaboracion</h2>
+                        <p style="text-align: left;color:#9E9E9E;font-weight: 400;font-size: 0.9vw;">¿Existen otras instituciones que colaboran en la ejecución del programa? De ser asi identificarlas</p>
+                        <br>
                           <div class="input-field">
                             <br>
                             <input placeholder="" id="name" type="text" class="validate">
@@ -357,9 +341,24 @@
          
         </div>
  
+            <script type="text/javascript">
+jQuery(document).ready(function($){
+  // Get current path and find target link
+  var path = window.location.pathname.split("/").pop();
+  
+  // Account for home page with empty path
+  if ( path == '' ) {
+    path = 'index.php';
+  }
+      
+  var target = $('nav a[href="'+path+'"]');
+  // Add active class to target link
+  target.addClass('active');
+});
 
+</script>
   <footer style="padding: 0!important;background-color: #757575;">
-    <div class="row">
+    <div class="row" style="margin-bottom: 0!important;">
         <div class="col s12 footer">
             <p>Fundacion Poma impulsando el Progreso Social | Todos los derechos reservados, 2017</p>
         </div>
@@ -368,5 +367,5 @@
 
   </center>
 </section>
-<?php include("footer.php");?>
+
 </html>

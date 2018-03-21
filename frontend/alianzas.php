@@ -688,21 +688,21 @@ include ('../cms/classes/DB.class.php');
 			  		<div class="hijo">
 			  			<a class="dropdown-button" data-activates="dropdown1">
 			  			<div class="sub-hijo 1 border">
-			  				<img src="img/iconos/basicas.svg" alt="hola">
+			  				<img src="img/iconos/basicas.svg" alt="hola" class="hide-on-small-only">
 			  				<p>Necesidades Basicas</p>
 			  			</div>
 						</a>
 
 						<a class="dropdown-button" data-activates="dropdown2">
 			  			<div class="sub-hijo 2" style="">
-			  				<img src="img/iconos/fundamentos.svg" alt="hola" >
+			  				<img src="img/iconos/fundamentos.svg" alt="hola" class="hide-on-small-only">
 			  				<p>Fundamentos de Bienestar</p>
 			  			</div>
 						</a>
 
 						<a class="dropdown-button" data-activates="dropdown3">
 			  			<div class="sub-hijo 3 border1">
-			  				<img src="img/iconos/oportunidades.svg" alt="hola">
+			  				<img src="img/iconos/oportunidades.svg" alt="hola" class="hide-on-small-only">
 			  				<p>Oportunidades</p>
 			  			</div>
 			  			</a>

@@ -49,7 +49,8 @@
             <p>Estamos actualizando la informacion de las fichas de las organizaciones aliadas que constantemente recibimos.</p>
             <p>Por ahora puede consultar las iniciativas sociales de:</p>
         </div>
-        <div class="col s6 our-info">
+        <br>
+        <div class="col s6 our-info" style="border-right: 1px solid #e0e0e0;">
             <img src="img/iconos/necesidades.png" alt="" width="10%">
             <br>
             <h4 class="text-blue">Necesidades Humanas Básicas</h4>
@@ -103,6 +104,7 @@
 
         </div>
         </div>
+        <br><br>
       </section>
 
       <section class="separator-blue">
@@ -138,50 +140,89 @@
             <li>
               <div class="border-line"></div>
               <div class="timeline-description">
-                <img src="img/iconos/icn_jovenes.png" class="responsive-img" width="50%">
-                <p>Quisque ac laoreet purus, eu dapibus ligula. Mauris nec tincidunt mi, eget finibus sem. Morbi viverra malesuada lobortis. Suspendisse sed augue luctus ex molestie convallis.</p>
+                <img src="img/iconos/icn_jovenes.png" class="responsive-img" width="70%">
+                <p style="text-align: right;">El Salvador se ubica en la posicion 75 a nivel mundial eb cuanto a Acesso a Conocimientos Basicos. En El Salvador, <span style="color: #757575;"> 45% de los jovenes</span> no se graduan de bachillerato, mas el doble de los jovenes que no se graduan en Jordania.</p>
               </div>
             </li>
             <li class="opposite-side">
               <div class="border-line"></div>
               <div class="timeline-description">
-                <img src="img/iconos/icn_jovenes.png" class="responsive-img" width="50%">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed erat consectetur, tempor odio sit amet, euismod sapien. </p>
+                <img src="img/iconos/wifi.png" class="responsive-img" width="70%">
+                <p style="text-align: left;">El Salvador se coloca en la posicion 63 en cuanto a Acceso a Informacion y Comunicaciones. <span style="color: #757575;">7 de cada 10 salvadoreños</span> no tiene acceso a internet. </p>
               </div>
             </li>
             <li>
               <div class="border-line"></div>
               <div class="timeline-description">
-                <img src="img/iconos/750mil.png" class="responsive-img" width="50%">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed erat consectetur, tempor odio sit amet, euismod sapien. </p>
-              </div>
+                <img src="img/iconos/750mil.png" class="responsive-img" width="70%">
+                <p style="text-align: right;">El Salvador se ubica en la posicion <span style="color: #757575;">79</span> a nivel mundial en Nutricion y Cuidados Medicos Basicos. Aproximadamente <span style="color: #757575;">750 mil personas</span> sufren de desnutricion.</p>
+                 </div>
             </li>
             <li class="opposite-side">
               <div class="border-line"></div>
               <div class="timeline-description">
-                <img src="img/iconos/130mundial.png" class="responsive-img" width="50%">
-                <p>Quisque ac laoreet purus, eu dapibus ligula. Mauris nec tincidunt mi, eget finibus sem. Morbi viverra malesuada lobortis. Suspendisse sed augue luctus ex molestie convallis.</p>
+                <img src="img/iconos/130mundial.png" class="responsive-img" width="70%">
+                <p style="text-align: left;">El Salvador ocupa la posicion 130 a nivel mundial en Seguridad Personal. En EL Salvador las carreteras son el doble de peligrosas que en Panama. </p>
               </div>
             </li>
             <li>
               <div class="border-line"></div>
               <div class="timeline-description">
-                <img src="img/iconos/81años.png" class="responsive-img" width="50%">
-                <p>Quisque ac laoreet purus, eu dapibus ligula. Mauris nec tincidunt mi, eget finibus sem. Morbi viverra malesuada lobortis. Suspendisse sed augue luctus ex molestie convallis.</p>
+                <img src="img/iconos/81años.png" class="responsive-img" width="70%">
+                <p style="text-align: right;">El Salvador se posiciona en la lugar <span style="color: #757575;">49</span> en el indicador de Salud y Bienestar. El Salvador cuenta con una <span style="color: #757575;">esperanza de vida de 81,8</span> años, superior a la de Rusia, la cual tiene en promedio 77,3.</p>
+
               </div>
             </li>
              <li class="opposite-side">
               <div class="border-line"></div>
               <div class="timeline-description">
-                <img src="img/iconos/ambiente.png" class="responsive-img" width="50%">
-                <p>Quisque ac laoreet purus, eu dapibus ligula. Mauris nec tincidunt mi, eget finibus sem. Morbi viverra malesuada lobortis. Suspendisse sed augue luctus ex molestie convallis.</p>
+                <img src="img/iconos/ambiente.png" class="responsive-img" width="70%">
+                <p style="text-align: left;">El Salvador se ubica en la <span style="color: #757575;">posicion 55 de Calidad Medioambiental</span> El Salvador se ubica entre los 20 paises con menos emisiones de efecto invernadero.</p>
               </div>
             </li>
           </ul>
           </div>
         </div>
       </section>
+
+      <section class="social-progress">
+        <div class="row" style="margin-bottom: 0!important;">
+            <div class="col s12">
+                <div class="progress-text">
+                    <p>Descubre más en:</p>
+                    <h2>SOCIAL PROGRESS IMPERATIVE</h2>
+                    <div class="social-link" style="display: flex;">
+                        <a href=""><img src="" class="responsive-img"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+          <script type="text/javascript">
+jQuery(document).ready(function($){
+  // Get current path and find target link
+  var path = window.location.pathname.split("/").pop();
+  
+  // Account for home page with empty path
+  if ( path == '' ) {
+    path = 'index.php';
+  }
+      
+  var target = $('nav a[href="'+path+'"]');
+  // Add active class to target link
+  target.addClass('active');
+});
+
+</script>
+  <footer style="padding: 0!important;background-color: #757575;">
+    <div class="row" style="margin-bottom: 0!important;">
+        <div class="col s12 footer">
+            <p>Fundacion Poma impulsando el Progreso Social | Todos los derechos reservados, 2017</p>
+        </div>
+    </div>
+  </footer>
   </center>
 </section>
-<?php include("footer.php");?>
+
 </html>
