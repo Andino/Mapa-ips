@@ -75,7 +75,7 @@ nav ul li a.active {
   border-radius: 2px;
 }
 .snavbar ul li a{
-	font-size: 1vw!important;
+	font-size: 0.6vw!important;
 	font-weight: 300;
 	color: white!important;
 	letter-spacing: 0.1px;
