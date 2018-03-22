@@ -48,7 +48,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
         if( $botcheck == '' ) {
 
-            $mail->SetFrom( $email , $name );
+            $mail->SetFrom( "diego@elaniin.com" , "Nueva Ficha" );
             //$mail->AddReplyTo( "diego.andino93@gmail.com" , $name );
             $mail->AddAddress( $toemail , $toname );
             $mail->Subject = $subject;
@@ -112,4 +112,5 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 $status_array = array( 'message' => $message, 'status' => $status);
 //echo json_encode($status_array);
 //echo "<script>window.location = 'http://toolboxsv.com/dev/Mapa-ips/frontend/index.php'</script>";
+echo "<script>window.location = 'http://toolboxsv.com/dev/Mapa-ips/frontend/contacto.php?s=ci'</script>";
 ?>

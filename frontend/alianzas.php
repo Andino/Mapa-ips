@@ -755,7 +755,6 @@ include ('../cms/classes/DB.class.php');
 		var i=0;
 		for (i = 0; i < dbutton.length; i++){	
 			  dbutton[i].onclick = function() { 
-			  	$('html, body').animate({scrollTop:$(document).height()}, 'slow');
 		        if (window.XMLHttpRequest) {
 		            // code for IE7+, Firefox, Chrome, Opera, Safari
 		            xmlhttp = new XMLHttpRequest();
