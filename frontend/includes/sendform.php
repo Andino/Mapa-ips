@@ -110,6 +110,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 }
 
 $status_array = array( 'message' => $message, 'status' => $status);
-echo json_encode($status_array);
+//echo json_encode($status_array);
 //echo "<script>window.location = 'http://toolboxsv.com/dev/Mapa-ips/frontend/index.php'</script>";
 ?>

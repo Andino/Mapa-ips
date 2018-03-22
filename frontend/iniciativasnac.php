@@ -444,11 +444,12 @@ include ('../cms/classes/DB.class.php');
 		        $("#txtHint").hide();
 				var compo=this.textContent;
 		        setTimeout(function(){
-				    xmlhttp.open("GET","nacdata.php?&q="+compo,true);
-		    		xmlhttp.send();
 		        	$("#loading").hide();
 		        	$("#txtHint").show();
 		        }, 3700); 
+		        xmlhttp.open("GET","nacdata.php?&q="+compo,true);
+		    	xmlhttp.send();
+
 			}
 		}
 </script>

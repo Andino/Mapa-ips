@@ -237,13 +237,13 @@ include ('../cms/classes/DB.class.php');
 							<h4 class="content-a">AREA GEOGRAFICA:</h4> 
 			            	<h4 class="content-b" style="right">';
 			            	$nombre_prog=mysqli_real_escape_string($db->connect(), $key["nombre_prog"]);
-                			$geo=$db->select("programa_ips as p 
-                                 inner join proxcomp as pc on pc.id_prog = p.id_prog 
-                                 inner join proxmuni as pm on pm.id_prog = p.id_prog 
-                                 inner join municipio as m on m.id_muni = pm.id_muni
-                                 inner join componentes as c on c.id_comp = pc.id_comp  
-                                 inner join departamento as d on d.id_dep = m.id_dep 
-                                 ", "p.nombre_prog like'$nombre_prog'");
+                			$geo=$db->preSelectSpecific("d.nombre_dep","programa_ips as p 
+                                     inner join proxcomp as pc on pc.id_prog = p.id_prog 
+                                     inner join proxmuni as pm on pm.id_prog = p.id_prog 
+                                     inner join municipio as m on m.id_muni = pm.id_muni
+                                     inner join componentes as c on c.id_comp = pc.id_comp  
+                                     inner join departamento as d on d.id_dep = m.id_dep 
+                                     ", "p.nombre_prog like'$nombre_prog'");
 			                foreach ($geo as $val){
 			                    echo $val["nombre_dep"]." <br>";
 			                }

@@ -90,7 +90,7 @@ include ('../cms/classes/DB.class.php');
                     //.' - '.$key["nombre_prog"].'
                     '</p>
                     <p style="font-size:12px;">COMPONENTE IPS: '.$key["nombre_comp"].'</p>
-                    <p style="font-size:12px;">AREA GEOGRAFICA DE ALCANCE: ';
+                    <p style="font-size:12px; line-height:1.5">AREA GEOGRAFICA DE ALCANCE: ';
                     $nombre_prog=mysqli_real_escape_string($db->connect(), $key["nombre_prog"]);
                     $geo=$db->preSelectSpecific("d.nombre_dep","programa_ips as p 
                                      inner join proxcomp as pc on pc.id_prog = p.id_prog 
@@ -109,7 +109,7 @@ include ('../cms/classes/DB.class.php');
                 <hr style="border:0.7px solid #BDBDBD!important;">';
                 }
             }
-            else{  echo '<h3 class="error" >NO SE HAN ENCONTRADO REGISTROS</h3>';
+            else{  echo '<h3 class="error">NO SE HAN ENCONTRADO REGISTROS</h3>';
             } ?>
 </body>
 <script type="text/javascript">
