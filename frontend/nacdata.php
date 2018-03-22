@@ -17,12 +17,13 @@ th {text-align: left;}
     font-size: 25px!important;
     color: #F44336;
     font-weight: bold;
-  
+  }
 .programs p {
-    color: #bdbdbd;
+    color: #9E9E9E;
     font-weight: 300;
     font-size: 18px!important;
     font-family: 'Roboto';
+    line-height: 15px;
 }
 .programs h3{
     font-size: 20px!important;
@@ -65,20 +66,20 @@ include ('../cms/classes/DB.class.php');
                 foreach ($prueba as $key) {
                 echo '
                 <center>
-                <div class="row">
-                <div class="col s4">
+                <div class="row" style="margin-bottom:0!important;">
+                <div class="col s4" style="display:flex;justify-content:center;">
                     <a href="#" title="Lorem ipsum" class="thumbnail">';
                         if(empty($key["imagen"])){
-                          echo '<img width="200" src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" />';
+                          echo '<img width="300" src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" />';
                         }
                         else{
-                          echo'<img width="200" src="../cms/img/programa/'.$key["imagen"].'" class="center" alt="Lorem ipsum" />';
+                          echo'<img width="300" src="../cms/img/programa/'.$key["imagen"].'" class="center" alt="Lorem ipsum" />';
                         }
                 echo'</a>
                 </div>
                 <div class="col s8 programs" style="text-align: left; color:gray; font-weight:bold;">
                     <h3 style="font-size: 17px; text-align: left;">
-                        <a href="#" style=" color:gray!important; font-weight:bold;">'.$key["nombre_prog"].' </a>
+                        <a href="#" style=" color:gray!important; font-weight:bold;word-break:keep-all;">'.$key["nombre_prog"].' </a>
                         <small class="right" style="color:#38aab3; margin-top:-7px;"><svg aria-hidden="true" data-prefix="fal" data-icon="plus-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-plus-circle fa-w-16" style="font-size: 20px;"><path fill="currentColor" d="M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z" class=""></path></svg><a href="programas.php?pro='.$key["nombre_prog"].'">Ver más</a></small>
                     </h3>
                     <p style="font-size:15px;">'.$key["nombre_fundaorg"].
