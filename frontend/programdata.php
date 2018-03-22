@@ -68,7 +68,7 @@ include ('../cms/classes/DB.class.php');
             if(!empty($prueba)){
                 foreach ($prueba as $key) {
                 echo '
-                <div class="row">
+                <div class="row" style="margin-bottom:0!important;">
                 <div class="col s4" style="display:flex;justify-content:center;">
                     <a href="#" title="Lorem ipsum" class="thumbnail">';
                         if(empty($key["imagen"])){
