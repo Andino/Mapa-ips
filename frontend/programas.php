@@ -69,8 +69,8 @@ include ('../cms/classes/DB.class.php');
   <center>
   <div class="card text-center svg-map-card " style="z-index: 999; width: 95%;">
     <div class="card-body">
-    	<br>
-      <div class="row"> 
+    	
+      <div class="row" style="margin-bottom: ;"> 
       	<?php 
       		$db = new DB(); 
     		$comp = $_GET['pro'];
@@ -88,7 +88,7 @@ include ('../cms/classes/DB.class.php');
                 "p.nombre_prog like '$comp'");
             foreach ($prueba as $key) {
             echo '
-            <div class="row container">
+            <div class="row container" style="margin-bottom:0;padding-top:2.3em;">
 
             <div class="col s4" style="text-align:left">
                 <a title="Lorem ipsum" class="thumbnail">
@@ -201,7 +201,8 @@ include ('../cms/classes/DB.class.php');
 			            </div>
                 	</div>
                 	<div class="row">
-                		<center><div style="height:1.9px; background-color:; width:35%;"></div></center>
+                		<center>
+                		<div style="height:1.9px; background-color:; width:35%;"></div></center>
 	                	<div class="col s12">
 	                		<h4 class="content-c">INSTITUCIONES QUE COLABORAN</h4>
 	                	</div>
@@ -227,7 +228,7 @@ include ('../cms/classes/DB.class.php');
 			            </div>
                 	</div>
 
-                	<div class="row">
+                	<div class="row" style="margin-bottom:0;">
 	                	<div class="col s6">		            	
                 		<h4 class="content-c">BENEFICIARIOS DIRECTOS</h4> 
 			            	<h4 class="content-b" style="right">'.$key["cantBenef"].' Personas</h4>
