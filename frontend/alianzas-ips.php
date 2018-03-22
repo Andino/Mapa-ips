@@ -18,7 +18,7 @@
       </div>
       </div>
       
-      <div style="display: flex;flex-wrap: nowrap;position: relative;width: 100%;margin-top: -3em;">
+      <div style="display: flex;flex-wrap: nowrap;position: relative;width: 100%;">
         <div class="col s4 our-info">
            <img src="img/fundemas_logo.png" alt="" width="250">
         </div>

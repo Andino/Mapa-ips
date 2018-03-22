@@ -97,6 +97,7 @@
 	display: flex;
 	text-align: left;
 	align-items: center;
+  height: 25vw!important;
 	
 	
 }
@@ -152,7 +153,10 @@
 }
 
 .contact-form{
-	padding: 2em;
+
+	padding-left: 3em;
+  padding-right: 3em;
+  padding-top: 0.9em;
 	border:1px solid #bdbdbd;
 	border-radius: 5px;
 	margin-top: 1em;
