@@ -153,7 +153,7 @@ include ('../cms/classes/DB.class.php');
 		         		$prueba=$db->selectSpecific("nombre_dep", "departamento", "nombre_dep like '$id'");
 						foreach ($prueba as $key) {
 							echo '
-		    					<img src="../frontend/img/depto-sideb/'.$key["nombre_dep"].'.svg" width="200">';
+		    					<img src="../frontend/img/depto-sideb/'.strtolower($key["nombre_dep"]).'.svg" width="200">';
 						}
 		         	?>
 		         	
@@ -779,16 +779,18 @@ include ('../cms/classes/DB.class.php');
 				var timews;
 		        xmlhttp2.open("GET","maps-svg.php?id=<?php echo $id?>&q="+compo,true);
 		    	xmlhttp2.send();
-		    	$("#txtHint").hide();
-		        $("#loading").show();
 		        window.clearTimeout(timews);
-
+				$("#loading").show();
+				document.getElementById("txtHint").style.display = "none";
 		        timews=setTimeout(function(){
-				    xmlhttp.open("GET","programdata.php?id=<?php echo $id?>&q="+compo,true);
-		    		xmlhttp.send();
-		        	$("#loading").hide();
-		        	$("#txtHint").show();
-		        }, 2700); 
+			  	document.getElementById("txtHint").style.display = "block";
+		        $("#loading").hide();
+
+		        }, 2000); 
+		        timews=setTimeout(function(){
+				xmlhttp.open("GET","programdata.php?id=<?php echo $id?>&q="+compo,true);
+		    	xmlhttp.send();
+		        }, 100); 
 			}
 		}
 </script>
