@@ -26,6 +26,10 @@ th {text-align: left;}
     font-family: 'Roboto';
     line-height: 15px;
 }
+  .img-data img{
+    object-fit: cover;
+    height: 14em;
+  }
 .programs h3{
     font-size: 20px!important;
 }
@@ -69,8 +73,8 @@ include ('../cms/classes/DB.class.php');
                 foreach ($prueba as $key) {
                 echo '
                 <div class="row" style="margin-bottom:0!important;">
-                <div class="col s4" style="display:flex;justify-content:center;">
-                    <a href="#" title="Lorem ipsum" class="thumbnail">';
+                <div class="col s4 img-data" style="display:flex;justify-content:center;">
+                    <a href="#" title="Lorem ipsum" class="thumbnail" style="display:flex;">';
                         if(empty($key["imagen"])){
                           echo '<img width="300" src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" />';
                         }

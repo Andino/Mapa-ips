@@ -70,7 +70,7 @@
             <div class="row">
               
             <form class="col s12" method="POST" action="includes/sendmail.php">
-              <div class="row"><h2  style="text-align: left;color:#757575;font-weight: bolder;font-size: 1.5vw;">Informacion de contacto</h2>
+              <div class="row"><h2  style="text-align: left;color:#424242;font-weight: bolder;font-size: 1.5vw;">Informacion de contacto</h2>
                 <div class="input-field col s6">
                   <input placeholder="" id="name" name="name" type="text" class="validate" required>
                   <label for="name">Nombre</label>
@@ -81,7 +81,7 @@
                   <label for="email">Email</label>
                 </div>
               </div>
-              <br><br>
+              <br>
              <div class="row">
                 <div class="input-field col s6">
                   <input placeholder="" id="name" type="text" name="org" class="validate" required>
@@ -93,7 +93,7 @@
                   <label for="phone">Telefono</label>
                 </div>
               </div>
-              <br><br>
+              <br>
 
               <div class="row">
                 <div class="input-field col s12">
