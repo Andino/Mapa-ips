@@ -39,8 +39,9 @@
         <div id="test1" class="col s12">
           <div class="contact-form">
             <div class="row">
+              
             <form class="col s12" method="POST" action="includes/sendmail.php">
-              <div class="row">
+              <div class="row"><h2  style="text-align: left;color:#757575;font-weight: bolder;font-size: 1.5vw;">Informacion de contacto</h2>
                 <div class="input-field col s6">
                   <input placeholder="" id="name" name="name" type="text" class="validate">
                   <label for="name">Nombre</label>
