@@ -415,6 +415,7 @@ include ('cms/classes/DB.class.php');
 		</article>
 	</section>
 	<script type="text/javascript">
+		        	$("#loading").hide();
     if(decodeURI(window.location.href.split("=").pop()) == "Acceso a Conocimientos Básicos" ||
        decodeURI(window.location.href.split("=").pop()) == "Acceso a Información y Comunicaciones" || 
        decodeURI(window.location.href.split("=").pop()) == "Nutricion y Asistencia Medica Basica" ||
