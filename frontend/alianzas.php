@@ -152,8 +152,27 @@ include ('../cms/classes/DB.class.php');
 	         		<?php
 		         		$prueba=$db->selectSpecific("nombre_dep", "departamento", "nombre_dep like '$id'");
 						foreach ($prueba as $key) {
-							echo '
-		    					<img src="../frontend/img/depto-sideb/'.strtolower($key["nombre_dep"]).'.svg" width="200">';
+							if($id=="ahuachapán"){
+								echo '<img src="../frontend/img/depto-sideb/ahuachapan.svg" width="200">';
+							}
+							else if($id=="cabañas"){
+								echo '<img src="../frontend/img/depto-sideb/cabanas.svg" width="200">';
+							}
+							else if($id=="cuscatlán"){
+								echo '<img src="../frontend/img/depto-sideb/cuscatlan.svg" width="200">';
+							}
+							else if($id=="la unión"){
+								echo '<img src="../frontend/img/depto-sideb/la union.svg" width="200">';
+							}
+							else if($id=="morazán"){
+								echo '<img src="../frontend/img/depto-sideb/morazan.svg" width="200">';
+							}
+							else if($id=="usulután"){
+								echo '<img src="../frontend/img/depto-sideb/usulutan.svg" width="200">';
+							}
+							else{
+								echo '<img src="../frontend/img/depto-sideb/'.strtolower($key["nombre_dep"]).'.svg" width="200">';
+							}
 						}
 		         	?>
 		         	
