@@ -5,7 +5,7 @@
   $state="";
   $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
   $actual_link2 = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-  if($actual_link2 == $actual_link."/dev/Mapa-ips/contacto.php?s=cs" || $actual_link2 == $actual_link."/dev/Mapa-ips/contacto.php?s=ci"){
+  if($actual_link2 == $actual_link."/dev/mapa-ips/contacto.php?s=cs" || $actual_link2 == $actual_link."/dev/mapa-ips/contacto.php?s=ci"){
     $state = $_GET["s"];
   }
 ?>

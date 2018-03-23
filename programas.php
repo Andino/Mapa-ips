@@ -11,6 +11,7 @@ include ('cms/classes/DB.class.php');
 		exit();
 	}
  	$db = new DB(); 
+
 ?>
 
 <style type="text/css">
@@ -74,6 +75,7 @@ include ('cms/classes/DB.class.php');
       	<?php 
       		$db = new DB(); 
     		$comp = $_GET['pro'];
+    		$compips = $_GET['comp'];
             
             $compo=mysqli_real_escape_string($db->connect(), $comp);
             $prueba=$db->preSelectSpecific("nombre_fundaorg, instpubli_prog, instpriv_prog, cantBenef, telefono, nombre_prog, mail_contactoorg, imagen, urlwebsite_contactoorg, nombre_contactoorg, actPrinc_prog, proposito_prog, indMetricas, actEsp_prog","programa_ips as p 
@@ -122,11 +124,16 @@ include ('cms/classes/DB.class.php');
                 }
                 echo'</div>
             </div>
-            <div class="col s8" style="text-align: left; font-weight:bold;">
-         
-                <a style="float:right;color:#f49715;font-weight:bold!important;font-size:20px;margin-right:50px;" href="'.$_SERVER['HTTP_REFERER'].'"><img src="img/left-arrow.png" alt="" style="vertical-align: middle;" />&nbsp;&nbsp;Regresar</a>
+            <div class="col s8" style="text-align: left; font-weight:bold;">';
+				$urltemp= split("temp", $_SERVER['HTTP_REFERER']);
+		         if(count($urltemp)==1){
+                	echo'<a style="float:right;color:#f49715;font-weight:bold!important;font-size:20px;margin-right:50px;" href="'.$_SERVER['HTTP_REFERER'].'&?temp='.$compips.'"><img src="img/left-arrow.png" alt="" style="vertical-align: middle;" />&nbsp;&nbsp;Regresar</a>';
+		         }
+		         else{
+		         	echo'<a style="float:right;color:#f49715;font-weight:bold!important;font-size:20px;margin-right:50px;" href="'.$_SERVER['HTTP_REFERER'].'"><img src="img/left-arrow.png" alt="" style="vertical-align: middle;" />&nbsp;&nbsp;Regresar</a>';
+		         }
 
-                <br><br>
+                echo '<br><br>
                 <center><a style="font-weight:bold!important;text-transform: uppercase; font-size:18px;"><p style:"font-weight:bolder;">'.$key["nombre_prog"].'</p> </a></center>
                 	<div class ="row">	
 	                	<div class="col s5">

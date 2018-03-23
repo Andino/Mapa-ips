@@ -112,7 +112,7 @@ include ('cms/classes/DB.class.php');
 	            <div class="col s8" style="text-align: left; color:gray; font-weight:bold;">
 	                <h3 style="font-size: 17px; text-align: left;">
 	                    <a href="#" style=" color:gray!important; font-weight:bold;">'.$key["nombre_prog"].' </a>
-	                    <small class="right" style="color:#38aab3; margin-top:-7px;"><i class="fas fa-plus-circle"></i><a href="programas.php?pro='.$key["nombre_prog"].'">&nbsp;Ver más</a></small>
+	                    <small class="right" style="color:#38aab3; margin-top:-7px;"><i class="fas fa-plus-circle"></i><a href="programas.php?pro='.$key["nombre_prog"].'&comp='.$sear.'">&nbsp;Ver más</a></small>
 	                </h3>
 	                <p style="font-size:15px;">'.$key["nombre_fundaorg"].
 	                //.' - '.$key["nombre_prog"].'

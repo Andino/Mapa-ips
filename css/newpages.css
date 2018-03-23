@@ -135,8 +135,25 @@
 }
 
 .social-link2 img{
+	width: 50%;
+}
+.social-link a img:hover{
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+}
+
+.social-link2 img{
   width: 50%;
 }
+
+.social-link2  a img:hover{
+  background: #00afbe!important;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -webkit-box-shadow: 0 0 0 5px #00afbe;
+}
+
 
 .social-link2  a img:hover{
   background: #00afbe!important;
@@ -163,10 +180,17 @@
 }
 
 .footer p{
+<<<<<<< HEAD
+	color: #E0E0E0!important;
+	font-size: 0.8vw!important;
+	letter-spacing: 0.1px;
+	font-weight: 300;
+=======
   color: #E0E0E0!important;
   font-size: 0.8vw!important;
   letter-spacing: 0.1px;
   font-weight: 300;
+>>>>>>> 46118ff3970567d3b408d5ee6793c80411644f9a
 }
 
 .contact-form{

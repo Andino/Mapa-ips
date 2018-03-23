@@ -414,8 +414,53 @@ include ('cms/classes/DB.class.php');
 				<div id="txtHint"><b></b></div>
 		</article>
 	</section>
-<script type="text/javascript">
-		$("#loading").hide();
+	<script type="text/javascript">
+    if(decodeURI(window.location.href.split("=").pop()) == "Acceso a Conocimientos Básicos" ||
+       decodeURI(window.location.href.split("=").pop()) == "Acceso a Información y Comunicaciones" || 
+       decodeURI(window.location.href.split("=").pop()) == "Nutricion y Asistencia Medica Basica" ||
+       decodeURI(window.location.href.split("=").pop()) == "Agua y Saneamiento" ||
+       decodeURI(window.location.href.split("=").pop()) == "Vivienda" ||
+       decodeURI(window.location.href.split("=").pop()) == "Seguridad personal" ||
+       decodeURI(window.location.href.split("=").pop()) == "Salud y Bienestar" ||
+       decodeURI(window.location.href.split("=").pop()) == "Sustentabilidad del Ecosistema" ||
+       decodeURI(window.location.href.split("=").pop()) == "Derechos Personales" ||
+       decodeURI(window.location.href.split("=").pop()) == "Libertad Personal y de Elección" ||
+       decodeURI(window.location.href.split("=").pop()) == "Educación Superior" ||
+       decodeURI(window.location.href.split("=").pop()) == "Tolerancia e Inclusión"){
+        var filter = window.location.href.split("=").pop();
+        $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+                  
+		        if (window.XMLHttpRequest) {
+		            // code for IE7+, Firefox, Chrome, Opera, Safari
+		            xmlhttp = new XMLHttpRequest();
+		            xmlhttp2 = new XMLHttpRequest();
+		        } else {
+		            // code for IE6, IE5
+		            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		            xmlhttp2 = new ActiveXObject("Microsoft.XMLHTTP");
+		        }
+		        xmlhttp.onreadystatechange = function() {
+		            if (this.readyState == 4 && this.status == 200) {
+		                document.getElementById("txtHint").innerHTML = this.responseText;
+		            }
+		        };
+		        xmlhttp2.onreadystatechange = function() {
+		            if (this.readyState == 4 && this.status == 200) {
+		                document.getElementById("map-svg").innerHTML = this.responseText;
+		            }
+		        };
+		        $("#loading").show();
+		        $("#txtHint").hide();
+				var compo=this.textContent;
+		        setTimeout(function(){
+		        	$("#loading").hide();
+		        	$("#txtHint").show();
+		        }, 3700); 
+		        xmlhttp.open("GET","nacdata.php?&q="+filter,true);
+		    	xmlhttp.send();
+
+    }
+
 		var dbutton = document.getElementsByClassName("bouton");
 		var i=0;
 		for (i = 0; i < dbutton.length; i++){	
@@ -462,18 +507,27 @@ include ('cms/classes/DB.class.php');
     	$("#pruebadeboton").click(function(){
     		$("#pruebadecarga").hide();
     	});
-    	$( ".1" ).click(function() {
-		  $( this ).toggleClass( "active-blue" );
-
-		});
-		$( ".2" ).click(function() {
-		  $( this ).toggleClass( "active-orange" );
-		});
-		$( ".3" ).click(function() {
-		  $( this ).toggleClass( "active-green" );
-		});
-		$( document ).ready(function() {
-		    $(".dropdown-button").dropdown();
+    	$(function() {
+		      $( ".1" ).on( 'click', function() {
+		      	$( this ).toggleClass( "active-blue" );
+		        $( ".2").removeClass( 'active-orange' );
+		        $( ".3" ).removeClass( 'active-green' );
+		      });
+		      $( ".2" ).on( 'click', function() {
+		      	$( this ).toggleClass( "active-orange" );
+		        $( ".1").removeClass( 'active-blue' );
+		        $( ".3" ).removeClass( 'active-green' );
+		      });
+		      $( ".3" ).on( 'click', function() {
+		      	$( this ).toggleClass( "active-green" );
+		        $( ".2").removeClass( 'active-orange' );
+		        $( ".1" ).removeClass( 'active-blue' );
+		      });
+		      $( "li").on( 'click', function() {
+		        $( ".3").removeClass( 'active-green' );
+		        $( ".2").removeClass( 'active-orange' );
+		        $( ".1" ).removeClass( 'active-blue' );
+		      });
 		});
     </script>
 
