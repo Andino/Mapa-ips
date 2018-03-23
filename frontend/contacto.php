@@ -141,7 +141,7 @@
                           </div>
                           <br>
                             <div class="input-field col s12">
-                              <br>
+                              <br><br>
                               <select name="clasif" required>
                                 <option style="font-size: 1vw;color: #757575!important" value="Empresa Privada">Empresa Privada</option>
                                 <option style="font-size: 1vw;color: #757575!important" value="ONG">ONG</option>

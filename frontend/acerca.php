@@ -9,15 +9,15 @@
 <section class="svg-map " >
   <center>
   <div class="card text-center" style="z-index: 999; width: 75%;margin-top:-3em;-webkit-box-shadow: 0 2px 2px 0 transparent, 0 1px 5px 0 transparent, 0 3px 1px -2px transparent;">
-   
-      <div class="row" style="display: flex;flex-wrap: wrap; "> 
-        <div class="col s12" style="padding:0;">
-            <div style="background-image: url(&#39;assets/img/acerca de img-01.png&#39;);-webkit-background-size: cover;background-size: cover;">
+           <div class="col s12" style="padding:0;">
+            <div style="background-image: url(&#39;img/acerca de img-01.png&#39;);-webkit-background-size: cover;background-size: cover;display: flex;justify-content: center;">
         <img src="img/banner acerca de.svg" style="height: 100%;width:100%;">
       </div>
        
 
       </div>
+      <div class="row" style="display: flex;flex-wrap: wrap; "> 
+
 
       <br><br><br><br>
       <div style="display: flex;flex-wrap: nowrap;position: relative;width: 100%;margin-top: 5em;">
@@ -126,7 +126,8 @@
         <div class="row" style="width: 75%;">
         <div class="col s12" style="width: 100%;padding: 2em;">
             <h3 style="text-align: left;font-weight: bold;font-size: 2vw;text-align: left;color:#757575; ">¿Como se compara el salvador?</h3>
-            <img src="img/mapamundi.svg" width="100%">
+            <img src="img/mapa.svg" width="100%">
+            <p style="text-align: left;font-size: 1vw;color: #757575;">Cuando se compara con el resto de países de América Latina y el Caribe, El Salvador ocupa la décimo tercera posición en progreso social, por detrás de México, Ecuador y Paraguay respectivamente. Los más de 6 millones de salvadoreños viven con un nivel de progreso social de 66.36, el cual se encuentra por debajo del pro- medio regional por persona de 70,52 puntos de IPS.</p>
         </div>
       </div>
       </section>
@@ -189,10 +190,13 @@
         <div class="row" style="margin-bottom: 0!important;">
             <div class="col s12">
                 <div class="progress-text">
+
                     <p>Descubre más en:</p>
                     <h2>SOCIAL PROGRESS IMPERATIVE</h2>
-                    <div class="social-link" style="display: flex;">
-                        <a href=""><img src="" class="responsive-img"></a>
+                    <br>
+                    <div class="social-link2" style="display: flex;justify-content: center;">
+                        <a href="http://www.socialprogressimperative.org/" target="_blank"><img src="img/iconos/worlips.png" class="responsive-img social" width="100%"></a>
+                        <a href="https://twitter.com/socprogress" target="_blank"><img src="img/iconos/twips.png" class="responsive-img social" width="100% "></a>
                     </div>
                 </div>
             </div>

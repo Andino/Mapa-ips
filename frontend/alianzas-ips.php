@@ -31,9 +31,9 @@
           <p>El Mapa de Iniciativas Sociales no solo permitirá dar a conocer estos esfuerzos, sino que además contribuirá motivar a que otras empresas realicen estas acciones en beneﬁcio de El Salvador.</p>
           <br>
            <div class="social-link" style="display: flex;">
-            <a href=""><img src="img/iconos/blog.png" alt="" class="responsive-img"></a>
-             <a href=""><img src="img/iconos/tw.png" alt="" class="responsive-img"></a>
-              <a href=""><img src="img/iconos/fb.png" alt="" class="responsive-img"></a>
+            <a href="http://fundemas.blogspot.com/" target="_blank"><img src="img/iconos/blog.png" alt="" class="responsive-img"></a>
+             <a href="https://twitter.com/FUNDEMAS" target="_blank"><img src="img/iconos/tw.png" alt="" class="responsive-img"></a>
+              <a href="https://www.facebook.com/fundemas" target="_blank"><img src="img/iconos/fb.png" alt="" class="responsive-img"></a>
           </div>
           </div>
          
