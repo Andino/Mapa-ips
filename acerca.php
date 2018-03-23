@@ -22,15 +22,15 @@
       <br><br><br><br>
       <div style="display: flex;flex-wrap: nowrap;position: relative;width: 100%;margin-top: 5em;">
         <div class="col s6 our-info" style="border-right: 1px solid #BDBDBD;">
-          <h3 class="text-blue">¿Que es IPS?</h3>
+          <h3 class="text-blue">¿Qué es IPS?</h3>
           <br>
-          <p>El indice de Progreso Social (conocido como IPS) nos permite evaluar la eficacia con la que el éxito economico de un pais se traduce en Progreso Social.</p>
+          <p>El índice de Progreso Social (conocido como IPS) nos permite evaluar la eficacia con la que el éxito económico de un país se traduce en Progreso Social.</p>
         </div>
         <div class="col s6 our-info">
 
-          <h3 class="text-orange">¿Por que el IPS?</h3>
+          <h3 class="text-orange">¿Por qué el IPS?</h3>
           <br>
-          <p>El indice de Progreso Social (conocido como IPS) nos permite evaluar la eficacia con la que el éxito economico de un pais se traduce en Progreso Social.</p>
+          <p>El PIB ofrece una imagen incompleta de desarrollo humano y social. Las complejidades del siglo 21 requieren de una nueva medida de progreso.</p>
         </div>
     </div>
     
@@ -46,7 +46,7 @@
         <div class="col s12 info-ips">
             <h3>Apreciamos mucho su consulta al Mapa de Iniciativas Sociales</h3>
             <br>
-            <p>Estamos actualizando la informacion de las fichas de las organizaciones aliadas que constantemente recibimos.</p>
+            <p>Estamos actualizando la información de las fichas de las organizaciones aliadas que constantemente recibimos.</p>
             <p>Por ahora puede consultar las iniciativas sociales de:</p>
         </div>
         <br>
@@ -56,20 +56,20 @@
             <h4 class="text-blue">Necesidades Humanas Básicas</h4>
             <br><br>
               <div class="col s12">
-                  <h5 class="text-blue">Nutricion y asistencia Medica Basica</h5>
+                  <h5 class="text-blue">Nutrición y asistencia Médica Básica</h5>
                   <p>¿La gente tiene acceso a suficiente comida?</p>
-                  <p>¿La gente recibe cuidados medicos basicos?</p>
+                  <p>¿La gente recibe cuidados médicos básicos?</p>
               </div>
               <br>
               <div class="col s12">
-                  <h5 class="text-blue">Agua y Sanamiento</h5>
-                  <p>¿Puede tener la gente condiciones basicas de salubridad?</p>
+                  <h5 class="text-blue">Agua y Saneamiento</h5>
+                  <p>¿Puede tener la gente condiciones básicas de salubridad? </p>
                   
               </div>     
               <br>
                <div class="col s12">
                   <h5 class="text-blue">Vivienda</h5>
-                  <p>¿La gente tiene acceso a una vivienda adecuada y con condicones basicas para habitar?</p>
+                  <p>¿La gente tiene acceso a una vivienda adecuada y con condiciones básicas para habitar?</p>
               </div>  
               <br>
              <div class="col s12">
@@ -93,13 +93,13 @@
             </div>
             <br>
             <div class="col s12">
-                <h5 class="text-green">Tolerancia e inclusion</h5>
-                <p>¿Nadie ex excluido de la oportunidad de ser un miembro productivo de la sociedad?</p>
+                <h5 class="text-green">Tolerancia e inclusión </h5>
+                <p>¿Nadie es excluido de la oportunidad de ser un miembro productivo de la sociedad? </p>
             </div>
             <br>  
            <div class="col s12">
-                <h5 class="text-green">Acceso a la Educacion Superior</h5>
-                <p>¿El pais tiene la oportunidad de tener estudios de nivel superior?</p>
+                <h5 class="text-green">Acceso a la Educación Superior</h5>
+                <p>¿El país tiene la oportunidad de tener estudios de nivel superior?</p>
             </div>
 
         </div>
@@ -115,7 +115,7 @@
             </div>
             <div class="col s6 text-separator">
               <div class="container">
-                <p>El PIB es solo una parte de la historia, El Salvador ocupa la posicion 79 en 133 paises en PIB per capita, y el lugar 34 eb Progreso Social</p>
+                <p>El PIB es solo una parte de la historia, El Salvador ocupa la posición 79 en 133 países en PIB per cápita, y el lugar 34 en Progreso Social</p>
               </div>
                 
             </div>
@@ -142,35 +142,35 @@
               <div class="border-line"></div>
               <div class="timeline-description">
                 <img src="img/iconos/icn_jovenes.png" class="responsive-img" width="70%">
-                <p style="text-align: right;">El Salvador se ubica en la posicion 75 a nivel mundial eb cuanto a Acesso a Conocimientos Basicos. En El Salvador, <span style="color: #757575;"> 45% de los jovenes</span> no se graduan de bachillerato, mas el doble de los jovenes que no se graduan en Jordania.</p>
+                <p style="text-align: right;">El Salvador se ubica en la posición 75 a nivel mundial en cuanto a Acceso a Conocimientos Básicos. En El Salvador, <span style="color: #424242;font-weight: 500;"> 45% de los jovenes</span> no se gradúan de bachillerato, más el doble de los jóvenes que no se gradúan en Jordania.</p>
               </div>
             </li>
             <li class="opposite-side">
               <div class="border-line"></div>
               <div class="timeline-description">
                 <img src="img/iconos/wifi.png" class="responsive-img" width="70%">
-                <p style="text-align: left;">El Salvador se coloca en la posicion 63 en cuanto a Acceso a Informacion y Comunicaciones. <span style="color: #757575;">7 de cada 10 salvadoreños</span> no tiene acceso a internet. </p>
+                <p style="text-align: left;">El Salvador se coloca en la posición 63 en cuanto a Acceso a Información y Comunicaciones. <span style="color: #424242;font-weight: 500;">7 de cada 10 salvadoreños</span> no tiene acceso a internet. </p>
               </div>
             </li>
             <li>
               <div class="border-line"></div>
               <div class="timeline-description">
                 <img src="img/iconos/750mil.png" class="responsive-img" width="70%">
-                <p style="text-align: right;">El Salvador se ubica en la posicion <span style="color: #757575;">79</span> a nivel mundial en Nutricion y Cuidados Medicos Basicos. Aproximadamente <span style="color: #757575;">750 mil personas</span> sufren de desnutricion.</p>
+                <p style="text-align: right;">El Salvador se ubica en la posicion <span style="color: #424242;font-weight: 500;">79</span> a nivel mundial en Nutrición y Cuidados Médicos Básicos. Aproximadamente <span style="color: #424242;font-weight: 500;">750 mil personas</span> sufren de desnutrición .</p>
                  </div>
             </li>
             <li class="opposite-side">
               <div class="border-line"></div>
               <div class="timeline-description">
                 <img src="img/iconos/130mundial.png" class="responsive-img" width="70%">
-                <p style="text-align: left;">El Salvador ocupa la posicion 130 a nivel mundial en Seguridad Personal. En EL Salvador las carreteras son el doble de peligrosas que en Panama. </p>
+                <p style="text-align: left;">El Salvador ocupa la posición 130 a nivel mundial en Seguridad Personal. En EL Salvador las carreteras son el doble de peligrosas que en Panamá. </p>
               </div>
             </li>
             <li>
               <div class="border-line"></div>
               <div class="timeline-description">
                 <img src="img/iconos/81years.png" class="responsive-img" width="70%">
-                <p style="text-align: right;">El Salvador se posiciona en la lugar <span style="color: #757575;">49</span> en el indicador de Salud y Bienestar. El Salvador cuenta con una <span style="color: #757575;">esperanza de vida de 81,8</span> años, superior a la de Rusia, la cual tiene en promedio 77,3.</p>
+                <p style="text-align: right;">El Salvador se posiciona en la lugar <span style="color: #424242;font-weight: 500;">49</span> en el indicador de Salud y Bienestar. El Salvador cuenta con una <span style="color: #424242;font-weight: 500;">esperanza de vida de 81,8</span> años, superior a la de Rusia, la cual tiene en promedio 77,3.</p>
 
               </div>
             </li>
@@ -178,7 +178,7 @@
               <div class="border-line"></div>
               <div class="timeline-description">
                 <img src="img/iconos/ambiente.png" class="responsive-img" width="70%">
-                <p style="text-align: left;">El Salvador se ubica en la <span style="color: #757575;">posicion 55 de Calidad Medioambiental</span> El Salvador se ubica entre los 20 paises con menos emisiones de efecto invernadero.</p>
+                <p style="text-align: left;">El Salvador se ubica en la <span style="color: #424242;font-weight: 500;">posicion 55 de Calidad Medioambiental</span> El Salvador se ubica entre los 20 países con menos emisiones de efecto invernadero.</p>
               </div>
             </li>
           </ul>
@@ -222,7 +222,7 @@ jQuery(document).ready(function($){
   <footer style="padding: 0!important;background-color: #757575;">
     <div class="row" style="margin-bottom: 0!important;">
         <div class="col s12 footer">
-            <p>Fundacion Poma impulsando el Progreso Social | Todos los derechos reservados, 2017</p>
+            <p>Fundación Poma impulsando el Progreso Social | Todos los derechos reservados, 2018</p>
         </div>
     </div>
   </footer>

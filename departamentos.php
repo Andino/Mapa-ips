@@ -24,37 +24,38 @@ include ('cms/classes/DB.class.php');
 
 <style type="text/css">
 	.fsection{
-		 
+		background-color: #00afbe; 
 		color: white;  
-		margin-left: 20px!important;
+		margin-left: 25px!important;
 		max-width: 100%;
 	}
 	.fsection img{
-		margin: 10px !important;
+	
 	}
 	.fsection h4{
-		font-size: 14px; 
+		font-size: 18px; 
 		font-weight: bold; 
 		text-align: left; 
 		margin-bottom: -20px;
+		line-height: 1.5px;
 	}
 	.fsection h1{
-		font-size: 1.2vw; 
+		font-size: 24px; 
 		font-weight: bold; 
 		text-align: left;
 	}
 	.fsection p{
 		text-align: left; 
-		font-size: 0.7vw!important;
+		font-size: 13px!important;
 		font-weight: 300;
 	}
 
 	.fsection-info{
 		
 		position: relative!important;
-		
+		padding: 40px!important;
 		height: 10%;
-
+		width: 25%;
 
 	}
 	.ssection{
@@ -150,31 +151,31 @@ include ('cms/classes/DB.class.php');
       <div class="row" style="display: flex;flex-wrap: nowrap;"> 
 
 
-         <div class="fsection fsection-info" style="display: flex;justify-content: initial;align-items: center;" >
-	         	<div style="display: flex;justify-content: center;flex-direction: column;background-color: #00afbe;padding:15px;width: 25em;">
+         <div class="col s3 fsection fsection-info"  >
+	         	
 	         		<?php
 		         		$prueba=$db->selectSpecific("nombre_dep", "departamento", "nombre_dep like '$id'");
 						foreach ($prueba as $key) {
 							if($id=="ahuachapán"){
-								echo '<img src="img/depto-sideb/ahuachapan.svg" width="200">';
+								echo '<img src="img/depto-sideb/ahuachapan.svg" style="padding:0;">';
 							}
 							else if($id=="cabañas"){
-								echo '<img src="img/depto-sideb/cabanas.svg" width="200">';
+								echo '<img src="img/depto-sideb/cabanas.svg" style="padding:0;">';
 							}
 							else if($id=="cuscatlán"){
-								echo '<img src="img/depto-sideb/cuscatlan.svg" width="200">';
+								echo '<img src="img/depto-sideb/cuscatlan.svg" style="padding:0;">';
 							}
 							else if($id=="la unión"){
-								echo '<img src="img/depto-sideb/la union.svg" width="200">';
+								echo '<img src="img/depto-sideb/la union.svg" style="padding:0;">';
 							}
 							else if($id=="morazán"){
-								echo '<img src="img/depto-sideb/morazan.svg" width="200">';
+								echo '<img src="img/depto-sideb/morazan.svg" style="padding:0;">';
 							}
 							else if($id=="usulután"){
-								echo '<img src="img/depto-sideb/usulutan.svg" width="200">';
+								echo '<img src="img/depto-sideb/usulutan.svg" style="padding:0;">';
 							}
 							else{
-								echo '<img src="img/depto-sideb/'.strtolower($key["nombre_dep"]).'.svg" width="200">';
+								echo '<img src="img/depto-sideb/'.strtolower($key["nombre_dep"]).'.svg" style="padding:0;">';
 							}
 						}
 		         	?>
@@ -185,7 +186,7 @@ include ('cms/classes/DB.class.php');
 		         	<br>
 		         	<br>
 		         	El modelo sintetiza el amplio conjunto de investigaciones en numerosos campos, a fin de identificar las múltiples dimensiones del desempeño social y ambiental de las sociedades.</p>
-	         </div>
+	         
          </div> 
 
 
@@ -195,9 +196,10 @@ include ('cms/classes/DB.class.php');
          		$prueba=$db->selectSpecific("nombre_dep", "departamento", "nombre_dep like '$id'");
 				foreach ($prueba as $key) {
 					echo '	<div class="text-apartament">
-    					<a   href="index.php"><img src="img/left-arrow.png" alt="left"></a><span class="name-apartament">'.$key["nombre_dep"].'&nbsp;&nbsp;<a  href="javascript:void(0);" onclick="javascript:introJs().start();"><i class="animated tada infinite far fa-question-circle"></i></a></span>
+    					<a  href="index.php"><img class="img-zoom" src="img/left-arrow.png" alt="left"></a><span class="name-apartament">'.$key["nombre_dep"].'&nbsp;&nbsp;<a  href="javascript:void(0);" onclick="javascript:introJs().start();"><i class="animated tada infinite far fa-question-circle"></i></a></span>
 
 </div>';
+
 				}
          	?>
 

@@ -126,11 +126,17 @@ include ('cms/classes/DB.class.php');
             </div>
             <div class="col s8" style="text-align: left; font-weight:bold;">';
 				$urltemp= split("temp", $_SERVER['HTTP_REFERER']);
+				$urltemp2= split(".php", $_SERVER['HTTP_REFERER']);
+				$urltemp2= split(".php", $_SERVER['HTTP_REFERER']);
+				echo $urltemp2[0];
 		         if(count($urltemp)==1){
-                	echo'<a style="float:right;color:#f49715;font-weight:bold!important;font-size:20px;margin-right:50px;" href="'.$_SERVER['HTTP_REFERER'].'&?temp='.$compips.'"><img src="img/left-arrow.png" alt="" style="vertical-align: middle;" />&nbsp;&nbsp;Regresar</a>';
+		         	echo'<a style="float:right;color:#f49715;font-weight:bold!important;font-size:20px;margin-right:50px;" href="'.$_SERVER['HTTP_REFERER'].'"><img src="img/left-arrow.png" alt="" style="vertical-align: middle;" />&nbsp;&nbsp;Regresar</a>';
+		         }
+		         else if($urltemp2[0] == "iniciativas-nacionales"){
+		         	echo'<a style="float:right;color:#f49715;font-weight:bold!important;font-size:20px;margin-right:50px;" href="'.$_SERVER['HTTP_REFERER'].'?temp='.$compips.'"><img src="img/left-arrow.png" alt="" style="vertical-align: middle;" />&nbsp;&nbsp;Regresar</a>';
 		         }
 		         else{
-		         	echo'<a style="float:right;color:#f49715;font-weight:bold!important;font-size:20px;margin-right:50px;" href="'.$_SERVER['HTTP_REFERER'].'"><img src="img/left-arrow.png" alt="" style="vertical-align: middle;" />&nbsp;&nbsp;Regresar</a>';
+		         	echo'<a style="float:right;color:#f49715;font-weight:bold!important;font-size:20px;margin-right:50px;" href="'.$_SERVER['HTTP_REFERER'].'&?temp='.$compips.'"><img src="img/left-arrow.png" alt="" style="vertical-align: middle;" />&nbsp;&nbsp;Regresar</a>';	
 		         }
 
                 echo '<br><br>

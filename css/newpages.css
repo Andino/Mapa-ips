@@ -24,7 +24,7 @@
 }
 .our-info p{
   color: #9E9E9E!important;
-  font-size: 20px;
+  font-size: 1.3vw;
   font-family: 'Roboto';
   font-weight: 400;
   max-width: 500px!important;
@@ -62,13 +62,13 @@
 
 .info-ips h3{
   color: #757575;
-  font-size: 25px;
+  font-size: 1.8vw;
   font-weight: bold; 
 }
 
 .info-ips p{
   color: #757575;
-  font-size: 1vw;
+  font-size: 1.1vw;
   font-weight: 400; 
   line-height: 0px;
 }
@@ -108,6 +108,14 @@
 
 }
 
+.navbar-blue{
+  background: #00afbe!important;
+  -webkit-box-shadow:0 0 0 0 transparent;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+}
 
 /*Pagina alianzas*/
 
@@ -180,17 +188,17 @@
 }
 
 .footer p{
-<<<<<<< HEAD
+
 	color: #E0E0E0!important;
 	font-size: 0.8vw!important;
 	letter-spacing: 0.1px;
 	font-weight: 300;
-=======
+
   color: #E0E0E0!important;
   font-size: 0.8vw!important;
   letter-spacing: 0.1px;
   font-weight: 300;
->>>>>>> 46118ff3970567d3b408d5ee6793c80411644f9a
+
 }
 
 .contact-form{
@@ -408,10 +416,10 @@ input[type="checkbox"]:checked + label:before{
 
 }
 .timeline-description p{
-  color: #9E9E9E;
+  color: #757575;
   font-family: 'Roboto';
   font-size: 1.1vw;
-  font-weight: 500;
+  font-weight: 400;
 }
 .timeline-both-side li.opposite-side .timeline-description{
   float: right;
@@ -433,4 +441,33 @@ input[type="checkbox"]:checked + label:before{
   font-size: 2vw;
   font-weight: bolder;
   line-height: 8px;
+}
+
+@media screen and (max-width: 1920px){
+  .our-info p{
+  
+  font-size: 1.3vw;
+  
+  max-width: 500px!important;
+
+}
+}
+
+@media screen and (max-width: 1280px){
+  .our-info p{
+  
+  font-size: 1.4vw;
+  
+  max-width: 400px!important;
+
+}
+
+}
+@media screen and (max-width: 1600px){
+  .our-info p{
+  
+  font-size: 1.4vw;
+  
+  max-width: 400px!important;
+
 }

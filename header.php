@@ -33,7 +33,10 @@
       <img class="right flex-img2" alt="Responsive image" src="img/slogan.png">
         
     </div>
+
   </div>
+  
+
    <nav class="snavbar">
     <div class="nav-wrapper navbarcustom"  style="" id="navbarNav">
     
@@ -68,7 +71,7 @@
             </div>
        </li>
         <li><label for="subutton"><i class="fas fa-search sinput" style="color: white;"></i></label>
-          <input style="display: none;" type="submit" id="subutton" name="subutton"></li>
+          <input style="display: none;line-height: 0rem!important;" type="submit" id="subutton" name="subutton"></li>
        <li>
         
           <div class="input-field input">
