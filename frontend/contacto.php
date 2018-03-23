@@ -5,7 +5,7 @@
   $state="";
   $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
   $actual_link2 = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-  if($actual_link2 == $actual_link."/Mapa-ips/frontend/contacto.php?s=cs" || $actual_link2 == $actual_link."/Mapa-ips/frontend/contacto.php?s=ci"){
+  if($actual_link2 == $actual_link."/dev/Mapa-ips/frontend/contacto.php?s=cs" || $actual_link2 == $actual_link."/dev/Mapa-ips/frontend/contacto.php?s=ci"){
     $state = $_GET["s"];
   }
 ?>
@@ -17,6 +17,12 @@
    }
    .dropdown-content li span{
       color: black!important;
+   }
+   .success{
+    font-size: 25px!important;
+    color: #4BB543;
+    font-weight: bold;
+    padding:20px!important;
    }
  </style> 
 
@@ -112,7 +118,7 @@
             <?php 
               echo "<script>$('html, body').animate({scrollTop:$(document).height()}, 'slow');</script>";
               if($state=="cs"){
-                echo "<center><h4 style='color:#4BB543'>Formulario enviado con éxito</h4></center>";
+                echo "<center><h4 class ='success' style='color:#4BB543'>Formulario enviado con éxito</h4></center>";
               }
             ?>
           </div>
@@ -379,7 +385,7 @@
                         <?php 
                           echo "<script>$('html, body').animate({scrollTop:$(document).height()}, 'slow');</script>";
                           if($state=="ci"){
-                            echo "<center><h4 style='color:#4BB543'>Formulario enviado con éxito</h4></center>";
+                            echo "<center><h4 class ='success'style='color:#4BB543'>Formulario enviado con éxito</h4></center>";
                           }
                         ?>
                   </div>
