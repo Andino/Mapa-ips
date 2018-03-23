@@ -1,0 +1,279 @@
+
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+.navbarcustom{
+	margin-top: 10px;
+}
+.pnavbar{
+	background-color:#00afbe!important;
+	width: 100%;
+	height: 6em;
+	display: flex!important;
+	justify-content: center!important;
+	align-content: space-between!important;
+}
+ #border  {
+    border-left: 1.5px solid #e0e0e0;
+    position: absolute;
+    top: 10em;
+    bottom: 10em;
+    left:68%;
+    
+    }
+.description-svg{
+	font-size: 120%;
+	color: #BDBDBD;
+	letter-spacing: 0.2px;
+	font-family: 'Roboto';
+	font-weight: 300;
+
+}
+.main-raised{
+	top: 11px!important;
+}
+.title-svg{
+	font-size: 1.1em;
+	font-weight: bold;
+	color: rgb(0,126,193);
+	filter: brightness(70%);
+}
+
+.flex-img{
+	margin-left: -34em;
+}
+.flex-img2{
+	margin-right: -34em;
+}
+.content-svg{
+	display: inline-flex;
+	align-content: center;
+}
+.snavbar{
+	font-size: 12px!important;
+  	display: flex;
+	justify-content: center!important;
+	height: 10.9em;
+}
+.pnavbar img{
+	width: 180px;
+}
+.customul{
+	position: relative;
+}
+
+.input-header{
+	font-weight: 200;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #d67013!important;
+  border-radius: 2px;
+}
+.snavbar ul li a{
+	font-size: 0.6vw!important;
+	font-weight: 300;
+	color: white!important;
+	letter-spacing: 0.1px;
+}
+.nav-link{
+	 color: white!important;
+}
+.nav-item:hover{
+	background-color: #d67013!important;
+	border-radius: 5px;
+}
+.customul{
+	list-style: none;
+	
+}
+	
+.dropdown-content .select-dropdown{
+	background-color: red!important;
+
+}
+
+.input{
+	margin-top: -2px!important;
+	margin-left: 15px!important;
+}
+.sinput{
+	margin-top: -8px!important;
+	margin-left: 20px!important;
+}
+.selinput{
+	margin-top: 18px!important; 
+	width: 120px!important;
+}
+#search::placeholder{
+	color: white;
+	height: 1rem!important;
+	font-size: 10.5px!important;
+	
+}
+
+.snavbar .item:hover{
+	background-color: #d67013!important;
+	border-radius: 3px;
+}
+.searchbutton i{
+	color: white!important;
+}
+.searchtext{
+	margin-top: -0.4em;
+	width: 200px!important;
+}
+.svg-map-card{
+	margin-top: -1.9em;
+	width: 100%;
+	height: 100%;
+	border-radius: 7px;
+	box-shadow: -2px 4px 18px 9px rgba(0,0,0,0.22);
+}
+
+select{
+	color: white !important;
+	background-color: #f49715!important;
+}
+
+
+.svg-map-text{
+	color:#3b7bb4;
+	font-size: 17.5px;
+	font-weight: bold;
+	letter-spacing: 0.5px;
+	margin-left:-0.5em;
+	position: absolute;
+	margin-top: -3em;
+
+}
+
+.dot{
+	width: 12px;
+	margin-left: -6%;
+}
+
+.card-body{
+	margin-top: -3em;
+}
+.body-overlay{
+    min-width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+}
+.body-overlay a{
+	cursor: pointer;
+}
+
+.temp-footer{
+	font-size:15px;
+	color: #625f5d;
+	font-weight: 300;
+	margin-top: 1em;
+	margin-left: 4em;
+}
+.arrowicon{
+  color: white;
+  position: absolute;
+  right: 2px;
+  top: -20px;
+  bottom: 0;
+  height: 10px;
+  margin: auto 0;
+  font-size: 10px;
+  line-height: 10px;
+}
+
+/*CONTACTENOS*/
+fieldset{
+	border-color: transparent!important;
+}
+
+
+
+
+@media screen and (min-width: 1920px){
+	/*.menu-category{
+		width: 60vh!important;
+	}
+	.padre {
+		
+	}
+	.right-align{
+	
+	margin-left: 35em!important;
+	margin-top: -3em!important;
+	
+}*/
+}
+@media screen and (min-width: 1366px) and (max-width: 1899px){
+	.meny-category{
+		width: 40vh!important;
+	}
+
+
+}
+
+@media screen and (max-width: 1366px) {
+	/*.menu-category{
+		width: 40vh!important;
+	}
+
+	.right-align{
+	
+	width: 100%;
+	margin-left: 17em!important;
+	margin-top: 0em;
+	z-index: 10000;
+
+}*/
+.description-svg{
+	font-size: 100%;
+
+
+}
+.dot{
+	width: 12px;
+	margin-left: -6%;
+}
+}
+
+@media screen and (max-width: 1280px){
+	/*.menu-category{
+		width: 30vh!important;
+	}*/
+	.padre {
+			
+		
+	}
+	/*.right-align{
+	position: static!important;
+	width: 100%;
+	margin-left: 14em!important;
+	margin-top: 0em;
+	z-index: 10000;
+	display: grid;
+	grid-template-columns: repeat(3,190px);
+	padding: 5px;
+}
+*/
+.description-svg{
+	font-size: 100%;
+	
+
+}
+.dot{
+	width: 12px;
+	margin-left: -8%;
+}
+}
+
+@media screen and (max-width: 320px){
+	.body-overlay{
+		min-width: 120%!important;
+	}
+}
