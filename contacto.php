@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="input-field col s6">
-                  <input placeholder="" id="email" name="phone" type="text" class="validate" required>
+                  <input placeholder="" id="email" name="phone" type="text" pattern="[0-9]{8}" class="validate" required>
                   <label for="phone">Telefono</label>
                 </div>
               </div>
@@ -162,7 +162,7 @@
 
                       
                         <div class="input-field col s12">
-                          <textarea placeholder="Actividad principal de la organizacion:" id="textarea1" class="materialize-textarea" name="actprinc"></textarea required>
+                          <textarea placeholder="Actividad principal de la organizacion:" id="textarea1" class="materialize-textarea" name="actprinc" required></textarea>
                           <label for="textarea1">Actividad principal de la organización</label>
                         </div>
                     </div>
@@ -366,7 +366,7 @@
                                   <label for="nombre">Pagina Web</label>
                                 </div>
                                 <div class="input-field col s12" style="margin-top: 4em!important;">
-                                  <input name="phone" placeholder="telefonos de contacto en la organización" id="name" type="text" class="validate" required>
+                                  <input name="phone" placeholder="telefonos de contacto en la organización" id="name" type="text" pattern="[0-9]{8}" class="validate" required>
                                   <label for="nombre">Telefono</label>
 
                                 </div>
