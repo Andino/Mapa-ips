@@ -742,7 +742,7 @@ include ('cms/classes/DB.class.php');
 
 						<a class="dropdown-button" data-activates="dropdown2">
 			  			<div class="sub-hijo 2" style="">
-			  				<svg xmlns="http://www.w3.org/2000/svg" viewBox="1472 1566.306 98 54.494">
+			  				<svg xmlns="http://www.w3.org/2000/svg" viewBox="1472 1566.306 98 100">
 							  <defs>
 							    <style>
 							      .cls-2 {

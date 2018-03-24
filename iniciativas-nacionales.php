@@ -388,7 +388,7 @@ include ('cms/classes/DB.class.php');
 
          </div>   
      	<div class="text-apartament">
-    					<a href="index.php"><img src="img/left-arrow.png" alt="left"></a><span class="name-apartament">El Salvador</span></div>
+    					<a class="img-zoom" href="index.php"><img src="img/left-arrow.png" alt="left"></a><span class="name-apartament">El Salvador</span></div>
 	<img src="http://fundacionpoma.org/mapaips/assets/img/maps/mapa_nacional.svg" >
 </div>
 

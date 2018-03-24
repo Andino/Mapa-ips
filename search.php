@@ -54,7 +54,25 @@ include ('cms/classes/DB.class.php');
 	  right: auto !important;
 	  left:35%;  
 	}
-
+	.program-sub{
+    font-weight: 500!important;
+    color: #757575!important;
+    line-height: 1em;
+}
+.program-descrip{
+    color: #BDBDBD!important;
+    font-size: 15px!important;
+    font-weight: 400!important;
+    line-height:1.5em!important;
+}
+.programs h3{
+    font-size: 22px!important;
+}
+  .img-data img{
+    object-fit: cover;
+    height: 14em;
+    margin-top: 1.6em;
+  }
 </style>
 <section class="svg-map">
   <center>
@@ -98,7 +116,7 @@ include ('cms/classes/DB.class.php');
 	           	$nombre_prog=$key["nombre_prog"];
 	            echo '
 	            <div class="row">
-	            <div class="col s4">
+	            <div class="col s4 img-data"  style="display:flex;justify-content:center;>
 	                <a href="#" title="Lorem ipsum" class="thumbnail">';	
 	                if(empty($key["imagen"])){
 	                  echo '<img width="200" src="https://dvynr1wh82531.cloudfront.net/sites/default/files/styles/large/public/default_images/noImg_2.jpg?itok=jYUFbkTS" class="center" alt="Lorem ipsum" />';
@@ -109,12 +127,12 @@ include ('cms/classes/DB.class.php');
 	            echo '
 	                </a>
 	            </div>
-	            <div class="col s8" style="text-align: left; color:gray; font-weight:bold;">
+	            <div class="col s8 programs" style="text-align: left; font-weight:bold;">
 	                <h3 style="font-size: 17px; text-align: left;">
-	                    <a href="#" style=" color:gray!important; font-weight:bold;">'.$key["nombre_prog"].' </a>
-	                    <small class="right" style="color:#38aab3; margin-top:-7px;"><i class="fas fa-plus-circle"></i><a href="programas.php?pro='.$key["nombre_prog"].'&comp='.$serv.'&sear='.$sear.'">&nbsp;Ver más</a></small>
+	                    <a class="img-zoom" style=" color:gray!important; font-weight:bold;">'.$key["nombre_prog"].' </a>
+	                    <small class="right img-zoom" style="color:#38aab3; margin-top:-7px;"><i class="fas fa-plus-circle"></i><a href="programas.php?pro='.$key["nombre_prog"].'&comp='.$serv.'&sear='.$sear.'">&nbsp;Ver más</a></small>
 	                </h3>
-	                <p style="font-size:15px;">'.$key["nombre_fundaorg"].
+	                <p class="program-sub">'.$key["nombre_fundaorg"].
 	                //.' - '.$key["nombre_prog"].'
 	                '</p>';
 	                $comp=$db->preSelectSpecific("c.nombre_comp"," 
@@ -128,12 +146,16 @@ include ('cms/classes/DB.class.php');
 				    inner join servicios_ips as s on s.id_servicio = c.id_servicio 
 				    inner join departamento as d on d.id_dep = m.id_dep ",
 	                " (f.nombre_fundaorg like '%$sear%' or d.nombre_dep like '%$sear%' or m.nombre_muni like '%$sear%') and s.nombre_servicio like'$serv'");
-	                echo '<p style="font-size:12px;">COMPONENTE IPS: ';
+	                echo '
+	                <p class="program-sub">COMPONENTE IPS: </p>
+	                <p class="program-descrip">';
 	                foreach ($comp as $key) {
 	                	echo $key["nombre_comp"].", ";
 	            	}
 	            	echo '</p>';
-	            	echo '<p style="font-size:12px;">AREA GEOGRAFICA DE ALCANCE:';
+	            	echo '
+					<p class="program-sub">AREA GEOGRAFICA DE ALCANCE:</p>
+	            	<p class="program-descrip">';
 	               
 	                $geo=$db->preSelectSpecific("d.nombre_dep","programa_ips as p 
                                      inner join proxcomp as pc on pc.id_prog = p.id_prog 

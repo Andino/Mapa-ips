@@ -29,9 +29,21 @@ th {text-align: left;}
   .img-data img{
     object-fit: cover;
     height: 14em;
+    margin-top: 1.6em;
   }
 .programs h3{
-    font-size: 20px!important;
+    font-size: 22px!important;
+}
+.program-sub{
+    font-weight: 500!important;
+    color: #757575!important;
+    line-height: 1em;
+}
+.program-descrip{
+    color: #BDBDBD!important;
+    font-size: 10px!important;
+    font-weight: 400!important;
+    line-height:1.5em!important;
 }
 .plus{
     width: 24px;  
@@ -72,7 +84,7 @@ include ('cms/classes/DB.class.php');
             if(!empty($prueba)){
                 foreach ($prueba as $key) {
                 echo '
-                <div class="row" style="margin-bottom:0!important;">
+                <div class="row" style="margin-bottom:10px!important;margin-top:-2em;">
                 <div class="col s4 img-data" style="display:flex;justify-content:center;">
                     <a href="#" title="Lorem ipsum" class="thumbnail" style="display:flex;">';
                         if(empty($key["imagen"])){
@@ -83,18 +95,20 @@ include ('cms/classes/DB.class.php');
                         }
                 echo'</a>
                 </div>
-                <div class="col s8 programs" style="text-align: left; color:gray; font-weight:bold;">
+                <div class="col s8 programs" style="text-align: left; font-weight:bold;">
                     <h3 style="font-size: 17px; text-align: left;">
                     <div style="width:25em!important;">
-                        <a href="#" style=" color:gray!important; font-weight:bold;word-break:keep-all;">'.$key["nombre_prog"].' </a>
+                        <a href="#" style=" color:#424242!important; font-weight:bold;word-break:keep-all;">'.$key["nombre_prog"].' </a>
                     </div>
-                        <span class="right" style="color:#38aab3; margin-top:-1em;font-weight:bolder;vertical-align:middle;"><svg aria-hidden="true" data-prefix="fal" data-icon="plus-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-plus-circle fa-w-16" style="font-size: 20px;"><path fill="currentColor" d="M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z" class=""></path></svg><a href="programas.php?pro='.$key["nombre_prog"].'&comp='.$comp.'">&nbsp;Ver más</a></span>
+                        <span class="right img-zoom" style="color:#38aab3; margin-top:-1em;font-weight:bolder;vertical-align:middle;"><svg aria-hidden="true" data-prefix="fal" data-icon="plus-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-plus-circle fa-w-16" style="font-size: 20px;"><path fill="currentColor" d="M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z" class=""></path></svg><a href="programas.php?pro='.$key["nombre_prog"].'&comp='.$comp.'">&nbsp;Ver más</a></span>
                     </h3>
-                    <p style="font-size:15px;">'.$key["nombre_fundaorg"].
+                    <p class="program-sub">'.$key["nombre_fundaorg"].
                     //.' - '.$key["nombre_prog"].'
                     '</p>
-                    <p style="font-size:12px;">COMPONENTE IPS: '.$key["nombre_comp"].'</p>
-                    <p style="font-size:12px; line-height:1.5">AREA GEOGRAFICA DE ALCANCE: ';
+                    <p class="program-sub">COMPONENTE IPS:<p>
+                    <p class="program-descrip">'.$key["nombre_comp"].'</p>
+                    <p class="program-sub">AREA GEOGRAFICA DE ALCANCE: <p>
+                    <p class="program-descrip">';
                     $nombre_prog=mysqli_real_escape_string($db->connect(), $key["nombre_prog"]);
                     $geo=$db->preSelectSpecific("d.nombre_dep","programa_ips as p 
                                      inner join proxcomp as pc on pc.id_prog = p.id_prog 
@@ -109,8 +123,9 @@ include ('cms/classes/DB.class.php');
                     echo '</p>
                     <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
                 </div>
+                <hr style="border:0.7px solid #BDBDBD!important;">
                 </div>
-                <hr style="border:0.7px solid #BDBDBD!important;">';
+                ';
                 }
             }
             else{  echo '<h3 class="error">NO SE HAN ENCONTRADO REGISTROS</h3>';
